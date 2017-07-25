@@ -1,11 +1,14 @@
 package com.tahsinsayeed.studykit;
 
+import com.tahsinsayeed.studykit.model.Semester;
+import com.tahsinsayeed.studykit.model.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Date;
 
 public class Main extends Application {
 
@@ -19,6 +22,8 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+
+        System.out.println();
         launch(args);
     }
 }
