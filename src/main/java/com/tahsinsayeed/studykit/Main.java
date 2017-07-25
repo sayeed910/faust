@@ -16,9 +16,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/view/main_window.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(new GridPane(), 300, 275));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/pdf_viewer.fxml"));
+        primaryStage.setTitle("Study Kit");
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
