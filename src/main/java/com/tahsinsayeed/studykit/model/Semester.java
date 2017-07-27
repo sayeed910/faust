@@ -10,6 +10,7 @@ public class Semester {
     private Date startDate;
     private Date endDate;
     private Map<String, Course> courses;
+    private Schedule schedule;
 
     public static Semester getInstance(String id, Date startDate, Date endDate) {
         return new Semester(id, startDate, endDate);
