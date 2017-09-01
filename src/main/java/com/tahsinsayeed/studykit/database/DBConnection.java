@@ -8,7 +8,7 @@ import org.sormula.Table;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class DBHandler {
+public class DBConnection {
     private final static java.lang.String url;
     //public final String url;
 
