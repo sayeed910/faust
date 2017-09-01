@@ -1,5 +1,6 @@
 package com.tahsinsayeed.studykit.repository;
 
+import com.tahsinsayeed.studykit.database.DBConnection;
 import com.tahsinsayeed.studykit.model.Attendance;
 
 
@@ -16,89 +17,76 @@ import com.j256.ormlite.stmt.SelectArg;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
-
+import java.sql.SQLException;
+import java.util.*;
 
 
 /**
  * Created by IMON on 8/13/2017.
  */
-public class AttendanceRepository {
-    private final static String DATABASE_URL = "jdbc:h2:mem:attendance";
-    private Dao<Attendance, Integer> attendanceDao;
+public class AttendanceRepository implements Repository<Attendance> {
 
-    public static void main(String[] args) throws Exception {
-        // turn our static method into an instance of Main
-        new AttendanceRepository().doMain(args);
-    }
-
-    private void doMain(String[] args) throws Exception {
-        ConnectionSource connectionSource = null;
+    private Dao<Attendance, String> attendanceDao;
+    private final DBConnection connection;
+    public AttendanceRepository(DBConnection connection){
+        this.connection = connection;
+        ConnectionSource connectionSource = connection.getConnectionSource();
         try {
-            // create our data-source for the database
-            connectionSource = new JdbcConnectionSource(DATABASE_URL);
-            // setup our database and DAOs
-            setupDatabase(connectionSource);
-            // read and write some data
-            readWriteData();
-            // do a bunch of bulk operations
-            readWriteBunch();
-            // show how to use the SelectArg object
-            useSelectArgFeature();
-            // show how to use the SelectArg object
-            useTransactions(connectionSource);
-            System.out.println("\n\nIt seems to have worked\n\n");
-        } finally {
-            // destroy the data source which should close underlying connections
-            if (connectionSource != null) {
-                connectionSource.close();
-            }
+            attendanceDao = DaoManager.createDao(connectionSource, Attendance.class);
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
         }
     }
 
-    /**
-     * Setup our database and DAOs
-     */
-    private void setupDatabase(ConnectionSource connectionSource) throws Exception {
 
-        attendanceDao = DaoManager.createDao(connectionSource, Attendance.class);
+    @Override
+    public Attendance get(String id) {
 
-        // if you need to create the table
-        TableUtils.createTable(connectionSource, Attendance.class);
+        try {
+            return attendanceDao.queryForId(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
-    /**
-     * Read and write some example data.
-     */
-    private void readWriteData() throws Exception {
-
+    @Override
+    public List<Attendance> getAll() {
+        try {
+            return attendanceDao.queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Collections.emptyList();
     }
 
-    /**
-     * Example of reading and writing a large(r) number of objects.
-     */
-    private void readWriteBunch() throws Exception {
-
-
+    @Override
+    public void save(Attendance objectToSave) {
+        try {
+            attendanceDao.create(objectToSave);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    /**
-     * Example of created a query with a ? argument using the {@link SelectArg} object. You then can set the value of
-     * this object at a later time.
-     */
-    private void useSelectArgFeature() throws Exception {
-
-
+    @Override
+    public void update(Attendance objectToUpdate) {
+        try {
+            attendanceDao.update(objectToUpdate);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    /**
-     * Example of created a query with a ? argument using the {@link SelectArg} object. You then can set the value of
-     * this object at a later time.
-     */
-    private void useTransactions(ConnectionSource connectionSource) throws Exception {
-
+    @Override
+    public void delete(Attendance objectToDelete) {
+        try {
+            attendanceDao.delete(objectToDelete);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-
-
-
-
 }

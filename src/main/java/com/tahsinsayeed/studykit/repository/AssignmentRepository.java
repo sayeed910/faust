@@ -1,49 +1,41 @@
 package com.tahsinsayeed.studykit.repository;
 
+import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 import com.tahsinsayeed.studykit.database.DBConnection;
-import com.tahsinsayeed.studykit.model.Course;
-import com.tahsinsayeed.studykit.model.Course;
-
-
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import com.j256.ormlite.dao.Dao;
+import com.tahsinsayeed.studykit.model.Assignment;
 
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 
-
 /**
- * Created by IMON on 8/13/2017.
+ * Created by IMON on 9/1/2017.
  */
-public class CourseRepository implements Repository<Course> {
-    private Dao<Course, String> courseDao;
+public class AssignmentRepository implements Repository<Assignment>  {
+
+    private Dao<Assignment, String> assignmentDao;
     private final DBConnection connection;
-    public CourseRepository(DBConnection connection){
+    public AssignmentRepository(DBConnection connection){
         this.connection = connection;
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
-            courseDao = DaoManager.createDao(connectionSource, Course.class);
+            assignmentDao = DaoManager.createDao(connectionSource, Assignment.class);
         } catch (SQLException e) {
+
             e.printStackTrace();
+
         }
     }
 
 
     @Override
-    public Course get(String id) {
+    public Assignment get(String id) {
 
         try {
-            return courseDao.queryForId(id);
+            return assignmentDao.queryForId(id);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -52,9 +44,9 @@ public class CourseRepository implements Repository<Course> {
     }
 
     @Override
-    public List<Course> getAll() {
+    public List<Assignment> getAll() {
         try {
-            return courseDao.queryForAll();
+            return assignmentDao.queryForAll();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -62,30 +54,29 @@ public class CourseRepository implements Repository<Course> {
     }
 
     @Override
-    public void save(Course objectToSave) {
+    public void save(Assignment objectToSave) {
         try {
-            courseDao.create(objectToSave);
+            assignmentDao.create(objectToSave);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void update(Course objectToUpdate) {
+    public void update(Assignment objectToUpdate) {
         try {
-            courseDao.update(objectToUpdate);
+            assignmentDao.update(objectToUpdate);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void delete(Course objectToDelete) {
+    public void delete(Assignment objectToDelete) {
         try {
-            courseDao.delete(objectToDelete);
+            assignmentDao.delete(objectToDelete);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
 }

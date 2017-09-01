@@ -1,9 +1,13 @@
 package com.tahsinsayeed.studykit.repository;
 
+import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.jdbc.JdbcConnectionSource;
+import com.j256.ormlite.support.ConnectionSource;
+import com.tahsinsayeed.studykit.database.DBConnection;
+import com.tahsinsayeed.studykit.model.Course;
 import com.tahsinsayeed.studykit.model.Event;
-import org.sormula.Database;
-import org.sormula.SormulaException;
-import org.sormula.Table;
+import com.tahsinsayeed.studykit.model.Event;
+
 
 
 import static org.junit.Assert.assertEquals;
@@ -14,12 +18,75 @@ import static org.junit.Assert.fail;
 
 import com.j256.ormlite.dao.Dao;
 
+import java.sql.SQLException;
+import java.util.Collections;
+import java.util.List;
+
 
 /**
  * Created by IMON on 8/13/2017.
  */
-public class EventRepository {
-    private final static String DATABASE_URL = "jdbc:h2:mem:event";
-    private Dao<Event, Integer> eventDao;
+public class EventRepository implements Repository<Event> {
+    private Dao<Event, String> eventDao;
+    private final DBConnection connection;
+    public EventRepository(DBConnection connection){
+        this.connection = connection;
+        ConnectionSource connectionSource = connection.getConnectionSource();
+        try {
+            eventDao = DaoManager.createDao(connectionSource, Event.class);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Override
+    public Event get(String id) {
+
+        try {
+            return eventDao.queryForId(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<Event> getAll() {
+        try {
+            return eventDao.queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Collections.emptyList();
+    }
+
+    @Override
+    public void save(Event objectToSave) {
+        try {
+            eventDao.create(objectToSave);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void update(Event objectToUpdate) {
+        try {
+            eventDao.update(objectToUpdate);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void delete(Event objectToDelete) {
+        try {
+            eventDao.delete(objectToDelete);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
