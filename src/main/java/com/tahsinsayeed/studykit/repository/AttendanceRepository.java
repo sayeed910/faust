@@ -5,34 +5,117 @@ import com.tahsinsayeed.studykit.model.Attendance;
 import org.sormula.Database;
 import org.sormula.SormulaException;
 import org.sormula.Table;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.List;
+
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Callable;
+
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.jdbc.JdbcConnectionSource;
+import com.j256.ormlite.misc.TransactionManager;
+import com.j256.ormlite.stmt.PreparedQuery;
+import com.j256.ormlite.stmt.QueryBuilder;
+import com.j256.ormlite.stmt.SelectArg;
+import com.j256.ormlite.support.ConnectionSource;
+import com.j256.ormlite.table.TableUtils;
+
+
+
 
 /**
  * Created by IMON on 8/13/2017.
  */
-public class AttendanceRepository extends Table<Attendance> implements Repository<Attendance> {
-    public AttendanceRepository(Database database, Class<Attendance> rowClass) throws SormulaException {
-        super(database, rowClass);
+public class AttendanceRepository {
+    private final static String DATABASE_URL = "jdbc:h2:mem:attendance";
+    private Dao<Attendance, Integer> attendanceDao;
+
+    public static void main(String[] args) throws Exception {
+        // turn our static method into an instance of Main
+        new AttendanceRepository().doMain(args);
     }
 
-    @Override
-    public List<Attendance> getAll() {
+    private void doMain(String[] args) throws Exception {
+        ConnectionSource connectionSource = null;
         try {
-            return hibernate.selectAll();
-        } catch (SormulaException e) {
-            e.printStackTrace();
+            // create our data-source for the database
+            connectionSource = new JdbcConnectionSource(DATABASE_URL);
+            // setup our database and DAOs
+            setupDatabase(connectionSource);
+            // read and write some data
+            readWriteData();
+            // do a bunch of bulk operations
+            readWriteBunch();
+            // show how to use the SelectArg object
+            useSelectArgFeature();
+            // show how to use the SelectArg object
+            useTransactions(connectionSource);
+            System.out.println("\n\nIt seems to have worked\n\n");
+        } finally {
+            // destroy the data source which should close underlying connections
+            if (connectionSource != null) {
+                connectionSource.close();
+            }
         }
-        return null;
     }
 
-    @Override
-    public Attendance get(String id) {
-        return null;
+    /**
+     * Setup our database and DAOs
+     */
+    private void setupDatabase(ConnectionSource connectionSource) throws Exception {
+
+        attendanceDao = DaoManager.createDao(connectionSource, Attendance.class);
+
+        // if you need to create the table
+        TableUtils.createTable(connectionSource, Attendance.class);
     }
 
-    public void save(){
+    /**
+     * Read and write some example data.
+     */
+    private void readWriteData() throws Exception {
 
     }
+
+    /**
+     * Example of reading and writing a large(r) number of objects.
+     */
+    private void readWriteBunch() throws Exception {
+
+
+    }
+
+    /**
+     * Example of created a query with a ? argument using the {@link SelectArg} object. You then can set the value of
+     * this object at a later time.
+     */
+    private void useSelectArgFeature() throws Exception {
+
+
+    }
+
+    /**
+     * Example of created a query with a ? argument using the {@link SelectArg} object. You then can set the value of
+     * this object at a later time.
+     */
+    private void useTransactions(ConnectionSource connectionSource) throws Exception {
+
+    }
+
+
+
 
 }
