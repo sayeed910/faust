@@ -1,18 +1,14 @@
 package com.tahsinsayeed.studykit.widget;
 
 import com.sun.media.jfxmedia.logging.Logger;
+import javafx.scene.layout.Pane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.nio.file.Files;
-import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Base64;
-import java.util.Queue;
-import java.util.logging.Level;
 
 public class PdfViewer {
 
@@ -26,7 +22,7 @@ public class PdfViewer {
 
     public static PdfViewer getInstance(){
 
-       return new PdfViewer();
+       return getInstance(new WebView());
     }
 
 
@@ -35,17 +31,17 @@ public class PdfViewer {
     private String getBase64EncodedText() {
         try {
            byte[] data = Files.readAllBytes(new File(this.pdfUrl).toPath());
+            System.out.println(Arrays.toString(data));
 
             return Base64.getEncoder().encodeToString(data);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
 
-        return null;
     }
 
-    private PdfViewer(){
-        this.viewer = new WebView();
+    private PdfViewer(WebView view){
+        this.viewer = view;
         String pdfViewerUrl = getClass().getResource("/web/pdfviewer/viewer.html").toExternalForm();
         WebEngine webEngine =  this.viewer.getEngine();
         webEngine.setUserStyleSheetLocation(getClass().getResource("/web/pdfviewer/web.css").toExternalForm());
@@ -65,12 +61,20 @@ public class PdfViewer {
 
     public void loadPdf(String url){
         this.pdfUrl = url;
+        System.out.println(pdfUrl);
         String pdfDataInBase64 = getBase64EncodedText();
-
         this.viewer.getEngine().executeScript("openFileFromBase64('" + pdfDataInBase64 + "')");
+    }
+
+    public void display(Pane pane){
+        pane.getChildren().add(viewer);
     }
 
     public WebView getViewer() {
         return viewer;
+    }
+
+    public static PdfViewer getInstance(WebView webView) {
+        return new PdfViewer(webView);
     }
 }

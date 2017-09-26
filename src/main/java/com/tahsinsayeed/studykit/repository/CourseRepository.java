@@ -38,6 +38,10 @@ public class CourseRepository implements Repository<Course> {
         }
     }
 
+    public CourseRepository() {
+        this(DBConnection.getInstance());
+    }
+
 
     @Override
     public Course get(String id) {

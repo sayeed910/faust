@@ -39,6 +39,10 @@ public class EventRepository implements Repository<Event> {
         }
     }
 
+    public EventRepository() {
+        this(DBConnection.getInstance());
+    }
+
 
     @Override
     public Event get(String id) {

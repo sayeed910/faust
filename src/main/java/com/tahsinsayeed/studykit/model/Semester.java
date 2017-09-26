@@ -4,6 +4,8 @@ import com.tahsinsayeed.studykit.exception.CourseConflictException;
 
 import java.util.*;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 public class Semester {
     private final String id;
 
@@ -58,5 +60,24 @@ public class Semester {
 
     public void setEndDate(Date itsEndDate) {
         this.endDate = itsEndDate;
+    }
+
+    public void addClass(Class clazz){
+        schedule.addClass(clazz);
+    }
+    public void removeClass(Class clazz){
+        schedule.removeClass(clazz);
+    }
+    public void addEvent(Event event){
+       schedule.addEvent(event);
+    }
+    public void removeEvent(Event event){
+        schedule.addEvent(event);
+    }
+    public void addHoliday(Holiday holiday){
+        schedule.addHoliday(holiday);
+    }
+    public void removeHoliday(Holiday holiday){
+        schedule.removeHoliday(holiday);
     }
 }

@@ -30,6 +30,10 @@ public class ClassRepository implements Repository<Class>  {
         }
     }
 
+    public ClassRepository() {
+        this(DBConnection.getInstance());
+    }
+
 
     @Override
     public Class get(String id) {

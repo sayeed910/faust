@@ -30,6 +30,10 @@ public class AssignmentRepository implements Repository<Assignment>  {
         }
     }
 
+    public AssignmentRepository() {
+        this(DBConnection.getInstance());
+    }
+
 
     @Override
     public Assignment get(String id) {

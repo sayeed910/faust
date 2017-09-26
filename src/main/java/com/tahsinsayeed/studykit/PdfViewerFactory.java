@@ -1,6 +1,7 @@
 package com.tahsinsayeed.studykit;
 
 import com.tahsinsayeed.studykit.widget.PdfViewer;
+import javafx.scene.web.WebView;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
@@ -28,9 +29,9 @@ public class PdfViewerFactory {
         pdfViewerQueue.add(PdfViewer.getInstance());
     }
 
-    public static PdfViewer get(){
+    public static PdfViewer get(WebView webView){
         PdfViewer viewer = pdfViewerQueue.remove();
-        pdfViewerQueue.add(PdfViewer.getInstance());
+        pdfViewerQueue.add(PdfViewer.getInstance(webView));
         return viewer;
     }
 }

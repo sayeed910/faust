@@ -40,6 +40,10 @@ public class AttendanceRepository implements Repository<Attendance> {
         }
     }
 
+    public AttendanceRepository() {
+        this(DBConnection.getInstance());
+    }
+
 
     @Override
     public Attendance get(String id) {

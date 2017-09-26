@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker.State;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
@@ -23,39 +24,14 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         PdfViewerFactory.init();
-        Pane root = new VBox();
 
-        Button button = new Button("Load");
-        Button button2 = new Button("Debug");
-        Button loadNotebook = new Button("Notebook");
-        WebView notebookView = new WebView();
-
-        loadNotebook.setOnAction(event -> {
-            root.getChildren().add(notebookView);
-            Notebook notebook = Notebook.create(notebookView);
-            notebook.loadNoteBook();
-        });
-
-        PdfViewer view = PdfViewerFactory.get();
-        button.setOnAction((value) -> {
-            root.getChildren().add(view.getViewer());
-            view.loadPdf("C:\\Users\\sayee\\Documents\\Books\\Advanced Java Programming.pdf");
-        });
+        Pane root = FXMLLoader.load(getClass().getResource("/view/main_window.fxml"));
 
 
-
-
-
-//        button2.setOnAction(event ->enableFirebug(view.getViewer().getEngine()));
-        button2.setOnAction(event -> notebookView.getEngine().executeScript("test()"));
-
-        root.getChildren().addAll(loadNotebook,button, button2);
-
-
-        primaryStage.setTitle("Study Kit");
+        primaryStage.setTitle("Faust");
         primaryStage.setScene(new Scene(root, 600, 500));
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 

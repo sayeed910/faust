@@ -30,6 +30,10 @@ public class ExamRepository implements Repository<Exam>  {
         }
     }
 
+    public ExamRepository() {
+        this(DBConnection.getInstance());
+    }
+
 
     @Override
     public Exam get(String id) {

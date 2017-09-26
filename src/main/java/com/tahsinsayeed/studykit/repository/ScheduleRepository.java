@@ -30,6 +30,10 @@ public class ScheduleRepository implements Repository<Schedule>  {
         }
     }
 
+    public ScheduleRepository() {
+        this(DBConnection.getInstance());
+    }
+
 
     @Override
     public Schedule get(String id) {

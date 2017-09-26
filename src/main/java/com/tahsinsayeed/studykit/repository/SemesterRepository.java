@@ -37,6 +37,10 @@ public class SemesterRepository implements Repository<Semester> {
         }
     }
 
+    public SemesterRepository() {
+        this(DBConnection.getInstance());
+    }
+
 
     @Override
     public Semester get(String id) {

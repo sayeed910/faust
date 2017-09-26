@@ -39,6 +39,10 @@ public class HolidayRepository implements Repository<Holiday> {
         }
     }
 
+    public HolidayRepository() {
+        this(DBConnection.getInstance());
+    }
+
 
     @Override
     public Holiday get(String id) {

@@ -20,13 +20,16 @@ public class DBConnection {
         try {
             connectionSource = new JdbcConnectionSource(url);
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
     public static DBConnection getInstance(){
         if (INSTANCE == null){
-            INSTANCE = new DBConnection();
+            synchronized (DBConnection.class){
+                if (INSTANCE == null)
+                    INSTANCE = new DBConnection();
+            }
         }
 
         return INSTANCE;
