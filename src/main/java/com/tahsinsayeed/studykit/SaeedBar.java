@@ -2,13 +2,17 @@ package com.tahsinsayeed.studykit;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 public class SaeedBar extends Application{
     Stage window;
-    TreeView<String> tree;
+    TreeView<String> tree,tree2;
 
     public static void main(String[] args) {
         launch(args);
@@ -19,15 +23,21 @@ public class SaeedBar extends Application{
         window = primaryStage;
         window.setTitle("Faust");
 
-        TreeItem<String> root,course, CSE_3201, CSE_3202, CSE_3203, CSE_3204, CSE_3205, CSE_3211, CSE_3212, CSE_3213, Schedule;
+        TreeItem<String> course, CSE_3201, CSE_3202, CSE_3203, CSE_3204, CSE_3205, CSE_3211, CSE_3212, CSE_3213, another,Schedule;
+        VBox vb;
+        HBox hb;
+        Button button=new Button("Add Course");
+        vb = new VBox();
+        hb =new HBox();
 
         //course
-        root = new TreeItem<>();
-        root.setExpanded(true);
+        course = new TreeItem<>();
+        course.setExpanded(true);
 
-        // maincourse
-        course = mainBranch("Course",root);
-        Schedule = mainBranch("Schedule",root);
+        // Schedule
+        another = new TreeItem<>();
+        another.setExpanded(true);
+        Schedule = mainBranch("Schedule",another);
 
         //CSE_3201
         CSE_3201 = subBranch("CSE_3201", course);
@@ -86,10 +96,71 @@ public class SaeedBar extends Application{
         subBranch("Exam", CSE_3213);
         subBranch("Book", CSE_3213);
         subBranch("Notebook", CSE_3213);
+// Add Assignment
+        ComboBox Assginment;
+        Assginment = new ComboBox<>();
+        Assginment.getItems().addAll(
+                "CSE_3201",
+                "CSE_3202",
+                "CSE_3203",
+                "CSE_3204",
+                "CSE_3205"
+        );
+
+
+        Assginment.setPromptText("Add Assignment");
+
+        // Add Assignment
+        ComboBox Exam;
+        Exam = new ComboBox<>();
+        Exam.getItems().addAll(
+                "CSE_3201",
+                "CSE_3202",
+                "CSE_3203",
+                "CSE_3204",
+                "CSE_3205"
+        );
+
+
+        Exam.setPromptText("Add Exam");
+
+        // Add Assignment
+        ComboBox Book;
+        Book = new ComboBox<>();
+        Book.getItems().addAll(
+                "CSE_3201",
+                "CSE_3202",
+                "CSE_3203",
+                "CSE_3204",
+                "CSE_3205"
+        );
+
+
+        Book.setPromptText("Add Book");
+
+// Add Notebook
+        ComboBox Notebook;
+        Notebook = new ComboBox<>();
+        Notebook.getItems().addAll(
+                "CSE_3201",
+                "CSE_3202",
+                "CSE_3203",
+                "CSE_3204",
+                "CSE_3205"
+        );
+
+
+        Notebook.setPromptText("Add Notebook");
+
+// Bind all of them in a Vbox
+
+        VBox bind = new VBox();
+        bind.getChildren().addAll(Assginment,Exam,Book,Notebook,button);
 
 
         //Create the tree and hide the main course
-        tree = new TreeView<>(root);
+        tree = new TreeView<>(course);
+        tree2=new TreeView<>(Schedule);
         //tree = new TreeView<>(course);
         tree.setShowRoot(false);
         tree.getSelectionModel().selectedItemProperty()
@@ -100,7 +171,12 @@ public class SaeedBar extends Application{
 
         //Layout
         StackPane layout = new StackPane();
-        layout.getChildren().add(tree);
+        //vb.getChildren().add (root,course);
+        layout.getChildren().add(vb);
+        vb.getChildren().add (hb);
+        hb.getChildren().add (tree);
+        hb.getChildren().add (bind);
+        vb.getChildren().add (tree2);
         Scene scene = new Scene(layout, 600, 650);
         window.setScene(scene);
         window.show();
