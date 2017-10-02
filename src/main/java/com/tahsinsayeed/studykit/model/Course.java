@@ -1,18 +1,36 @@
 package com.tahsinsayeed.studykit.model;
 
-public class Course {
-    private final String id;
-    private String name;
-    private Attendance attendance;
+import com.google.common.annotations.VisibleForTesting;
 
-    public static Course getInstance(String id, String name){
-        return new Course(id, name);
+import java.util.*;
+
+public class Course {
+    private String id;
+    private String name;
+    private List<Book> books;
+    private Notebook notebook;
+    private List<Exam> exams;
+    private List<Assignment> assignments;
+
+    public static Course create(String id, String name){
+        return new Course(id, name, new ArrayList<>(), Notebook.create(), new ArrayList<>(), new ArrayList<>());
 
     }
 
-    private Course(String id, String name){
+    @VisibleForTesting
+    static Course create(String id, String name, List<Book> books,
+                         Notebook notebook, List<Exam> exams, List<Assignment> assignments){
+        return new Course(id, name, books, notebook, exams, assignments);
+
+    }
+
+    private Course(String id, String name, List<Book> books, Notebook notebook, List<Exam> exams, List<Assignment> assignments){
         this.id = id;
         this.name = name;
+        this.books = books;
+        this.notebook = notebook;
+        this.exams = exams;
+        this.assignments = assignments;
     }
 
     public String getId() {
@@ -20,5 +38,23 @@ public class Course {
     }
     public String getName() {
         return this.name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Course course = (Course) o;
+
+        if (!id.equals(course.id)) return false;
+        return name.equals(course.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + name.hashCode();
+        return result;
     }
 }

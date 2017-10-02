@@ -8,24 +8,24 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import netscape.javascript.JSObject;
 
-public class Notebook {
+public class TextEditor {
     private WebView viewer;
-    private static final String QUILL_URL = Notebook.class.getClass().getResource("/web/quill/quill.html").toExternalForm();
+    private static final String QUILL_URL = TextEditor.class.getClass().getResource("/web/quill/quill.html").toExternalForm();
     private QuillRequestHandler quillHandler;
 
-    private Notebook() {
+    private TextEditor() {
         this(new WebView());
     }
 
-    private Notebook(WebView view) {
+    private TextEditor(WebView view) {
         viewer = view;
         quillHandler = new QuillRequestHandler(viewer.getEngine());
 
 
     }
 
-    public static Notebook create(WebView view) {
-        return new Notebook(view);
+    public static TextEditor create(WebView view) {
+        return new TextEditor(view);
     }
 
     public void loadNoteBook() {

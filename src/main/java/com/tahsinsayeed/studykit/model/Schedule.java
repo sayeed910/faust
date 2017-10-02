@@ -1,6 +1,8 @@
 package com.tahsinsayeed.studykit.model;
 
-import java.util.List;
+import com.google.common.annotations.VisibleForTesting;
+
+import java.util.*;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -9,13 +11,22 @@ public class Schedule {
     List<Event> events;
     List<Class> classes;
 
-    public Schedule(List<Holiday> holidays, List<Event> events, List<Class> classes) {
+
+    private Schedule(List<Holiday> holidays, List<Event> events, List<Class> classes) {
         this.holidays = holidays;
         this.events = events;
         this.classes = classes;
     }
 
-    public Schedule() {
+
+    public static Schedule create() {
+        return new Schedule(new ArrayList<Holiday>(), new ArrayList<Event>(), new ArrayList<Class>());
+    }
+
+
+    @VisibleForTesting
+    static Schedule create(List<Holiday> holidays, List<Event> events, List<Class> classes) {
+        return new Schedule(holidays, events, classes);
     }
 
     public List<Holiday> getHolidays() {
@@ -42,22 +53,27 @@ public class Schedule {
         this.classes = classes;
     }
 
-    public void addClass(Class clazz){
+    public void addClass(Class clazz) {
         classes.add(checkNotNull(clazz));
     }
-    public void removeClass(Class clazz){
+
+    public void removeClass(Class clazz) {
         classes.remove(checkNotNull(clazz));
     }
-    public void addEvent(Event event){
+
+    public void addEvent(Event event) {
         events.add(checkNotNull(event));
     }
-    public void removeEvent(Event event){
+
+    public void removeEvent(Event event) {
         events.remove(checkNotNull(event));
     }
-    public void addHoliday(Holiday holiday){
+
+    public void addHoliday(Holiday holiday) {
         holidays.add(checkNotNull(holiday));
     }
-    public void removeHoliday(Holiday holiday){
+
+    public void removeHoliday(Holiday holiday) {
         holidays.remove(checkNotNull(holiday));
     }
 }

@@ -1,5 +1,6 @@
 package com.tahsinsayeed.studykit;
 
+import com.tahsinsayeed.studykit.model.Course;
 import com.tahsinsayeed.studykit.widget.Notebook;
 import com.tahsinsayeed.studykit.widget.PdfViewer;
 import javafx.application.Application;
@@ -20,7 +21,6 @@ import java.util.logging.Logger;
 
 public class Main extends Application {
     private final Logger logger = Logger.getGlobal();
-    public final App app = new App();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -28,11 +28,22 @@ public class Main extends Application {
 
         Pane root = FXMLLoader.load(getClass().getResource("/view/main_window.fxml"));
 
-
+//        for (int i = 0; i < semester.courses.lenght; i++) {
+//            mainBranch(semester.courses.get(i), root);
+//        }
+//
+//
+//        mainBranch(){
+//            subbranch(course.)
+//        }
+//
+//        SideBar.getView();
         primaryStage.setTitle("Faust");
         primaryStage.setScene(new Scene(root, 600, 500));
         primaryStage.setMaximized(true);
         primaryStage.show();
+
+
     }
 
     private void enableFirebug(WebEngine engine) {
@@ -42,16 +53,9 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        System.out.println();
         launch(args);
     }
 
-    public class App {
-        int i = 0;
-        public void callFromJavascript(){
-            System.out.println("Called from javascript" + ++i);
-        }
-    }
 
 
 }

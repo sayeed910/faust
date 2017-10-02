@@ -34,4 +34,11 @@ public class PdfViewerFactory {
         pdfViewerQueue.add(PdfViewer.getInstance(webView));
         return viewer;
     }
+    public static PdfViewer get(){
+        PdfViewer viewer = pdfViewerQueue.remove();
+        pdfViewerQueue.add(PdfViewer.getInstance());
+        return viewer;
+    }
+
+
 }

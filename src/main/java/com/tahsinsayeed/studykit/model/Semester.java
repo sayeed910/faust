@@ -2,6 +2,7 @@ package com.tahsinsayeed.studykit.model;
 
 import com.tahsinsayeed.studykit.exception.CourseConflictException;
 
+import java.time.LocalDate;
 import java.util.*;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -9,27 +10,28 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class Semester {
     private final String id;
 
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private Map<String, Course> courses;
     private Schedule schedule;
 
-    public static Semester getInstance(String id, Date startDate, Date endDate) {
+    public static Semester getInstance(String id, LocalDate startDate, LocalDate endDate) {
         return new Semester(id, startDate, endDate);
     }
 
-    private Semester(String id, Date startDate, Date endDate) {
+    private Semester(String id, LocalDate startDate, LocalDate endDate) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
         this.courses = new Hashtable<String, Course>();
+        this.schedule = Schedule.create()
     }
 
-    public void addCourse(Course course) throws CourseConflictException {
+    public void addCourse(Course course) throws CourseConflict {
         String courseId = course.getId();
 
         if (this.courses.containsKey(courseId))
-            throw new CourseConflictException("Same semester can not have two courses with same id");
+            throw new CourseConflict();
 
         this.courses.put(courseId, course);
     }
@@ -38,7 +40,7 @@ public class Semester {
         this.courses.remove(courseId);
     }
 
-    public Course findCourse(String courseId) {
+    public Course findCourseById(String courseId) {
         return this.courses.get(courseId);
     }
 
@@ -46,19 +48,19 @@ public class Semester {
         return id;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date itsStartDate) {
+    public void setStartDate(LocalDate itsStartDate) {
         this.startDate = itsStartDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date itsEndDate) {
+    public void setEndDate(LocalDate itsEndDate) {
         this.endDate = itsEndDate;
     }
 
@@ -79,5 +81,10 @@ public class Semester {
     }
     public void removeHoliday(Holiday holiday){
         schedule.removeHoliday(holiday);
+    }
+
+
+    public class CourseConflict extends Exception {
+
     }
 }

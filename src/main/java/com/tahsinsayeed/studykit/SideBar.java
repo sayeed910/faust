@@ -1,6 +1,7 @@
 package com.tahsinsayeed.studykit;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
@@ -14,6 +15,7 @@ public class SideBar {
     public SideBar(Pane pane) {
         this.pane = pane;
         displaySideBar();
+//        TreeView<String> tree = FXMLLoader.load(getClass().getResource("/view/main_window.fxml").toExternalForm());
     }
 
     public TreeView<String> getTree() {
