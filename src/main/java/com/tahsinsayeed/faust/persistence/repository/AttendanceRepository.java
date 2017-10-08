@@ -21,12 +21,10 @@ import java.util.*;
 /**
  * Created by IMON on 8/13/2017.
  */
-class AttendanceRepository implements Repository<Attendance> {
+public class AttendanceRepository implements Repository<Attendance> {
 
     private Dao<Attendance, String> attendanceDao;
-    private final DBConnection connection;
-    public AttendanceRepository(DBConnection connection){
-        this.connection = connection;
+     AttendanceRepository(DBConnection connection){
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
             attendanceDao = DaoManager.createDao(connectionSource, Attendance.class);
@@ -37,7 +35,7 @@ class AttendanceRepository implements Repository<Attendance> {
         }
     }
 
-    public AttendanceRepository() {
+     AttendanceRepository() {
         this(DBConnection.getInstance());
     }
 

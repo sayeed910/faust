@@ -22,11 +22,9 @@ import java.util.List;
 /**
  * Created by IMON on 8/13/2017.
  */
-class EventRepository implements Repository<Event> {
+public class EventRepository implements Repository<Event> {
     private Dao<Event, String> eventDao;
-    private final DBConnection connection;
-    public EventRepository(DBConnection connection){
-        this.connection = connection;
+     EventRepository(DBConnection connection){
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
             eventDao = DaoManager.createDao(connectionSource, Event.class);
@@ -35,7 +33,7 @@ class EventRepository implements Repository<Event> {
         }
     }
 
-    public EventRepository() {
+     EventRepository() {
         this(DBConnection.getInstance());
     }
 

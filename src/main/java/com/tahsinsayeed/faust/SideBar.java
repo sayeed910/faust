@@ -46,49 +46,49 @@ public class SideBar {
         subBranch("Assignment", CSE_3201);
         subBranch("Exam", CSE_3201);
         subBranch("Book", CSE_3201);
-        subBranch("Notebook", CSE_3201);
+        subBranch("Note", CSE_3201);
 
 //CSE_3202
         CSE_3202 = mainBranch("CSE_3202", root);
         subBranch("Assignment", CSE_3202);
         subBranch("Exam", CSE_3202);
         subBranch("Book", CSE_3202);
-        subBranch("Notebook", CSE_3202);
+        subBranch("Note", CSE_3202);
 
 //CSE_3203
         CSE_3203 = mainBranch("CSE_3203", root);
         subBranch("Assignment", CSE_3203);
         subBranch("Exam", CSE_3203);
         subBranch("Book", CSE_3203);
-        subBranch("Notebook", CSE_3203);
+        subBranch("Note", CSE_3203);
 
 //CSE_3204
         CSE_3204 = mainBranch("CSE_3204", root);
         subBranch("Assignment", CSE_3204);
         subBranch("Exam", CSE_3204);
         subBranch("Book", CSE_3204);
-        subBranch("Notebook", CSE_3204);
+        subBranch("Note", CSE_3204);
 
 //CSE_3205
         CSE_3205 = mainBranch("CSE_3205", root);
         subBranch("Assignment", CSE_3205);
         subBranch("Exam", CSE_3205);
         subBranch("Book", CSE_3205);
-        subBranch("Notebook", CSE_3205);
+        subBranch("Note", CSE_3205);
 
 //CSE_3211
         CSE_3211 = mainBranch("CSE_3211", root);
         subBranch("Assignment", CSE_3211);
         subBranch("Exam", CSE_3211);
         subBranch("Book", CSE_3211);
-        subBranch("Notebook", CSE_3211);
+        subBranch("Note", CSE_3211);
 
         //CSE_3212
         CSE_3212 = mainBranch("CSE_3212", root);
         subBranch("Assignment", CSE_3212);
         subBranch("Exam", CSE_3212);
         subBranch("Book", CSE_3212);
-        subBranch("Notebook", CSE_3212);
+        subBranch("Note", CSE_3212);
 
 
         //Megan
@@ -97,7 +97,7 @@ public class SideBar {
         subBranch("Assignment", CSE_3213);
         subBranch("Exam", CSE_3213);
         subBranch("Book", CSE_3213);
-        subBranch("Notebook", CSE_3213);
+        subBranch("Note", CSE_3213);
 
         Schedule = mainBranch("Schedule",root);
         //Create the tree and hide the main root

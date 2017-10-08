@@ -13,23 +13,20 @@ import java.util.List;
 /**
  * Created by IMON on 9/1/2017.
  */
-class ExamRepository implements Repository<Exam>  {
+public class ExamRepository implements Repository<Exam>  {
 
     private Dao<Exam, String> examDao;
-    private final DBConnection connection;
-    public ExamRepository(DBConnection connection){
-        this.connection = connection;
+
+    ExamRepository(DBConnection connection){
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
             examDao = DaoManager.createDao(connectionSource, Exam.class);
         } catch (SQLException e) {
-
             e.printStackTrace();
-
         }
     }
 
-    public ExamRepository() {
+    ExamRepository() {
         this(DBConnection.getInstance());
     }
 

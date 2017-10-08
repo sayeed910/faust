@@ -1,25 +1,23 @@
 package com.tahsinsayeed.faust.persistence.repository;
 
-import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.dao.*;
 import com.j256.ormlite.support.ConnectionSource;
+import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.persistence.DBConnection;
-import com.tahsinsayeed.faust.business.entity.Schedule;
 
 import java.sql.SQLException;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by IMON on 9/1/2017.
  */
-public class ScheduleRepository implements Repository<Schedule>  {
+public class BookRepository implements Repository<Book>  {
 
-    private Dao<Schedule, String> scheduleDao;
-     ScheduleRepository(DBConnection connection){
+    private Dao<Book, String> assignmentDao;
+     BookRepository(DBConnection connection){
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
-            scheduleDao = DaoManager.createDao(connectionSource, Schedule.class);
+            assignmentDao = DaoManager.createDao(connectionSource, Book.class);
         } catch (SQLException e) {
 
             e.printStackTrace();
@@ -27,16 +25,16 @@ public class ScheduleRepository implements Repository<Schedule>  {
         }
     }
 
-     ScheduleRepository() {
+     BookRepository() {
         this(DBConnection.getInstance());
     }
 
 
     @Override
-    public Schedule get(String id) {
+    public Book get(String id) {
 
         try {
-            return scheduleDao.queryForId(id);
+            return assignmentDao.queryForId(id);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -45,9 +43,9 @@ public class ScheduleRepository implements Repository<Schedule>  {
     }
 
     @Override
-    public List<Schedule> getAll() {
+    public List<Book> getAll() {
         try {
-            return scheduleDao.queryForAll();
+            return assignmentDao.queryForAll();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -55,27 +53,27 @@ public class ScheduleRepository implements Repository<Schedule>  {
     }
 
     @Override
-    public void save(Schedule objectToSave) {
+    public void save(Book objectToSave) {
         try {
-            scheduleDao.create(objectToSave);
+            assignmentDao.create(objectToSave);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void update(Schedule objectToUpdate) {
+    public void update(Book objectToUpdate) {
         try {
-            scheduleDao.update(objectToUpdate);
+            assignmentDao.update(objectToUpdate);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void delete(Schedule objectToDelete) {
+    public void delete(Book objectToDelete) {
         try {
-            scheduleDao.delete(objectToDelete);
+            assignmentDao.delete(objectToDelete);
         } catch (SQLException e) {
             e.printStackTrace();
         }

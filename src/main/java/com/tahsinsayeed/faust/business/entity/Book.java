@@ -1,15 +1,19 @@
 package com.tahsinsayeed.faust.business.entity;
 
+import java.io.File;
+
 public class Book {
     private String name;
-    private String path;
+    private String parentCourseId;
+    private File file;
 
-    private Book(String name, String path) {
+    private Book(String name, String parentCourseId, File file) {
         this.name = name;
-        this.path = path;
+        this.parentCourseId = parentCourseId;
+        this.file = file;
     }
 
-    public static Book create(String name, String path) {
-        return new Book(name, path);
+    public static Book create(String name, String parentCourseId, File file) {
+        return new Book(name,parentCourseId, file);
     }
 }

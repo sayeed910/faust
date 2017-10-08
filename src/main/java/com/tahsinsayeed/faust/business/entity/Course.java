@@ -8,27 +8,27 @@ public class Course {
     private String id;
     private String name;
     private List<Book> books;
-    private Notebook notebook;
+    private List<Note> notes;
     private List<Exam> exams;
     private List<Assignment> assignments;
 
     public static Course create(String id, String name){
-        return new Course(id, name, new ArrayList<>(), Notebook.create(), new ArrayList<>(), new ArrayList<>());
+        return new Course(id, name, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
 
     }
 
     @VisibleForTesting
     static Course create(String id, String name, List<Book> books,
-                         Notebook notebook, List<Exam> exams, List<Assignment> assignments){
-        return new Course(id, name, books, notebook, exams, assignments);
+                         List<Note> notes, List<Exam> exams, List<Assignment> assignments){
+        return new Course(id, name, books, notes, exams, assignments);
 
     }
 
-    private Course(String id, String name, List<Book> books, Notebook notebook, List<Exam> exams, List<Assignment> assignments){
+    private Course(String id, String name, List<Book> books, List<Note> notes, List<Exam> exams, List<Assignment> assignments){
         this.id = id;
         this.name = name;
         this.books = books;
-        this.notebook = notebook;
+        this.notes = notes;
         this.exams = exams;
         this.assignments = assignments;
     }

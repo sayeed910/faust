@@ -13,23 +13,21 @@ import java.util.List;
 /**
  * Created by IMON on 9/1/2017.
  */
-class ClassRepository implements Repository<Class>  {
+public class ClassRepository implements Repository<Class> {
 
     private Dao<Class, String> classDao;
-    private final DBConnection connection;
-    public ClassRepository(DBConnection connection){
-        this.connection = connection;
+
+    ClassRepository(DBConnection connection) {
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
             classDao = DaoManager.createDao(connectionSource, Class.class);
         } catch (SQLException e) {
 
             e.printStackTrace();
-
         }
     }
 
-    public ClassRepository() {
+    ClassRepository() {
         this(DBConnection.getInstance());
     }
 

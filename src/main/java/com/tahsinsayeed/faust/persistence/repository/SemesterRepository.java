@@ -22,11 +22,10 @@ import java.util.List;
 /**
  * Created by IMON on 8/13/2017.
  */
-class SemesterRepository implements Repository<Semester> {
+public class SemesterRepository implements Repository<Semester> {
     private Dao<Semester, String> semesterDao;
-    private final DBConnection connection;
-    public SemesterRepository(DBConnection connection){
-        this.connection = connection;
+
+    SemesterRepository(DBConnection connection) {
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
             semesterDao = DaoManager.createDao(connectionSource, Semester.class);
@@ -35,7 +34,7 @@ class SemesterRepository implements Repository<Semester> {
         }
     }
 
-    public SemesterRepository() {
+    SemesterRepository() {
         this(DBConnection.getInstance());
     }
 
@@ -88,5 +87,4 @@ class SemesterRepository implements Repository<Semester> {
             e.printStackTrace();
         }
     }
-
 }

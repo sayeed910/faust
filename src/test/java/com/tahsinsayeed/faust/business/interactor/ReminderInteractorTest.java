@@ -30,7 +30,7 @@ public class ReminderInteractorTest {
         List<Class> classes = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            classes.add(Class.create(Course.create("", ""),
+            classes.add(Class.create("courseId",
                     date.getDayOfWeek(), LocalTime.of(8, 30)));
         }
 
@@ -42,7 +42,7 @@ public class ReminderInteractorTest {
         List<Exam> exams = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            exams.add(Exam.getInstance("exam", date, LocalTime.of(8, 30)));
+            exams.add(Exam.create("exam","course", date, LocalTime.of(8, 30)));
         }
 
         return exams;

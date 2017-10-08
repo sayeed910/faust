@@ -22,11 +22,9 @@ import java.util.List;
 /**
  * Created by IMON on 8/13/2017.
  */
-class HolidayRepository implements Repository<Holiday> {
+public class HolidayRepository implements Repository<Holiday> {
     private  Dao<Holiday, String> holidayDao;
-    private final DBConnection connection;
-    public HolidayRepository(DBConnection connection){
-        this.connection = connection;
+     HolidayRepository(DBConnection connection){
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
             holidayDao = DaoManager.createDao(connectionSource, Holiday.class);
@@ -35,7 +33,7 @@ class HolidayRepository implements Repository<Holiday> {
         }
     }
 
-    public HolidayRepository() {
+     HolidayRepository() {
         this(DBConnection.getInstance());
     }
 

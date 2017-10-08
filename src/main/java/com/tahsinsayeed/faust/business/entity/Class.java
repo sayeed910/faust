@@ -3,19 +3,19 @@ package com.tahsinsayeed.faust.business.entity;
 import java.time.*;
 
 public class Class {
-    private Course course;
+    private final String courseId;
     private DayOfWeek day;
     private LocalTime startTime;
 
-    public Class(Course course, DayOfWeek day, LocalTime startTime) {
-        this.course = course;
+    public Class(String courseId, DayOfWeek day, LocalTime startTime) {
+        this.courseId = courseId;
 
         this.day = day;
         this.startTime = startTime;
     }
 
-    public static Class create(Course course, DayOfWeek day, LocalTime startTime) {
-        return new Class(course, day, startTime);
+    public static Class create(String courseId, DayOfWeek day, LocalTime startTime) {
+        return new Class(courseId, day, startTime);
     }
 
     public DayOfWeek getDay() {
@@ -34,11 +34,7 @@ public class Class {
         this.startTime = startTime;
     }
 
-    public Course getCourse() {
-        return course;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
+    public String getCourseId() {
+        return courseId;
     }
 }

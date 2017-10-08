@@ -1,15 +1,17 @@
 package com.tahsinsayeed.faust.business.interactor;
 
 import com.google.common.annotations.VisibleForTesting;
+import com.tahsinsayeed.faust.business.dto.UpcomingTask;
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.entity.Class;
 import com.tahsinsayeed.faust.persistence.repository.*;
+import javafx.collections.*;
 
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class ReminderInteractor {
+public class ReminderInteractor implements Interactor<UpcomingTask>{
     private final LocalDate date;
     private final RepositoryFactory repositoryFactory;
 
@@ -50,4 +52,12 @@ public class ReminderInteractor {
                 .filter((exam)-> exam.getDate().equals(date))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public UpcomingTask execute() {
+
+        return null;
+    }
+
+
 }

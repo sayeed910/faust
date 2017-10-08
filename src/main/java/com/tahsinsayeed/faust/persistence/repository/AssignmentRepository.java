@@ -13,12 +13,10 @@ import java.util.List;
 /**
  * Created by IMON on 9/1/2017.
  */
-class AssignmentRepository implements Repository<Assignment>  {
+public class AssignmentRepository implements Repository<Assignment>  {
 
     private Dao<Assignment, String> assignmentDao;
-    private final DBConnection connection;
-    public AssignmentRepository(DBConnection connection){
-        this.connection = connection;
+     AssignmentRepository(DBConnection connection){
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
             assignmentDao = DaoManager.createDao(connectionSource, Assignment.class);
@@ -29,7 +27,7 @@ class AssignmentRepository implements Repository<Assignment>  {
         }
     }
 
-    public AssignmentRepository() {
+     AssignmentRepository() {
         this(DBConnection.getInstance());
     }
 

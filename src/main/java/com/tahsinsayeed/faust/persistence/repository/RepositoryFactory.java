@@ -21,4 +21,6 @@ public interface RepositoryFactory {
     Repository<Holiday> getHolidayRepository();
 
     Repository<Exam> getExamRepository();
+
+    Repository<Book> getBookRepository();
 }

@@ -44,49 +44,49 @@ public class SaeedBar extends Application{
         subBranch("Assignment", CSE_3201);
         subBranch("Exam", CSE_3201);
         subBranch("Book", CSE_3201);
-        subBranch("Notebook", CSE_3201);
+        subBranch("Note", CSE_3201);
 
 //CSE_3202
         CSE_3202 = subBranch("CSE_3202", course);
         subBranch("Assignment", CSE_3202);
         subBranch("Exam", CSE_3202);
         subBranch("Book", CSE_3202);
-        subBranch("Notebook", CSE_3202);
+        subBranch("Note", CSE_3202);
 
 //CSE_3203
         CSE_3203 = subBranch("CSE_3203", course);
         subBranch("Assignment", CSE_3203);
         subBranch("Exam", CSE_3203);
         subBranch("Book", CSE_3203);
-        subBranch("Notebook", CSE_3203);
+        subBranch("Note", CSE_3203);
 
 //CSE_3204
         CSE_3204 = subBranch("CSE_3204", course);
         subBranch("Assignment", CSE_3204);
         subBranch("Exam", CSE_3204);
         subBranch("Book", CSE_3204);
-        subBranch("Notebook", CSE_3204);
+        subBranch("Note", CSE_3204);
 
 //CSE_3205
         CSE_3205 = subBranch("CSE_3205", course);
         subBranch("Assignment", CSE_3205);
         subBranch("Exam", CSE_3205);
         subBranch("Book", CSE_3205);
-        subBranch("Notebook", CSE_3205);
+        subBranch("Note", CSE_3205);
 
 //CSE_3211
         CSE_3211 = subBranch("CSE_3211", course);
         subBranch("Assignment", CSE_3211);
         subBranch("Exam", CSE_3211);
         subBranch("Book", CSE_3211);
-        subBranch("Notebook", CSE_3211);
+        subBranch("Note", CSE_3211);
 
         //CSE_3212
         CSE_3212 = subBranch("CSE_3212", course);
         subBranch("Assignment", CSE_3212);
         subBranch("Exam", CSE_3212);
         subBranch("Book", CSE_3212);
-        subBranch("Notebook", CSE_3212);
+        subBranch("Note", CSE_3212);
 
 
         //Megan
@@ -95,7 +95,7 @@ public class SaeedBar extends Application{
         subBranch("Assignment", CSE_3213);
         subBranch("Exam", CSE_3213);
         subBranch("Book", CSE_3213);
-        subBranch("Notebook", CSE_3213);
+        subBranch("Note", CSE_3213);
 // Add Assignment
         ComboBox Assginment;
         Assginment = new ComboBox<>();
@@ -138,7 +138,7 @@ public class SaeedBar extends Application{
 
         Book.setPromptText("Add Book");
 
-// Add Notebook
+// Add Note
         ComboBox Notebook;
         Notebook = new ComboBox<>();
         Notebook.getItems().addAll(
@@ -150,7 +150,7 @@ public class SaeedBar extends Application{
         );
 
 
-        Notebook.setPromptText("Add Notebook");
+        Notebook.setPromptText("Add Note");
 
 // Bind all of them in a Vbox
 

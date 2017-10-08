@@ -22,11 +22,9 @@ import java.util.List;
 /**
  * Created by IMON on 8/13/2017.
  */
-class CourseRepository implements Repository<Course> {
+public class CourseRepository implements Repository<Course> {
     private Dao<Course, String> courseDao;
-    private final DBConnection connection;
-    public CourseRepository(DBConnection connection){
-        this.connection = connection;
+     CourseRepository(DBConnection connection){
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
             courseDao = DaoManager.createDao(connectionSource, Course.class);
@@ -35,7 +33,7 @@ class CourseRepository implements Repository<Course> {
         }
     }
 
-    public CourseRepository() {
+     CourseRepository() {
         this(DBConnection.getInstance());
     }
 
