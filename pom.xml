@@ -20,7 +20,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
                 <configuration>
-                    <mainClass>com.tahsinsayeed.studykit.Main</mainClass>
+                    <mainClass>com.tahsinsayeed.faust.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
