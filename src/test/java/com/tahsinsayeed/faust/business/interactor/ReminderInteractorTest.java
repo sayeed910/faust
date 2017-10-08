@@ -14,14 +14,14 @@ import static org.mockito.Mockito.*;
 
 public class ReminderInteractorTest {
 
-    private ReminderInteractor interactor;
+    private UpcomingTaskRetriever interactor;
     private RepositoryFactoryStub factoryStub;
 
 
     @Before
     public void setUp() throws Exception {
         factoryStub = new RepositoryFactoryStub();
-        interactor = ReminderInteractor.create(LocalDate.now(), factoryStub);
+        interactor = UpcomingTaskRetriever.create(LocalDate.now(), factoryStub);
     }
 
 
@@ -52,7 +52,7 @@ public class ReminderInteractorTest {
         List<Assignment> assignments = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            assignments.add(Assignment.create("exam", LocalDate.now()));
+            assignments.add(Assignment.create("course","exam", LocalDate.now()));
         }
 
         return assignments;
