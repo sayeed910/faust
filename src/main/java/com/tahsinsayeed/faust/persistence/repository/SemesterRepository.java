@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * Created by IMON on 8/13/2017.
  */
-public class SemesterRepository implements Repository<Semester> {
+class SemesterRepository implements Repository<Semester> {
     private Dao<Semester, String> semesterDao;
     private final DBConnection connection;
     public SemesterRepository(DBConnection connection){

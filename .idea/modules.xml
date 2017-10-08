@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/StudyKit.iml" filepath="$PROJECT_DIR$/StudyKit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Faust.iml" filepath="$PROJECT_DIR$/Faust.iml" />
     </modules>
   </component>
 </project>

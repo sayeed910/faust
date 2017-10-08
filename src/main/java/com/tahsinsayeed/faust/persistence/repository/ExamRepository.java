@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by IMON on 9/1/2017.
  */
-public class ExamRepository implements Repository<Exam>  {
+class ExamRepository implements Repository<Exam>  {
 
     private Dao<Exam, String> examDao;
     private final DBConnection connection;

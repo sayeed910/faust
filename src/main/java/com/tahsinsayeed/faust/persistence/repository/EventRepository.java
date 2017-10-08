@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * Created by IMON on 8/13/2017.
  */
-public class EventRepository implements Repository<Event> {
+class EventRepository implements Repository<Event> {
     private Dao<Event, String> eventDao;
     private final DBConnection connection;
     public EventRepository(DBConnection connection){

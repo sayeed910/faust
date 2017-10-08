@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by IMON on 9/1/2017.
  */
-public class ScheduleRepository implements Repository<Schedule>  {
+class ScheduleRepository implements Repository<Schedule>  {
 
     private Dao<Schedule, String> scheduleDao;
     private final DBConnection connection;

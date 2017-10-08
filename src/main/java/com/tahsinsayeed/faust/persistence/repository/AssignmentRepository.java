@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by IMON on 9/1/2017.
  */
-public class AssignmentRepository implements Repository<Assignment>  {
+class AssignmentRepository implements Repository<Assignment>  {
 
     private Dao<Assignment, String> assignmentDao;
     private final DBConnection connection;

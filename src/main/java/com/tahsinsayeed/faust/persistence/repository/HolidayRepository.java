@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * Created by IMON on 8/13/2017.
  */
-public class HolidayRepository implements Repository<Holiday> {
+class HolidayRepository implements Repository<Holiday> {
     private  Dao<Holiday, String> holidayDao;
     private final DBConnection connection;
     public HolidayRepository(DBConnection connection){

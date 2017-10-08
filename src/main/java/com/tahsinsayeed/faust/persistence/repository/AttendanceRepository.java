@@ -21,7 +21,7 @@ import java.util.*;
 /**
  * Created by IMON on 8/13/2017.
  */
-public class AttendanceRepository implements Repository<Attendance> {
+class AttendanceRepository implements Repository<Attendance> {
 
     private Dao<Attendance, String> attendanceDao;
     private final DBConnection connection;
