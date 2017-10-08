@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.web.WebView?>
 
-<BorderPane prefHeight="800.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tahsinsayeed.studykit.controller.MainWindowController" fx:id="root">
+<BorderPane prefHeight="800.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tahsinsayeed.studykit.presentation.controller.MainWindowController" fx:id="root">
    <center>
        <VBox BorderPane.alignment="CENTER" fx:id="center">
          <children>

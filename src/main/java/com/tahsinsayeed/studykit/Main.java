@@ -1,21 +1,11 @@
 package com.tahsinsayeed.studykit;
 
-import com.tahsinsayeed.studykit.model.Course;
-import com.tahsinsayeed.studykit.widget.Notebook;
-import com.tahsinsayeed.studykit.widget.PdfViewer;
 import javafx.application.Application;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.concurrent.Worker.State;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
 import javafx.stage.Stage;
-import netscape.javascript.JSObject;
 
 import java.util.logging.Logger;
 

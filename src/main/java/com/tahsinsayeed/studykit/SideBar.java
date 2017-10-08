@@ -1,13 +1,15 @@
 package com.tahsinsayeed.studykit;
 
 import javafx.application.Application;
+import javafx.collections.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
+
+import java.util.List;
+
 public class SideBar {
     Pane pane;
     TreeView<String> tree;
@@ -19,6 +21,18 @@ public class SideBar {
     }
 
     public TreeView<String> getTree() {
+        ObservableList<String> items = FXCollections.observableArrayList("Course", "Books");
+
+        ListView<String> list = new ListView<String>(items);
+        list.setOnMouseClicked((event)->{
+            String selected = list.getSelectionModel().getSelectedItem();
+
+            if (selected.equalsIgnoreCase("course")){
+
+            }
+
+
+        });
         return tree;
     }
 
