@@ -1,7 +1,7 @@
 package com.tahsinsayeed.faust.business.interactor;
 
 import com.google.common.annotations.VisibleForTesting;
-import com.tahsinsayeed.faust.business.dto.UpcomingTask;
+import com.tahsinsayeed.faust.business.dto.*;
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.entity.Class;
 import com.tahsinsayeed.faust.persistence.repository.*;
@@ -13,10 +13,12 @@ import java.util.stream.Collectors;
 public class UpcomingTaskRetriever implements Interactor<UpcomingTask>{
     private final LocalDate date;
     private final RepositoryFactory repositoryFactory;
+    private final Repository<Course> courseRepository;
 
     private UpcomingTaskRetriever(LocalDate date, RepositoryFactory factory) {
         this.repositoryFactory = factory;
         this.date = date;
+        this.courseRepository = factory.getCourseRepository();
 
     }
 
@@ -29,33 +31,36 @@ public class UpcomingTaskRetriever implements Interactor<UpcomingTask>{
         return new UpcomingTaskRetriever(date, factory);
     }
 
-    public List<Class> getClassesOn(LocalDate date) {
+    private List<ClassDto> getTodaysClasses() {
         List<Class> classes = repositoryFactory.getClassRepository().getAll();
         return classes.stream()
                 .filter((clazz)-> clazz.getDay().equals(date.getDayOfWeek()))
+                .map(aClass -> new ClassDto(aClass, courseRepository.get(aClass.getCourseId()).getName()))
                 .collect(Collectors.toList());
 
     }
 
 
-    public List<Exam> getExamsOn(LocalDate date) {
+    private List<ExamDto> getTodaysExams() {
         List<Exam> exams = repositoryFactory.getExamRepository().getAll();
         return exams.stream()
                 .filter((exam)-> exam.getDate().equals(date))
+                .map(exam -> new ExamDto(exam, courseRepository.get(exam.getCourseId()).getName()))
                 .collect(Collectors.toList());
     }
 
-    public List<Assignment> getAssignmentsOn(LocalDate date) {
+    private List<AssignmentDto> getTodaysAssignments() {
         List<Assignment> assignments = repositoryFactory.getAssignmentRepository().getAll();
         return assignments.stream()
-                .filter((exam)-> exam.getDate().equals(date))
+                .filter((assignment)-> assignment.getDate().equals(date))
+                 .map(assignment ->
+                         new AssignmentDto(assignment, courseRepository.get(assignment.getParentCourseId()).getName()))
                 .collect(Collectors.toList());
     }
 
     @Override
     public UpcomingTask execute() {
-
-        return null;
+        return new UpcomingTask(getTodaysClasses(), getTodaysAssignments(), getTodaysExams());
     }
 
 

@@ -43,4 +43,12 @@ public class Assignment {
     public String getId() {
         return id;
     }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public String getParentCourseId() {
+        return parentCourseId;
+    }
 }

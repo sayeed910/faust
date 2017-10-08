@@ -54,4 +54,9 @@ public class RepositoryFactoryStub implements RepositoryFactory {
     public Repository<Exam> getExamRepository() {
         return examRepository;
     }
+
+    @Override
+    public Repository<Book> getBookRepository() {
+        return null;
+    }
 }

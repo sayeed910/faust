@@ -43,4 +43,20 @@ public class Exam {
     public void setReceivedMark(int receivedMark) {
         this.receivedMark = receivedMark;
     }
+
+    public LocalTime getTime() {
+        return time;
+    }
+
+    public String getExamId() {
+        return examId;
+    }
+
+    public String getCourseId() {
+        return courseId;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

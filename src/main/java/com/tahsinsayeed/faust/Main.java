@@ -1,9 +1,13 @@
 package com.tahsinsayeed.faust;
 
+import com.jfoenix.controls.*;
+import com.sun.javafx.application.LauncherImpl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.Label;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.web.WebEngine;
 import javafx.stage.Stage;
 
@@ -13,21 +17,35 @@ public class Main extends Application {
     private final Logger logger = Logger.getGlobal();
 
     @Override
+    public void init(){
+        try {
+            Thread.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public void start(Stage primaryStage) throws Exception {
         PdfViewerFactory.init();
 
-        Pane root = FXMLLoader.load(getClass().getResource("/view/main_window.fxml"));
+//        Pane defaul = FXMLLoader.load(getClass().getResource("/view/main_window.fxml"));
+//        JFXDecorator root = new JFXDecorator(primaryStage, defaul);
+//        root.setCustomMaximize(true);
 
-//        for (int i = 0; i < semester.courses.lenght; i++) {
-//            mainBranch(semester.courses.get(i), root);
-//        }
-//
-//
-//        mainBranch(){
-//            subbranch(course.)
-//        }
-//
-//        SideBar.getView();
+        VBox root = new VBox();
+        JFXDatePicker blueDatePicker = new JFXDatePicker();
+        blueDatePicker.setDefaultColor(Color.valueOf("#3f51b5"));
+        blueDatePicker.setOverLay(true);
+        StackPane pane = new StackPane();
+        blueDatePicker.setDialogParent(pane);
+//        root.getChildren().addAll(blueDatePicker);
+
+        JFXListView<Label> list = new JFXListView<Label>();
+        for(int i = 0 ; i < 4 ; i++) list.getItems().add(new Label("Item " + i));
+        list.getStyleClass().add("mylistview");
+        root.getChildren().addAll(list);
+
         primaryStage.setTitle("Faust");
         primaryStage.setScene(new Scene(root, 600, 500));
         primaryStage.setMaximized(true);
@@ -43,7 +61,8 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        launch(args);
+//        launch(args);
+        LauncherImpl.launchApplication(Main.class, FaustPreloader.class, args);
     }
 
 
