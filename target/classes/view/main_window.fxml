@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.web.WebView?>
-
-<BorderPane prefHeight="800.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tahsinsayeed.studykit.controller.MainWindowController" fx:id="root">
-   <center>
-       <VBox BorderPane.alignment="CENTER" fx:id="center">
-         <children>
-            <WebView fx:id="mainView"/>
-         </children></VBox>
-   </center>
-   <left>
-      <VBox prefHeight="800.0" prefWidth="233.0" BorderPane.alignment="CENTER" fx:id="nav"/>
-   </left>
-</BorderPane>
+<?import javafx.scene.layout.GridPane?>
+<GridPane fx:controller="com.tahsinsayeed.studykit.controller.MainWindowController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+</GridPane>
