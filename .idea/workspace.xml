@@ -2,107 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_all_1_10_19.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Assignment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Class.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Exam.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/interactor/AddCourseInteractor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/interactor/Interactor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/interactor/ReminderInteractor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/Repository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/RepositoryFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/RepositoryFactoryImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/presentation/view/MainView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/presentation/view/partials/AddCourseView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/presentation/view/partials/PartialView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/tahsinsayeed/studykit/business/interactor/ReminderInteractorTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/tahsinsayeed/studykit/business/interactor/RepositoryFactoryStub.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/controller/MainWindowController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/exception/CourseConflictException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/model/Assignment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/model/Class.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/model/Exam.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/repository/Repository.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/database/DBConnection.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/DBConnection.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/database/Database.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/Database.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/model/Attendance.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Attendance.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/model/Book.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Book.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/model/Course.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Course.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/model/Event.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Event.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/model/Holiday.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Holiday.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/model/Notebook.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Notebook.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/model/Schedule.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Schedule.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/model/Semester.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Semester.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/repository/AssignmentRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/AssignmentRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/repository/AttendanceRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/AttendanceRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/repository/ClassRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/ClassRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/repository/CourseRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/CourseRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/repository/EventRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/EventRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/repository/ExamRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/ExamRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/repository/HolidayRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/HolidayRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/repository/RepositoryType.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/RepositoryType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/repository/ScheduleRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/ScheduleRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/repository/SemesterRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/SemesterRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/tahsinsayeed/studykit/model/SemesterTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/tahsinsayeed/studykit/business/entity/SemesterTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyKit.iml" afterPath="$PROJECT_DIR$/StudyKit.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/SideBar.java" afterPath="$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/SideBar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/view/main_window.fxml" afterPath="$PROJECT_DIR$/src/main/resources/view/main_window.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/compatibility.js" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/compatibility.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/debugger.js" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/debugger.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-check.svg" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-check.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-comment.svg" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-comment.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-help.svg" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-help.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-insert.svg" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-insert.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-key.svg" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-key.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-newparagraph.svg" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-newparagraph.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-noicon.svg" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-noicon.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-note.svg" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-note.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-paragraph.svg" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/images/annotation-paragraph.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/l10n.js" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/l10n.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/ak/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/ak/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/an/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/an/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/as/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/as/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/az/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/az/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/be/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/be/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/bn-BD/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/bn-BD/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/cy/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/cy/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/da/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/da/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/en-GB/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/en-GB/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/es-AR/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/es-AR/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/es-CL/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/es-CL/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/es-MX/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/es-MX/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/eu/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/eu/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/fr/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/fr/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/fy-NL/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/fy-NL/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/ga-IE/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/ga-IE/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/gd/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/gd/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/gu-IN/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/gu-IN/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/hi-IN/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/hi-IN/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/hy-AM/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/hy-AM/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/is/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/is/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/it/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/it/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/kn/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/kn/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/ku/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/ku/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/lv/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/lv/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/mk/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/mk/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/mr/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/mr/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/my/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/my/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/or/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/or/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/sr/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/sr/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/sw/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/sw/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/tl/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/tl/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/tn/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/tn/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/vi/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/vi/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/xh/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/xh/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/zh-TW/viewer.properties" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/locale/zh-TW/viewer.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/pdf.js" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/pdf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/pdf.worker.js" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/pdf.worker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/viewer.css" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/viewer.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/viewer.html" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/viewer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/web/pdfviewer/viewer.js" afterPath="$PROJECT_DIR$/target/classes/web/pdfviewer/viewer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/faust" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -228,15 +128,53 @@
     <fileColor scope="Non-Project Files (Material Palenight)" color="2f2e43" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="AddCourseView.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/presentation/view/partials/AddCourseView.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/faust/src/main/java/com/tahsinsayeed/faust/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-              <folding>
-                <marker date="1507445130671" expanded="true" signature="144:197" ph="..." />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App2.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/faust/src/main/java/com/tahsinsayeed/faust/App2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PdfViewerFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/faust/src/main/java/com/tahsinsayeed/faust/PdfViewerFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SaeedBar.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/faust/src/main/java/com/tahsinsayeed/faust/SaeedBar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SideBar.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/faust/src/main/java/com/tahsinsayeed/faust/SideBar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -392,107 +330,108 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Faust" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Faust" type="bbb3b172:PsiDirectoryNodeWrapper" />
+              <item name="Faust" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Faust" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Faust" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="src" type="bbb3b172:PsiDirectoryNodeWrapper" />
+              <item name="Faust" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Faust" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Faust" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="src" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="main" type="bbb3b172:PsiDirectoryNodeWrapper" />
+              <item name="Faust" type="462c0819:PsiDirectoryNode" />
+              <item name="faust" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Faust" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Faust" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="src" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="main" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="java" type="bbb3b172:PsiDirectoryNodeWrapper" />
+              <item name="Faust" type="462c0819:PsiDirectoryNode" />
+              <item name="faust" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Faust" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Faust" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="src" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="main" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="java" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="studykit" type="bbb3b172:PsiDirectoryNodeWrapper" />
+              <item name="Faust" type="462c0819:PsiDirectoryNode" />
+              <item name="faust" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Faust" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Faust" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="src" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="main" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="java" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="studykit" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="presentation" type="bbb3b172:PsiDirectoryNodeWrapper" />
+              <item name="Faust" type="462c0819:PsiDirectoryNode" />
+              <item name="faust" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Faust" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Faust" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="src" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="main" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="java" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="studykit" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="presentation" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="view" type="bbb3b172:PsiDirectoryNodeWrapper" />
+              <item name="Faust" type="462c0819:PsiDirectoryNode" />
+              <item name="faust" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Faust" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Faust" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="src" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="main" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="java" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="studykit" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="presentation" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="view" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="partials" type="bbb3b172:PsiDirectoryNodeWrapper" />
+              <item name="Faust" type="462c0819:PsiDirectoryNode" />
+              <item name="faust" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="tahsinsayeed" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Faust" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Faust" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="src" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="test" type="bbb3b172:PsiDirectoryNodeWrapper" />
+              <item name="Faust" type="462c0819:PsiDirectoryNode" />
+              <item name="faust" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="tahsinsayeed" type="462c0819:PsiDirectoryNode" />
+              <item name="faust" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Faust" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Faust" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="src" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="test" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="java" type="bbb3b172:PsiDirectoryNodeWrapper" />
+              <item name="Faust" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Faust" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Faust" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="src" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="test" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="java" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="studykit" type="bbb3b172:PsiDirectoryNodeWrapper" />
+              <item name="Faust" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Faust" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Faust" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="src" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="test" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="java" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="studykit" type="bbb3b172:PsiDirectoryNodeWrapper" />
-              <item name="business" type="bbb3b172:PsiDirectoryNodeWrapper" />
+              <item name="Faust" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Faust" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Faust" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="faust" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -510,7 +449,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/faust" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -754,6 +693,22 @@
       <module name="" />
       <envs />
     </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -774,12 +729,57 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="StudyKit" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
     </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="" />
@@ -982,14 +982,6 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
-    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="run-app" />
-      <setting name="passParentEnv" value="true" />
-      <setting name="launchBrowser" value="true" />
-      <setting name="launchBrowserUrl" value="" />
-      <setting name="depsClasspath" value="false" />
-    </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <envs />
@@ -1027,19 +1019,6 @@
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="StudyKit" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="filePath" />
@@ -1058,50 +1037,9 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run" />
@@ -1178,6 +1116,7 @@
       <workItem from="1506975748218" duration="15266000" />
       <workItem from="1507365413354" duration="4908000" />
       <workItem from="1507439391705" duration="3608000" />
+      <workItem from="1507476117307" duration="130000" />
     </task>
     <task id="LOCAL-00001" summary="Added maven support">
       <created>1506251897651</created>
@@ -1236,49 +1175,49 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86863000" />
+    <option name="totallyTimeSpent" value="86993000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Test Runs" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3242424" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24597365" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Cloverage" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Test Runs" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Cloverage" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3242424" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3242424" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287879" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3242424" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1305,90 +1244,13 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/App2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/web/quill/js/quill.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/web/quill/js/quill.core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="8398" column="3" lean-forward="true" selection-start-line="8398" selection-start-column="3" selection-end-line="8398" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/widget/QuillRequestHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="25" column="42" lean-forward="false" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/web/quill/quill.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="110" column="13" lean-forward="false" selection-start-line="110" selection-start-column="13" selection-end-line="110" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/RepositoryType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="3" column="83" lean-forward="false" selection-start-line="3" selection-start-column="83" selection-end-line="3" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/EventRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/CourseRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="41" column="41" lean-forward="false" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/ScheduleRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/HolidayRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="42" column="41" lean-forward="false" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/ExamRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/widget/PdfViewer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="49" column="28" lean-forward="true" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/RepositoryType.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/EventRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/CourseRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/ScheduleRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/HolidayRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/ExamRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/widget/PdfViewer.java" />
     <entry file="file://$PROJECT_DIR$/target/classes/web/quill/js/quill.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -1397,79 +1259,25 @@
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.txt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/PdfViewerFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="38" column="49" lean-forward="true" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/PdfViewerFactory.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/view/main_window.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/AssignmentRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/AttendanceRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/ClassRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="37" column="13" lean-forward="true" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/DBConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/widget/TextEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-572">
-          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/presentation/controller/MainWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="50" lean-forward="false" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/tahsinsayeed/studykit/business/entity/SemesterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/AssignmentRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/AttendanceRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/ClassRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/DBConnection.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/widget/TextEditor.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/presentation/controller/MainWindowController.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/tahsinsayeed/studykit/business/entity/SemesterTest.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1404">
@@ -1479,258 +1287,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/repository/SemesterRepositoryImpl.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/com/tahsinsayeed/studykit/repository/RepositoryImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/SemesterRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Semester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2314">
-          <caret line="94" column="49" lean-forward="false" selection-start-line="94" selection-start-column="49" selection-end-line="94" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/Repository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/RepositoryFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/RepositoryFactoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/tahsinsayeed/studykit/business/interactor/RepositoryFactoryStub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/interactor/ReminderInteractor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="48" column="35" lean-forward="true" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/tahsinsayeed/studykit/business/interactor/ReminderInteractorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <marker date="1507443749829" expanded="false" signature="107:423" ph="..." />
-            <marker date="1507443749829" expanded="true" signature="609:745" ph="{...}" />
-            <marker date="1507443749829" expanded="true" signature="807:1062" ph="{...}" />
-            <marker date="1507443749829" expanded="true" signature="1128:1330" ph="{...}" />
-            <marker date="1507443749829" expanded="true" signature="1408:1624" ph="{...}" />
-            <marker date="1507443749829" expanded="true" signature="1696:2089" ph="{...}" />
-            <marker date="1507443749829" expanded="true" signature="2156:2540" ph="{...}" />
-            <marker date="1507443749829" expanded="true" signature="2613:3072" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/SideBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <marker date="1507443749007" expanded="false" signature="43:273" ph="..." />
-            <marker date="1507443749007" expanded="true" signature="371:548" ph="{...}" />
-            <marker date="1507443749007" expanded="true" signature="588:971" ph="{...}" />
-            <marker date="1507443749007" expanded="true" signature="728:736" ph="&lt;~&gt;" />
-            <marker date="1507443749007" expanded="true" signature="785:942" ph="{...}" />
-            <marker date="1507443749007" expanded="true" signature="1007:3329" ph="{...}" />
-            <marker date="1507443749007" expanded="true" signature="1230:1310" ph="//..." />
-            <marker date="1507443749007" expanded="true" signature="2850:2868" ph="//..." />
-            <marker date="1507443749007" expanded="true" signature="3432:3588" ph="{...}" />
-            <marker date="1507443749007" expanded="true" signature="3669:3825" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/presentation/view/MainView.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/SemesterRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Semester.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/Repository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/RepositoryFactory.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/persistence/repository/RepositoryFactoryImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/tahsinsayeed/studykit/business/interactor/RepositoryFactoryStub.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/interactor/ReminderInteractor.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/tahsinsayeed/studykit/business/interactor/ReminderInteractorTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/SideBar.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/presentation/view/MainView.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Assignment.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Attendance.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Book.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Class.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Course.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Event.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Holiday.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Notebook.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Schedule.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/presentation/view/partials/PartialView.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/interactor/Interactor.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/interactor/AddCourseInteractor.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Exam.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/presentation/view/partials/AddCourseView.java" />
+    <entry file="file://$PROJECT_DIR$/faust/src/main/java/com/tahsinsayeed/faust/PdfViewerFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="43" lean-forward="false" selection-start-line="0" selection-start-column="43" selection-end-line="0" selection-end-column="43" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Assignment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Attendance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Class.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Course.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <marker date="1507445129178" expanded="false" signature="59:128" ph="..." />
-            <marker date="1507445129178" expanded="true" signature="389:510" ph="{...}" />
-            <marker date="1507445129178" expanded="true" signature="693:775" ph="{...}" />
-            <marker date="1507445129178" expanded="true" signature="904:1089" ph="{...}" />
-            <marker date="1507445129178" expanded="true" signature="1117:1143" ph="{...}" />
-            <marker date="1507445129178" expanded="true" signature="1172:1205" ph="{...}" />
-            <marker date="1507445129178" expanded="true" signature="1257:1495" ph="{...}" />
-            <marker date="1507445129178" expanded="true" signature="1537:1651" ph="{...}" />
-            <marker date="1507445129178" expanded="true" signature="1688:1725" ph="{...}" />
-            <marker date="1507445129178" expanded="true" signature="1760:1789" ph="{...}" />
-            <marker date="1507445129178" expanded="true" signature="1844:1893" ph="{...}" />
-            <marker date="1507445129178" expanded="true" signature="1940:1975" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Holiday.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Notebook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Schedule.java">
+    <entry file="file://$PROJECT_DIR$/faust/src/main/java/com/tahsinsayeed/faust/SaeedBar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="43" lean-forward="true" selection-start-line="0" selection-start-column="43" selection-end-line="0" selection-end-column="43" />
-          <folding>
-            <marker date="1507445128692" expanded="false" signature="59:194" ph="..." />
-            <marker date="1507445128692" expanded="true" signature="385:488" ph="{...}" />
-            <marker date="1507445128692" expanded="true" signature="527:637" ph="{...}" />
-            <marker date="1507445128692" expanded="true" signature="755:818" ph="{...}" />
-            <marker date="1507445128692" expanded="true" signature="859:891" ph="{...}" />
-            <marker date="1507445128692" expanded="true" signature="945:986" ph="{...}" />
-            <marker date="1507445128692" expanded="true" signature="1023:1053" ph="{...}" />
-            <marker date="1507445128692" expanded="true" signature="1101:1138" ph="{...}" />
-            <marker date="1507445128692" expanded="true" signature="1176:1207" ph="{...}" />
-            <marker date="1507445128692" expanded="true" signature="1257:1296" ph="{...}" />
-            <marker date="1507445128692" expanded="true" signature="1336:1385" ph="{...}" />
-            <marker date="1507445128692" expanded="true" signature="1428:1480" ph="{...}" />
-            <marker date="1507445128692" expanded="true" signature="1520:1568" ph="{...}" />
-            <marker date="1507445128692" expanded="true" signature="1611:1662" ph="{...}" />
-            <marker date="1507445128692" expanded="true" signature="1708:1760" ph="{...}" />
-            <marker date="1507445128692" expanded="true" signature="1809:1864" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/presentation/view/partials/PartialView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/interactor/Interactor.java">
+    <entry file="file://$PROJECT_DIR$/faust/src/main/java/com/tahsinsayeed/faust/App2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/interactor/AddCourseInteractor.java">
+    <entry file="file://$PROJECT_DIR$/faust/src/main/java/com/tahsinsayeed/faust/SideBar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-          <folding>
-            <marker date="1507445130905" expanded="true" signature="63:171" ph="..." />
-            <marker date="1507445130905" expanded="true" signature="383:500" ph="{...}" />
-            <marker date="1507445130905" expanded="true" signature="542:724" ph="{...}" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/business/entity/Exam.java">
+    <entry file="file://$PROJECT_DIR$/faust/src/main/java/com/tahsinsayeed/faust/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <marker date="1507443749557" expanded="false" signature="59:94" ph="..." />
-            <marker date="1507443749557" expanded="true" signature="334:457" ph="{...}" />
-            <marker date="1507443749557" expanded="true" signature="550:642" ph="{...}" />
-            <marker date="1507443749557" expanded="true" signature="675:703" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tahsinsayeed/studykit/presentation/view/partials/AddCourseView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding>
-            <marker date="1507445130671" expanded="true" signature="144:197" ph="..." />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
