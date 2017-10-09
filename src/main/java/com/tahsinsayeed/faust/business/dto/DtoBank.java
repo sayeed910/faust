@@ -39,12 +39,12 @@ public class DtoBank {
             courseDto.getExams().add(exam);
             courses.add(index, courseDto);
         } else {
-            Logger.getGlobal().warning("Course to add exam does not exist");
+            Logger.getGlobal().warning("Course to add exams does not exist");
         }
 
     }
 
-    public void addAssignment(AssignmentDto assignment, final Course course){
+    public void addAssignment(AssignmentDto assignment){
         int index = indexOfCourse.get(assignment.getParentCourseId());
 
         if (index != -1){
@@ -52,7 +52,20 @@ public class DtoBank {
             courseDto.getAssignments().add(assignment);
             courses.add(index, courseDto);
         } else {
-            Logger.getGlobal().warning("Course to add exam does not exist");
+            Logger.getGlobal().warning("Course to add exams does not exist");
+        }
+
+    }
+
+    public void addBook(BookDto book){
+        int index = indexOfCourse.get(book.getParentCourseId());
+
+        if (index != -1){
+            CourseDto courseDto = courses.get(index);
+            courseDto.getBooks().add(book);
+            courses.add(index, courseDto);
+        } else {
+            Logger.getGlobal().warning("Course to add exams does not exist");
         }
 
     }
@@ -66,5 +79,20 @@ public class DtoBank {
         } else {
             courses.add(index, course);
         }
+    }
+
+    public ObservableList<CourseDto> getCourses() {
+        return courses;
+    }
+
+    public UpcomingTask getUpcomingTask() {
+        return upcomingTask;
+    }
+
+    public void setUpcomingTask(UpcomingTask aUpcomingTask) {
+        this.upcomingTask.setUpcomingClasses(aUpcomingTask.getUpcomingClasses());
+        this.upcomingTask.setUpcomingAssignments(aUpcomingTask.getUpcomingAssignments());
+        this.upcomingTask.setUpcomingExams(aUpcomingTask.getUpcomingExams());
+
     }
 }

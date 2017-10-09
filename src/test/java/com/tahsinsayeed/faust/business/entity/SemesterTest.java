@@ -1,5 +1,6 @@
 package com.tahsinsayeed.faust.business.entity;
 
+import javafx.beans.property.*;
 import org.junit.*;
 
 import java.time.*;
@@ -39,6 +40,17 @@ public class SemesterTest {
     public void TwoCoursesWithSameIdThrows() throws Exception {
         addCourse();
         addCourse();
+    }
+
+    @Test
+    public void observable() throws Exception {
+        IntegerProperty integer = new SimpleIntegerProperty(5);
+        IntegerProperty another = new SimpleIntegerProperty(5);
+
+        another.bind(integer);
+        integer = new SimpleIntegerProperty(7);
+
+        assertEquals(another.intValue(), 7);
     }
 
 

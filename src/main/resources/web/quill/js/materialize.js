@@ -2215,7 +2215,7 @@ if (jQuery) {
       if (methodOrOptions.slice(0, 3) === 'get') {
         return this.first()[0].M_Modal[methodOrOptions]();
 
-        // Void methods
+        // void methods
       } else {
         return this.each(function () {
           this.M_Modal[methodOrOptions]();

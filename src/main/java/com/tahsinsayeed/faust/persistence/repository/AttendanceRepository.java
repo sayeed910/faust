@@ -1,18 +1,9 @@
 package com.tahsinsayeed.faust.persistence.repository;
 
-import com.tahsinsayeed.faust.persistence.DBConnection;
-import com.tahsinsayeed.faust.business.entity.Attendance;
-
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.dao.*;
 import com.j256.ormlite.support.ConnectionSource;
+import com.tahsinsayeed.faust.business.entity.Attendance;
+import com.tahsinsayeed.faust.persistence.DBConnection;
 
 import java.sql.SQLException;
 import java.util.*;

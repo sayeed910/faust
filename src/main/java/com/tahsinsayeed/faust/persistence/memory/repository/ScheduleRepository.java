@@ -1,17 +1,19 @@
 package com.tahsinsayeed.faust.persistence.memory.repository;
 
-import com.j256.ormlite.dao.*;
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
-import com.tahsinsayeed.faust.business.entity.Schedule;
 import com.tahsinsayeed.faust.persistence.DBConnection;
+import com.tahsinsayeed.faust.business.entity.Schedule;
 
 import java.sql.SQLException;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by IMON on 9/1/2017.
  */
-public class ScheduleRepository implements Repository<Schedule> {
+public class ScheduleRepository implements Repository<Schedule>  {
 
     private Dao<Schedule, String> scheduleDao;
      ScheduleRepository(DBConnection connection){

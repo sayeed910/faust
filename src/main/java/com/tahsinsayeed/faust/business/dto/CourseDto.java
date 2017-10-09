@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class CourseDto {
     private String id;
     private String name;
-    private List<Book> books;
+    private List<BookDto> books;
     private List<Note> notes;
     private List<ExamDto> exams;
     private List<AssignmentDto> assignments;
@@ -19,10 +19,10 @@ public class CourseDto {
     public CourseDto(Course course){
         this.id = course.getId();
         this.name = course.getName();
-        this.books = course.getBooks();
         this.notes = course.getNotes();
-        this.exams = course.getExams().stream().map(exam -> new ExamDto(exam, name)).collect(Collectors.toList());
-        this.assignments = course.getAssignments().stream().map(assignment -> new AssignmentDto(assignment, name))
+        this.books = course.getBooks().stream().map(book -> new BookDto(book)).collect(Collectors.toList());
+        this.exams = course.getExams().stream().map(exam -> new ExamDto(exam, course)).collect(Collectors.toList());
+        this.assignments = course.getAssignments().stream().map(assignment -> new AssignmentDto(assignment, course))
                 .collect(Collectors.toList());
     }
 
@@ -43,11 +43,11 @@ public class CourseDto {
         this.name = name;
     }
 
-    public List<Book> getBooks() {
+    public List<BookDto> getBooks() {
         return books;
     }
 
-    public void setBooks(List<Book> books) {
+    public void setBooks(List<BookDto> books) {
         this.books = books;
     }
 

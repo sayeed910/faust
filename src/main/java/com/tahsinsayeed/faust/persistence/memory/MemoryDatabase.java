@@ -15,9 +15,9 @@ public class MemoryDatabase {
     public static Map<String, Book> book = new Hashtable<>();
     public static Map<String, Course> courses = Maps.newHashMap();
     public static Map<String, Class> classes = new Hashtable<>();
-    public static Map<String, Event> event = new Hashtable<>();
-    public static Map<String, Exam> exam = new Hashtable<>();
-    public static Map<String, Holiday> holiday = new Hashtable<>();
+    public static Map<String, Event> events = new Hashtable<>();
+    public static Map<String, Exam> exams = new Hashtable<>();
+    public static Map<String, Holiday> holidays = new Hashtable<>();
     public static Map<String, Note> notebook = new Hashtable<>();
     public static Map<String, Schedule> schedules = new Hashtable<>();
     public static Map<String, Semester> semester = new Hashtable<>();
@@ -83,12 +83,12 @@ public class MemoryDatabase {
         Exam exam5 =Exam.create("Semester Final","CSE-3205",
                 LocalDate.of(2017, 12, 7),LocalTime.of(10, 0));
 
-        //exam which don't have ID field will use randomUUID for key.
-        exam.put(UUID.randomUUID().toString(), exam1);
-        exam.put(UUID.randomUUID().toString(), exam2);
-        exam.put(UUID.randomUUID().toString(), exam3);
-        exam.put(UUID.randomUUID().toString(), exam4);
-        exam.put(UUID.randomUUID().toString(), exam5);
+        //exams which don't have ID field will use randomUUID for key.
+        exams.put(UUID.randomUUID().toString(), exam1);
+        exams.put(UUID.randomUUID().toString(), exam2);
+        exams.put(UUID.randomUUID().toString(), exam3);
+        exams.put(UUID.randomUUID().toString(), exam4);
+        exams.put(UUID.randomUUID().toString(), exam5);
 
         Class clazz11 = Class.create("CSE-3201", DayOfWeek.WEDNESDAY, LocalTime.of(11, 30));
         Class clazz12 = Class.create("CSE-3201", DayOfWeek.THURSDAY, LocalTime.of(8, 30));

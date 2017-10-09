@@ -1,9 +1,20 @@
 package com.tahsinsayeed.faust.persistence.memory.repository;
 
-import com.j256.ormlite.dao.*;
+import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
-import com.tahsinsayeed.faust.business.entity.Course;
 import com.tahsinsayeed.faust.persistence.DBConnection;
+import com.tahsinsayeed.faust.business.entity.Course;
+
+
+import static com.tahsinsayeed.faust.persistence.memory.MemoryDatabase.courses;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import com.j256.ormlite.dao.Dao;
+import com.tahsinsayeed.faust.persistence.memory.MemoryDatabase;
 
 import java.sql.SQLException;
 import java.util.*;
@@ -13,68 +24,31 @@ import java.util.*;
  * Created by IMON on 8/13/2017.
  */
 public class CourseRepository implements Repository<Course> {
-    private Dao<Course, String> courseDao;
-     CourseRepository(DBConnection connection){
-        ConnectionSource connectionSource = connection.getConnectionSource();
-        try {
-            courseDao = DaoManager.createDao(connectionSource, Course.class);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-     CourseRepository() {
-        this(DBConnection.getInstance());
-    }
-
 
     @Override
     public Course get(String id) {
 
-        try {
-            return courseDao.queryForId(id);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return null;
+        return courses.get(id);
     }
 
     @Override
     public List<Course> getAll() {
-        try {
-            return courseDao.queryForAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return Collections.emptyList();
+        return new ArrayList<>(courses.values());
     }
 
     @Override
     public void save(Course objectToSave) {
-        try {
-            courseDao.create(objectToSave);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+       courses.put(objectToSave.getId(), objectToSave);
     }
 
     @Override
     public void update(Course objectToUpdate) {
-        try {
-            courseDao.update(objectToUpdate);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+       courses.put(objectToUpdate.getId(), objectToUpdate);
     }
 
     @Override
     public void delete(Course objectToDelete) {
-        try {
-            courseDao.delete(objectToDelete);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        courses.remove(objectToDelete.getId(), objectToDelete);
     }
 
 }

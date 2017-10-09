@@ -1,12 +1,12 @@
 package com.tahsinsayeed.faust.business.interactor;
 
-import com.tahsinsayeed.faust.business.dto.DtoBank;
+import com.tahsinsayeed.faust.business.dto.*;
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.persistence.memory.repository.*;
 
 import java.time.LocalDate;
 
-public class AddAssignmentInteractor implements Interactor<Void> {
+public class AddAssignmentInteractor implements Interactor {
     private String title;
     private String description;
     private String parentCourseId;
@@ -23,15 +23,15 @@ public class AddAssignmentInteractor implements Interactor<Void> {
     }
 
     @Override
-    public Void execute() {
+    public void execute() {
         Repository<Assignment> assignmentRepository = repositoryFactory.getAssignmentRepository();
         Assignment assignment = Assignment.createWithDescription(parentCourseId, title, description, dueDate);
         assignmentRepository.save(assignment);
+        AssignmentDto assignmentDto = new AssignmentDto(assignment,
+                repositoryFactory.getCourseRepository().get(assignment.getParentCourseId()));
+        dtoBank.addAssignment(assignmentDto);
+        UpcomingTaskRetriever.create(LocalDate.now()).execute();
 
-
-
-
-        return null;
     }
 
 }

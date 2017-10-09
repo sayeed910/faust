@@ -10,10 +10,11 @@ import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class UpcomingTaskRetriever implements Interactor<UpcomingTask>{
+public class UpcomingTaskRetriever implements Interactor{
     private final LocalDate date;
     private final RepositoryFactory repositoryFactory;
     private final Repository<Course> courseRepository;
+    private final DtoBank dtoBank = DtoBank.getInstance();
 
     private UpcomingTaskRetriever(LocalDate date, RepositoryFactory factory) {
         this.repositoryFactory = factory;
@@ -59,8 +60,8 @@ public class UpcomingTaskRetriever implements Interactor<UpcomingTask>{
     }
 
     @Override
-    public UpcomingTask execute() {
-        return new UpcomingTask(getTodaysClasses(), getTodaysAssignments(), getTodaysExams());
+    public void execute() {
+        dtoBank.setUpcomingTask(new UpcomingTask(getTodaysClasses(), getTodaysAssignments(), getTodaysExams()));
     }
 
 

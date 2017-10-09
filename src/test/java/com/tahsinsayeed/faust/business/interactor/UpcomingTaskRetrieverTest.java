@@ -2,15 +2,12 @@ package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.entity.Class;
-import com.tahsinsayeed.faust.persistence.repository.*;
 import org.junit.*;
 
 import java.time.*;
 import java.util.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsEqual.equalTo;
-import static org.mockito.Mockito.*;
 
 public class UpcomingTaskRetrieverTest {
 

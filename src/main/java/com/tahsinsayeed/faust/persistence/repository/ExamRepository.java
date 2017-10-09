@@ -1,13 +1,9 @@
 package com.tahsinsayeed.faust.persistence.repository;
 
-import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.dao.*;
 import com.j256.ormlite.support.ConnectionSource;
-import com.tahsinsayeed.faust.persistence.DBConnection;
 import com.tahsinsayeed.faust.business.entity.Exam;
-import com.tahsinsayeed.faust.persistence.memory.MemoryDatabase;
-import static com.tahsinsayeed.faust.persistence.memory.MemoryDatabase.*;
-
+import com.tahsinsayeed.faust.persistence.DBConnection;
 
 import java.sql.SQLException;
 import java.util.*;
@@ -15,32 +11,70 @@ import java.util.*;
 /**
  * Created by IMON on 9/1/2017.
  */
-public class ExamRepository implements Repository<Exam>  {
+public class ExamRepository implements Repository<Exam> {
+
+    private Dao<Exam, String> examDao;
+
+    ExamRepository(DBConnection connection){
+        ConnectionSource connectionSource = connection.getConnectionSource();
+        try {
+            examDao = DaoManager.createDao(connectionSource, Exam.class);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    ExamRepository() {
+        this(DBConnection.getInstance());
+    }
 
 
     @Override
     public Exam get(String id) {
 
-        return exams.get(id);
+        try {
+            return examDao.queryForId(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     @Override
     public List<Exam> getAll() {
-        return new ArrayList<>(exams.values());
+        try {
+            return examDao.queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Collections.emptyList();
     }
 
     @Override
     public void save(Exam objectToSave) {
-        exams.put(objectToSave.getExamId(), objectToSave);
+        try {
+            examDao.create(objectToSave);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void update(Exam objectToUpdate) {
-        exams.put(objectToUpdate.getExamId(), objectToUpdate);
+        try {
+            examDao.update(objectToUpdate);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void delete(Exam objectToDelete) {
-        exams.remove(objectToDelete.getExamId());
+        try {
+            examDao.delete(objectToDelete);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

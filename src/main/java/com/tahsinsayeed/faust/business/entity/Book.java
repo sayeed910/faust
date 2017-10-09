@@ -16,4 +16,16 @@ public class Book {
     public static Book create(String name, String parentCourseId, File file) {
         return new Book(name,parentCourseId, file);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getParentCourseId() {
+        return parentCourseId;
+    }
+
+    public File getFile() {
+        return file;
+    }
 }
