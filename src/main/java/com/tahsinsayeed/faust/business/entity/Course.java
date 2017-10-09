@@ -66,6 +66,18 @@ public class Course {
         return exams;
     }
 
+    public void addBook(Book book) { this.books.add(book); }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void addBook(Note note) { this.notes.add(note); }
+
+    public List<Note> getNotes() {
+        return notes;
+    }
+
     public void addAssignment(Assignment assignment) {
         this.assignments.add(assignment);
     }
