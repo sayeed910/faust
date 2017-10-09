@@ -1,7 +1,7 @@
 package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.entity.Course;
-import com.tahsinsayeed.faust.persistence.repository.*;
+import com.tahsinsayeed.faust.persistence.memory.repository.*;
 
 public class AddCourseInteractor implements Interactor<Void> {
     private String id;

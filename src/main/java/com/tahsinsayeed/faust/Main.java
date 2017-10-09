@@ -5,7 +5,8 @@ import com.sun.javafx.application.LauncherImpl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.web.WebEngine;
@@ -16,35 +17,34 @@ import java.util.logging.Logger;
 public class Main extends Application {
     private final Logger logger = Logger.getGlobal();
 
-    @Override
-    public void init(){
-        try {
-            Thread.sleep(3);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         PdfViewerFactory.init();
-
-//        Pane defaul = FXMLLoader.load(getClass().getResource("/view/main_window.fxml"));
-//        JFXDecorator root = new JFXDecorator(primaryStage, defaul);
-//        root.setCustomMaximize(true);
-
         VBox root = new VBox();
-        JFXDatePicker blueDatePicker = new JFXDatePicker();
-        blueDatePicker.setDefaultColor(Color.valueOf("#3f51b5"));
-        blueDatePicker.setOverLay(true);
-        StackPane pane = new StackPane();
-        blueDatePicker.setDialogParent(pane);
-//        root.getChildren().addAll(blueDatePicker);
 
-        JFXListView<Label> list = new JFXListView<Label>();
-        for(int i = 0 ; i < 4 ; i++) list.getItems().add(new Label("Item " + i));
-        list.getStyleClass().add("mylistview");
-        root.getChildren().addAll(list);
+        TreeView<String> treeView = new JFXTreeView<>();
+        treeView.getStylesheets().add(getClass().getResource("/css/list.css").toExternalForm());
+        treeView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+
+        TreeItem<String> treeRoot = new TreeItem<>("one");
+        treeRoot.getChildren().addAll(
+                new TreeItem<>("two"),
+                new TreeItem<>("two"),
+                new TreeItem<>("two"),
+                new TreeItem<>("two")
+                );
+        treeView.setRoot(treeRoot);
+        treeView.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> {
+                    TreeItem<String> item = (TreeItem<String>)newValue;
+                    if (!item.isExpanded()) item.setExpanded(true);
+                    else item.setExpanded(false);
+                } );
+
+        root.getChildren().addAll(treeView);
+
 
         primaryStage.setTitle("Faust");
         primaryStage.setScene(new Scene(root, 600, 500));
@@ -61,8 +61,8 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-//        launch(args);
-        LauncherImpl.launchApplication(Main.class, FaustPreloader.class, args);
+        launch(args);
+//        LauncherImpl.launchApplication(Main.class, FaustPreloader.class, args);
     }
 
 

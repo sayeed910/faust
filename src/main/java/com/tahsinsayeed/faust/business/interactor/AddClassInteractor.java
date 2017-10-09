@@ -2,7 +2,7 @@ package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.entity.Course;
 import com.tahsinsayeed.faust.business.entity.Class;
-import com.tahsinsayeed.faust.persistence.repository.*;
+import com.tahsinsayeed.faust.persistence.memory.repository.*;
 
 import java.time.*;
 

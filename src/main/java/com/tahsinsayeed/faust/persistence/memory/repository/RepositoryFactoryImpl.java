@@ -1,62 +1,57 @@
-package com.tahsinsayeed.faust.business.interactor;
+package com.tahsinsayeed.faust.persistence.memory.repository;
 
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.entity.Class;
-import com.tahsinsayeed.faust.persistence.memory.repository.*;
 
-public class RepositoryFactoryStub implements RepositoryFactory {
-
-    public Repository<Class> classRepository  = null;
-    public Repository<Assignment> assignmentRepository = null;
-    public Repository<Exam> examRepository = null;
+public class RepositoryFactoryImpl implements RepositoryFactory {
 
     @Override
     public Repository<Event> getEventRepository() {
-        return null;
+        return new EventRepository();
     }
 
     @Override
     public Repository<Semester> getSemesterRepository() {
-        return null;
+        return new SemesterRepository();
     }
 
     @Override
     public Repository<Course> getCourseRepository() {
-        return null;
+        return new CourseRepository();
     }
 
     @Override
     public Repository<Class> getClassRepository() {
-        return classRepository;
+        return new ClassRepository();
     }
 
     @Override
     public Repository<Attendance> getAttendanceRepository() {
-        return null;
+        return new AttendanceRepository();
     }
 
     @Override
     public Repository<Assignment> getAssignmentRepository() {
-        return assignmentRepository;
+        return new AssignmentRepository();
     }
 
     @Override
     public Repository<Schedule> getScheduleRepository() {
-        return null;
+        return new ScheduleRepository();
     }
 
     @Override
     public Repository<Holiday> getHolidayRepository() {
-        return null;
+        return new HolidayRepository();
     }
 
     @Override
     public Repository<Exam> getExamRepository() {
-        return examRepository;
+        return new ExamRepository();
     }
 
     @Override
     public Repository<Book> getBookRepository() {
-        return null;
+        return new BookRepository();
     }
 }

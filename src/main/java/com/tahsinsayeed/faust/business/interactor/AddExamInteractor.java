@@ -1,7 +1,7 @@
 package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.entity.*;
-import com.tahsinsayeed.faust.persistence.repository.*;
+import com.tahsinsayeed.faust.persistence.memory.repository.*;
 
 import java.time.*;
 

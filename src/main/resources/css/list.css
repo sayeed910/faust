@@ -1,0 +1,12 @@
+.tree-cell .tree-disclosure-node .arrow {
+    -fx-shape : null;
+    -fx-background-color: null;
+}
+.tree-cell:expanded .tree-disclosure-node .arrow {
+-fx-shape : null;
+    -fx-background-color: null;
+}
+
+.tree-cell {
+    -fx-font-size: 20px;
+}

@@ -4,7 +4,7 @@ import com.google.common.annotations.VisibleForTesting;
 import com.tahsinsayeed.faust.business.dto.*;
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.entity.Class;
-import com.tahsinsayeed.faust.persistence.repository.*;
+import com.tahsinsayeed.faust.persistence.memory.repository.*;
 
 import java.time.LocalDate;
 import java.util.*;

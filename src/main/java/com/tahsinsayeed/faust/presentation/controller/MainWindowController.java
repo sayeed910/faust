@@ -57,7 +57,7 @@ public class MainWindowController {
 //
 //        Button loadNotebook = new Button("Note");
 //
-//        loadNotebook.setOnAction(event -> {
+//        loadNotebook.setOnAction(events -> {
 //            Note notebook = Note.create(mainView);
 //            notebook.loadNoteBook();
 //        });

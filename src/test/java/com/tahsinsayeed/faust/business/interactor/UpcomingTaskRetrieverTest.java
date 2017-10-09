@@ -42,7 +42,7 @@ public class UpcomingTaskRetrieverTest {
         List<Exam> exams = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            exams.add(Exam.create("exam","course", date, LocalTime.of(8, 30)));
+            exams.add(Exam.create("exams","course", date, LocalTime.of(8, 30)));
         }
 
         return exams;
@@ -52,7 +52,7 @@ public class UpcomingTaskRetrieverTest {
         List<Assignment> assignments = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            assignments.add(Assignment.create("course","exam", LocalDate.now()));
+            assignments.add(Assignment.create("course","exams", LocalDate.now()));
         }
 
         return assignments;

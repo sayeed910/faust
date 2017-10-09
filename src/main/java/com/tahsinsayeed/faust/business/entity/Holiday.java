@@ -9,8 +9,8 @@ public class Holiday {
     private String holidayName;
 
     public static Holiday createEvent(Date date, String event){
-        final Date date1 = requireNonNull(date, "Date of a holiday can not be null");
-        final String event1 = requireNonNull(event, "For null holiday the other constructor should be used");
+        final Date date1 = requireNonNull(date, "Date of a holidays can not be null");
+        final String event1 = requireNonNull(event, "For null holidays the other constructor should be used");
 
         return new Holiday(date1, event1);
     }
