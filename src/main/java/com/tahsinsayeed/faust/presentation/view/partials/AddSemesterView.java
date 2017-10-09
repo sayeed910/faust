@@ -1,6 +1,8 @@
 package com.tahsinsayeed.faust.presentation.view.partials;
 
 //import com.tahsinsayeed.faust.business.interactor.AddSemesterInteractor;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTextField;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 
@@ -9,9 +11,9 @@ public class AddSemesterView implements PartialView {
     private final Label id;
     private final Label startdate;
     private final Label endDate;
-    private final TextField txtId;
-    private final TextField txtStartdate;
-    private final TextField txtEndDate;
+    private final JFXTextField txtId;
+    private final JFXDatePicker txtStartdate;
+    private final JFXDatePicker txtEndDate;
     private final HBox firstBox;
     private final HBox secondBox;
     private final HBox thirdBox;
@@ -20,9 +22,9 @@ public class AddSemesterView implements PartialView {
         id = new Label("Semester Id: ");
         startdate = new Label("Semester Startdate: ");
         endDate = new Label("Semester EndDate: ");
-        txtId = new TextField();
-        txtStartdate = new TextField();
-        txtEndDate = new TextField();
+        txtId = new JFXTextField();
+        txtStartdate = new JFXDatePicker();
+        txtEndDate = new JFXDatePicker();
         firstBox = new HBox(id, txtId);
         secondBox = new HBox(startdate, txtStartdate);
         thirdBox = new HBox(endDate, txtEndDate);

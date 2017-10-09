@@ -1,5 +1,6 @@
 package com.tahsinsayeed.faust.presentation.view.partials;
 
+import com.jfoenix.controls.JFXTextField;
 import com.tahsinsayeed.faust.business.interactor.AddClassInteractor;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -20,9 +21,9 @@ public class AddClassView implements PartialView {
         courseLabel = new Label("Class Course: ");
         dayLabel = new Label("Class Day: ");
         startTimeLabel = new Label("Class StartTime: ");
-        txtCourse = new TextField();
-        txtDay = new TextField();
-        txtStartTime = new TextField();
+        txtCourse = new JFXTextField();
+        txtDay = new JFXTextField();
+        txtStartTime = new JFXTextField();
         firstBox = new HBox(courseLabel, txtCourse);
         secondBox = new HBox(dayLabel, txtDay);
         thirdBox = new HBox(startTimeLabel, txtStartTime);
