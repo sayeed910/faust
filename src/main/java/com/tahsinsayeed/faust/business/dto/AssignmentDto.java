@@ -1,18 +1,20 @@
 package com.tahsinsayeed.faust.business.dto;
 
-import com.tahsinsayeed.faust.business.entity.Assignment;
+import com.tahsinsayeed.faust.business.entity.*;
 
 public class AssignmentDto {
-    public String id;
-    public String courseName;
-    public String title;
-    public String description;
+    private String id;
+    private String courseName;
+    private String parentCourseId;
+    private String title;
+    private String description;
 
     public AssignmentDto() {
     }
 
-    public AssignmentDto(Assignment assignment, String courseName){
-        this.courseName = courseName;
+    public AssignmentDto(Assignment assignment, Course course){
+        this.courseName = course.getName();
+        this.parentCourseId = course.getId();
         this.title = assignment.getTitle();
         this.description = assignment.getDescription();
         this.id = assignment.getId();
@@ -48,5 +50,13 @@ public class AssignmentDto {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getParentCourseId() {
+        return parentCourseId;
+    }
+
+    public void setParentCourseId(String parentCourseId) {
+        this.parentCourseId = parentCourseId;
     }
 }

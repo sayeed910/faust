@@ -1,5 +1,6 @@
 package com.tahsinsayeed.faust.business.interactor;
 
+import com.tahsinsayeed.faust.business.dto.DtoBank;
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.persistence.memory.repository.*;
 
@@ -11,6 +12,7 @@ public class AddAssignmentInteractor implements Interactor<Void> {
     private String parentCourseId;
     private LocalDate dueDate;
     private RepositoryFactory repositoryFactory;
+    private final DtoBank dtoBank = DtoBank.getInstance();
 
     public AddAssignmentInteractor(String parentCourseId, String title, LocalDate dueDate, String description) {
         this.parentCourseId = parentCourseId;
@@ -25,6 +27,10 @@ public class AddAssignmentInteractor implements Interactor<Void> {
         Repository<Assignment> assignmentRepository = repositoryFactory.getAssignmentRepository();
         Assignment assignment = Assignment.createWithDescription(parentCourseId, title, description, dueDate);
         assignmentRepository.save(assignment);
+
+
+
+
         return null;
     }
 

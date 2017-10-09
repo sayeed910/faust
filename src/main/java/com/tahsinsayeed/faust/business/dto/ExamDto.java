@@ -1,6 +1,6 @@
 package com.tahsinsayeed.faust.business.dto;
 
-import com.tahsinsayeed.faust.business.entity.Exam;
+import com.tahsinsayeed.faust.business.entity.*;
 
 import java.time.*;
 import java.util.UUID;
@@ -13,12 +13,14 @@ public class ExamDto {
     private LocalDate examDate;
     private LocalTime examTime;
     private String courseName;
+    private String parentCourseId;
 
     public ExamDto() {
     }
 
-    public ExamDto(Exam exam, String courseName){
-        this.courseName = courseName;
+    public ExamDto(Exam exam, Course course){
+        this.courseName = course.getName();
+        this.parentCourseId = course.getId();
         this.examDate = exam.getDate();
         this.examTime = exam.getTime();
         this.id = exam.getExamId();
@@ -73,5 +75,21 @@ public class ExamDto {
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getParentCourseId() {
+        return parentCourseId;
+    }
+
+    public void setParentCourseId(String parentCourseId) {
+        this.parentCourseId = parentCourseId;
     }
 }
