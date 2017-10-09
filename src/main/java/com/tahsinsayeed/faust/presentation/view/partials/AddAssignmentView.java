@@ -10,7 +10,7 @@ public class AddAssignmentView implements PartialView {
     private final Label titleLabel;
     private final Label dueDateLabel;
     private final JFXTextField txtTitle;
-    private final JFXTextField txtDueDate;
+    private final JFXDatePicker txtDueDate;
     private final Label lblParentCourseId;
     private final JFXTextField txtParentCourseId;
     private final HBox firstBox;
@@ -24,7 +24,7 @@ public class AddAssignmentView implements PartialView {
         dueDateLabel = new Label("Assignment DueDate: ");
         lblParentCourseId = new Label("CourseId of Parent: ");
         txtTitle = new JFXTextField();
-        txtDueDate = new JFXTextField();
+        txtDueDate = new JFXDatePicker();
         txtParentCourseId = new JFXTextField();
         firstBox = new HBox(titleLabel, txtTitle);
         datePicker = new JFXDatePicker();

@@ -1,6 +1,8 @@
 package com.tahsinsayeed.faust.presentation.view.partials;
 
 //import com.tahsinsayeed.faust.business.interactor.AddHolidayInteractor;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTextField;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 
@@ -8,16 +10,16 @@ public class AddHolidayView implements PartialView {
     VBox container = new VBox();
     private final Label dateLabel;
     private final Label eventLabel;
-    private final TextField txtDate;
-    private final TextField txtEvent;
+    private final JFXDatePicker txtDate;
+    private final JFXTextField txtEvent;
     private final HBox firstBox;
     private final HBox secondBox;
 
     public AddHolidayView(){
         dateLabel = new Label("Holiday Date: ");
         eventLabel = new Label("Holiday Event: ");
-        txtDate = new TextField();
-        txtEvent = new TextField();
+        txtDate = new JFXDatePicker();
+        txtEvent = new JFXTextField();
         firstBox = new HBox(dateLabel, txtDate);
         secondBox = new HBox(eventLabel, txtEvent);
         container.getChildren().addAll(firstBox, secondBox);

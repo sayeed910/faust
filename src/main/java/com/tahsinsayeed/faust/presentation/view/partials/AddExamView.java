@@ -1,5 +1,7 @@
 package com.tahsinsayeed.faust.presentation.view.partials;
 
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTextField;
 import com.tahsinsayeed.faust.business.interactor.AddExamInteractor;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -9,9 +11,9 @@ public class AddExamView implements PartialView {
     private final Label examName;
     private final Label examDate;
     private final Label examTime;
-    private final TextField txtExamName;
-    private final TextField txtExamDate;
-    private final TextField txtExamTime;
+    private final JFXTextField txtExamName;
+    private final JFXDatePicker txtExamDate;
+    private final JFXTextField txtExamTime;
     private final HBox firstBox;
     private final HBox secondBox;
     private final HBox thirdBox;
@@ -20,9 +22,9 @@ public class AddExamView implements PartialView {
         examName = new Label("Exam ExamName: ");
         examDate = new Label("Exam ExamDate: ");
         examTime = new Label("Exam ExamTime: ");
-        txtExamName = new TextField();
-        txtExamDate = new TextField();
-        txtExamTime = new TextField();
+        txtExamName = new JFXTextField();
+        txtExamDate = new JFXDatePicker();
+        txtExamTime = new JFXTextField();
         firstBox = new HBox(examName, txtExamName);
         secondBox = new HBox(examDate, txtExamDate);
         thirdBox = new HBox(examTime, txtExamTime);
