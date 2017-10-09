@@ -2,6 +2,7 @@ package com.tahsinsayeed.faust;
 
 import com.jfoenix.controls.*;
 import com.sun.javafx.application.LauncherImpl;
+import com.tahsinsayeed.faust.presentation.view.partials.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -23,27 +24,28 @@ public class Main extends Application {
         PdfViewerFactory.init();
         VBox root = new VBox();
 
-        TreeView<String> treeView = new JFXTreeView<>();
-        treeView.getStylesheets().add(getClass().getResource("/css/list.css").toExternalForm());
-        treeView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+//        TreeView<String> treeView = new JFXTreeView<>();
+//        treeView.getStylesheets().add(getClass().getResource("/css/list.css").toExternalForm());
+//        treeView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+//
+//
+//        TreeItem<String> treeRoot = new TreeItem<>("one");
+//        treeRoot.getChildren().addAll(
+//                new TreeItem<>("two"),
+//                new TreeItem<>("two"),
+//                new TreeItem<>("two"),
+//                new TreeItem<>("two")
+//                );
+//        treeView.setRoot(treeRoot);
+//        treeView.getSelectionModel().selectedItemProperty().addListener(
+//                (observable, oldValue, newValue) -> {
+//                    TreeItem<String> item = (TreeItem<String>)newValue;
+//                    if (!item.isExpanded()) item.setExpanded(true);
+//                    else item.setExpanded(false);
+//                } );
 
-
-        TreeItem<String> treeRoot = new TreeItem<>("one");
-        treeRoot.getChildren().addAll(
-                new TreeItem<>("two"),
-                new TreeItem<>("two"),
-                new TreeItem<>("two"),
-                new TreeItem<>("two")
-                );
-        treeView.setRoot(treeRoot);
-        treeView.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> {
-                    TreeItem<String> item = (TreeItem<String>)newValue;
-                    if (!item.isExpanded()) item.setExpanded(true);
-                    else item.setExpanded(false);
-                } );
-
-        root.getChildren().addAll(treeView);
+        PartialView view = new AddAssignmentView();
+        root.getChildren().addAll(view.getContainer());
 
 
         primaryStage.setTitle("Faust");

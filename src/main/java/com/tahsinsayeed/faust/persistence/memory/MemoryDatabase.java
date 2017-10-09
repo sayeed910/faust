@@ -85,7 +85,8 @@ public class MemoryDatabase {
         classes.put(UUID.randomUUID().toString(), clazz51);
         classes.put(UUID.randomUUID().toString(), clazz52);
 
-        Book book1 = Book.create("Computer Networking", "CSE-3202", new File(HOME_DIR + "cn.pdf"));
+        Book book1 = Book.create("Computer Networking", "CSE-3202",
+                new File(HOME_DIR + "cn.pdf"));
 
         book.put(UUID.randomUUID().toString(), book1);
 

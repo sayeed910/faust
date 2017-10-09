@@ -1,4 +1,4 @@
 package com.tahsinsayeed.faust.presentation.view;
 
-public class MainView {
+public class SideBarView {
 }
