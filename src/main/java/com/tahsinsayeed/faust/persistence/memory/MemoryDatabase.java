@@ -138,6 +138,7 @@ public class MemoryDatabase {
         course1.addBook(book51);
         course1.addBook(book52);
 
+
         course1.addExam(exam1);
         course2.addExam(exam2);
         course3.addExam(exam3);
