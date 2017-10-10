@@ -25,6 +25,7 @@ public class AddAssignmentView implements PartialView {
         lblParentCourseId = new Label("CourseId of Parent: ");
         txtTitle = new JFXTextField();
         txtDueDate = new JFXDatePicker();
+        txtDueDate.setOverLay(false);
         txtParentCourseId = new JFXTextField();
         firstBox = new HBox(titleLabel, txtTitle);
         datePicker = new JFXDatePicker();

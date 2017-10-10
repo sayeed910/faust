@@ -24,7 +24,9 @@ public class AddSemesterView implements PartialView {
         endDate = new Label("Semester EndDate: ");
         txtId = new JFXTextField();
         txtStartdate = new JFXDatePicker();
+        txtStartdate.setOverLay(false);
         txtEndDate = new JFXDatePicker();
+        txtEndDate.setOverLay(false);
         firstBox = new HBox(id, txtId);
         secondBox = new HBox(startdate, txtStartdate);
         thirdBox = new HBox(endDate, txtEndDate);

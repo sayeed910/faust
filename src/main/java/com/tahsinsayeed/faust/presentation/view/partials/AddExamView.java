@@ -24,6 +24,7 @@ public class AddExamView implements PartialView {
         examTime = new Label("Exam ExamTime: ");
         txtExamName = new JFXTextField();
         txtExamDate = new JFXDatePicker();
+        txtExamDate.setOverLay(false);
         txtExamTime = new JFXTextField();
         firstBox = new HBox(examName, txtExamName);
         secondBox = new HBox(examDate, txtExamDate);
