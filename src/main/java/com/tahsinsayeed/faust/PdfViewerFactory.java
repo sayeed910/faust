@@ -1,6 +1,6 @@
 package com.tahsinsayeed.faust;
 
-import com.tahsinsayeed.faust.widget.PdfViewer;
+import com.tahsinsayeed.faust.ui.PdfViewer;
 import javafx.scene.web.WebView;
 
 import java.util.ArrayDeque;

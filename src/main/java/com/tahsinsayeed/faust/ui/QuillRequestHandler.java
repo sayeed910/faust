@@ -1,4 +1,4 @@
-package com.tahsinsayeed.faust.widget;
+package com.tahsinsayeed.faust.ui;
 
 import com.google.common.io.Files;
 import javafx.scene.web.WebEngine;

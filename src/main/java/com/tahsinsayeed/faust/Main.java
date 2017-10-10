@@ -2,6 +2,10 @@ package com.tahsinsayeed.faust;
 
 import com.jfoenix.controls.*;
 import com.sun.javafx.application.LauncherImpl;
+import com.tahsinsayeed.faust.business.dto.DtoBank;
+import com.tahsinsayeed.faust.business.interactor.*;
+import com.tahsinsayeed.faust.presentation.controller.SideBarController;
+import com.tahsinsayeed.faust.presentation.view.*;
 import com.tahsinsayeed.faust.presentation.view.partials.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,39 +21,28 @@ import java.util.logging.Logger;
 
 public class Main extends Application {
     private final Logger logger = Logger.getGlobal();
+    private Scene scene;
 
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         PdfViewerFactory.init();
-        VBox root = new VBox();
-
-//        TreeView<String> treeView = new JFXTreeView<>();
-//        treeView.getStylesheets().add(getClass().getResource("/css/list.css").toExternalForm());
-//        treeView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        DtoBank bank = DtoBank.getInstance();
+        Interactor startupInteractor = new PopulateDataModelInteractor();
+        startupInteractor.execute();
+        StackPane root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
+//        MainView mainView = new MainView();
 //
-//
-//        TreeItem<String> treeRoot = new TreeItem<>("one");
-//        treeRoot.getChildren().addAll(
-//                new TreeItem<>("two"),
-//                new TreeItem<>("two"),
-//                new TreeItem<>("two"),
-//                new TreeItem<>("two")
-//                );
-//        treeView.setRoot(treeRoot);
-//        treeView.getSelectionModel().selectedItemProperty().addListener(
-//                (observable, oldValue, newValue) -> {
-//                    TreeItem<String> item = (TreeItem<String>)newValue;
-//                    if (!item.isExpanded()) item.setExpanded(true);
-//                    else item.setExpanded(false);
-//                } );
+//        root.getChildren().addAll(mainView.getContainer());
 
-        PartialView view = new AddAssignmentView();
-        root.getChildren().addAll(view.getContainer());
+        JFXDecorator decorator = new JFXDecorator(primaryStage, root);
 
 
         primaryStage.setTitle("Faust");
-        primaryStage.setScene(new Scene(root, 600, 500));
+        scene = new Scene(decorator, 800, 600);
+        scene.getStylesheets().addAll(getClass().getResource("/css/jfoenix-components.css").toExternalForm(),
+                getClass().getResource("/css/jfoenix-main-demo.css").toExternalForm());
+        primaryStage.setScene(scene);
         primaryStage.setMaximized(true);
         primaryStage.show();
 

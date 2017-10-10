@@ -1,4 +1,4 @@
-package com.tahsinsayeed.faust.widget;
+package com.tahsinsayeed.faust.ui;
 
 import com.sun.media.jfxmedia.logging.Logger;
 import javafx.concurrent.Worker;

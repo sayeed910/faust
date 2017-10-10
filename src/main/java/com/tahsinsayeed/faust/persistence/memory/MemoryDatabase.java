@@ -24,6 +24,7 @@ public class MemoryDatabase {
 
 
     static {
+        System.out.println("started");
         Assignment assignment1 = Assignment.createWithDescription("CSE-3201",
                 "Assignment1", "Design a Softwer", LocalDate.now());
         Assignment assignment2 = Assignment.createWithDescription("CSE-3202",

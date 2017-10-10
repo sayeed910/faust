@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition?>
+<StackPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1"
+           xmlns="http://javafx.com/javafx/8" fx:controller="com.tahsinsayeed.faust.presentation.controller.MainWindowController">
+    <!-- Header -->
+    <BorderPane>
+        <top>
+            <VBox spacing="20">
+                <JFXToolbar>
+                    <leftItems>
+                        <JFXRippler maskType="CIRCLE" style="-fx-ripple-color:WHITE;">
+                            <StackPane fx:id="titleBurgerContainer">
+                                <JFXHamburger fx:id="titleBurger" >
+                                    <HamburgerSlideCloseTransition/>
+
+                                </JFXHamburger>
+                            </StackPane>
+                        </JFXRippler>
+                        <Label>Faust</Label>
+                    </leftItems>
+                    <rightItems>
+                        <JFXRippler fx:id="optionsRippler" maskType="CIRCLE"
+                                    style="-fx-ripple-color:WHITE;" >
+                            <StackPane fx:id="optionsBurger">
+                                <JFXHamburger styleClass="jfx-options-burger">
+                                </JFXHamburger>
+                            </StackPane>
+                        </JFXRippler>
+                    </rightItems>
+                </JFXToolbar>
+            </VBox>
+        </top>
+
+        <!-- Content Area -->
+        <center>
+            <JFXDrawer fx:id="drawer" defaultDrawerSize="400" direction="LEFT">
+                <styleClass>
+                    <String fx:value="body"/>
+                </styleClass>
+            </JFXDrawer>
+        </center>
+    </BorderPane>
+</StackPane>

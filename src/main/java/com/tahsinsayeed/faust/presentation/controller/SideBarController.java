@@ -1,17 +1,25 @@
 package com.tahsinsayeed.faust.presentation.controller;
 
-import com.jfoenix.controls.*;
-import com.tahsinsayeed.faust.presentation.view.SideBarView;
+import com.tahsinsayeed.faust.business.dto.DtoBank;
+import com.tahsinsayeed.faust.presentation.model.sidebar.*;
 
 public class SideBarController {
-    SideBarView sideBarView;
+    DtoBank dtoBank = DtoBank.getInstance();
+    private SideBarItem rootTreeItem;
 
-    JFXTreeCell<String> cell;
+    public SideBarController() {
+        rootTreeItem = new CourseItem(dtoBank.getCourses());
+    }
 
-    public void init(){
-        cell = new JFXTreeCell<>();
-        cell.setItem("one");
-        JFXTreeView<String> tree = new JFXTreeView<>();
-        tree.setRoot(cell.getTreeItem());
+    public SideBarItem getRootTreeItem() {
+        return rootTreeItem;
+    }
+
+    public void showPopup() {
+
+    }
+
+    public void addElement(String item) {
+
     }
 }
