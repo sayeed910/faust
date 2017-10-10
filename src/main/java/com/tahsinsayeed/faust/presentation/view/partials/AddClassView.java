@@ -1,6 +1,6 @@
 package com.tahsinsayeed.faust.presentation.view.partials;
 
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import com.tahsinsayeed.faust.business.interactor.AddClassInteractor;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -17,7 +17,7 @@ public class AddClassView implements PartialView {
     private final HBox secondBox;
     private final HBox thirdBox;
 
-    public AddClassView(){
+    public AddClassView(JFXDialog dialog){
         courseLabel = new Label("Class Course: ");
         dayLabel = new Label("Class Day: ");
         startTimeLabel = new Label("Class StartTime: ");

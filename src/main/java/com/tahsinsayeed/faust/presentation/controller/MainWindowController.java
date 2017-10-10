@@ -59,7 +59,7 @@ public class MainWindowController {
             }
         });
 
-        SideBarView sideBar = new SideBarView(new SideBarController());
+        SideBarView sideBar = new SideBarView(new SideBarController(root));
 
         drawer.setSidePane(sideBar.getContainer());
 

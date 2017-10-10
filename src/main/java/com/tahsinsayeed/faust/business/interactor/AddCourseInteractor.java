@@ -19,11 +19,15 @@ public class AddCourseInteractor implements Interactor {
     @Override
     public void execute() {
         Repository<Course> courseRepository = repositoryFactory.getCourseRepository();
+
+        if (id.isEmpty() || name.isEmpty()) return;
+
         Course course = Course.create(id, name);
         courseRepository.save(course);
 
         CourseDto courseDto = new CourseDto(course);
         dtoBank.addCourse(courseDto);
+        new PopulateDataModelInteractor().execute();
     }
 
 }

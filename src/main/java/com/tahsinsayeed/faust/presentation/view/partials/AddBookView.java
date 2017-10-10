@@ -1,6 +1,6 @@
 package com.tahsinsayeed.faust.presentation.view.partials;
 
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import com.tahsinsayeed.faust.business.interactor.AddBookInteractor;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -14,7 +14,7 @@ public class AddBookView implements PartialView {
     private final HBox firstBox;
     private final HBox secondBox;
 
-    public AddBookView(){
+    public AddBookView(JFXDialog dialog){
         nameLabel = new Label("Book Name: ");
         pathLabel = new Label("Book Path: ");
         txtName = new JFXTextField();

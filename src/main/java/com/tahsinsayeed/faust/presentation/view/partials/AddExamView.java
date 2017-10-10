@@ -1,7 +1,6 @@
 package com.tahsinsayeed.faust.presentation.view.partials;
 
-import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import com.tahsinsayeed.faust.business.interactor.AddExamInteractor;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -18,7 +17,7 @@ public class AddExamView implements PartialView {
     private final HBox secondBox;
     private final HBox thirdBox;
 
-    public AddExamView(){
+    public AddExamView(JFXDialog dialog){
         examName = new Label("Exam ExamName: ");
         examDate = new Label("Exam ExamDate: ");
         examTime = new Label("Exam ExamTime: ");

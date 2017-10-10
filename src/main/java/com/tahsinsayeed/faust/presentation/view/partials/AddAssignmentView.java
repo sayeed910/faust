@@ -19,7 +19,7 @@ public class AddAssignmentView implements PartialView {
     private final JFXDatePicker datePicker;
 
 
-    public AddAssignmentView(){
+    public AddAssignmentView(JFXDialog dialog){
         titleLabel = new Label("Assignment Title: ");
         dueDateLabel = new Label("Assignment DueDate: ");
         lblParentCourseId = new Label("CourseId of Parent: ");

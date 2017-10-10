@@ -73,6 +73,7 @@ public class DtoBank {
         if (!indexOfCourse.containsKey(course.getId())){
             courses.add(course);
             indexOfCourse.put(course.getId(), courses.indexOf(course));
+            System.out.println(course.getId());
         } else {
             int index = indexOfCourse.get(course.getId());
             courses.add(index, course);

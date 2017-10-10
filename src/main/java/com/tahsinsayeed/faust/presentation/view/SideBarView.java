@@ -43,6 +43,7 @@ public class SideBarView implements View {
         container.setPadding(new Insets(30, 0, 10, 0));
         root = new StackPane(container);
 
+        controller.setNav(nav);
 
         listOfOptions.setItems(FXCollections.observableArrayList("Course", "Assignment", "Exam", "Class", "Book"));
         popup.setPopupContent(listOfOptions);
@@ -50,6 +51,8 @@ public class SideBarView implements View {
         listOfOptions.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             controller.addElement(newValue);
         });
+
+        btnAdd.setOnAction((e) -> popup.show(btnAdd, JFXPopup.PopupVPosition.BOTTOM, JFXPopup.PopupHPosition.RIGHT));
 
     }
 
