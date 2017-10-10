@@ -19,6 +19,7 @@ public class AddHolidayView implements PartialView {
         dateLabel = new Label("Holiday Date: ");
         eventLabel = new Label("Holiday Event: ");
         txtDate = new JFXDatePicker();
+        txtDate.setOverLay(false);
         txtEvent = new JFXTextField();
         firstBox = new HBox(dateLabel, txtDate);
         secondBox = new HBox(eventLabel, txtEvent);

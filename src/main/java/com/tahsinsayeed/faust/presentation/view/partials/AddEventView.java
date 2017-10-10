@@ -19,6 +19,7 @@ public class AddEventView implements PartialView {
         dateLabel = new Label("Assignment Date: ");
         eventLabel = new Label("Assignment Event: ");
         txtDate = new JFXDatePicker();
+        txtDate.setOverLay(false);
         txtEvent = new JFXTextField();
         firstBox = new HBox(dateLabel, txtDate);
         secondBox = new HBox(eventLabel, txtEvent);
