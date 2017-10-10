@@ -132,12 +132,12 @@ public class MemoryDatabase {
 
         course1.addBook(book11);
         course1.addBook(book12);
-        course1.addBook(book21);
-        course1.addBook(book31);
-        course1.addBook(book32);
-        course1.addBook(book41);
-        course1.addBook(book51);
-        course1.addBook(book52);
+        course2.addBook(book21);
+        course3.addBook(book31);
+        course3.addBook(book32);
+        course4.addBook(book41);
+        course5.addBook(book51);
+        course5.addBook(book52);
 
 
         course1.addExam(exam1);
