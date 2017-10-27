@@ -12,9 +12,9 @@ public class AssignmentDto {
     public AssignmentDto() {
     }
 
-    public AssignmentDto(Assignment assignment, Course course){
-        this.courseName = course.getName();
-        this.parentCourseId = course.getId();
+    public AssignmentDto(Assignment assignment,String courseName){
+        this.courseName = courseName;
+        this.parentCourseId = assignment.getParentCourseId();
         this.title = assignment.getTitle();
         this.description = assignment.getDescription();
         this.id = assignment.getId();
@@ -58,5 +58,24 @@ public class AssignmentDto {
 
     public void setParentCourseId(String parentCourseId) {
         this.parentCourseId = parentCourseId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AssignmentDto that = (AssignmentDto) o;
+
+        if (parentCourseId != null ? !parentCourseId.equals(that.parentCourseId) : that.parentCourseId != null)
+            return false;
+        return title != null ? title.equals(that.title) : that.title == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = parentCourseId != null ? parentCourseId.hashCode() : 0;
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        return result;
     }
 }

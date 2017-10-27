@@ -1,12 +1,8 @@
 package com.tahsinsayeed.faust.persistence.memory.repository;
 
-import com.j256.ormlite.dao.*;
-import com.j256.ormlite.support.ConnectionSource;
-import com.tahsinsayeed.faust.business.entity.*;
-import com.tahsinsayeed.faust.persistence.DBConnection;
-import com.tahsinsayeed.faust.persistence.memory.MemoryDatabase;
+import com.tahsinsayeed.faust.business.entity.Book;
+import com.tahsinsayeed.faust.business.interactor.Repository;
 
-import java.sql.SQLException;
 import java.util.*;
 
 import static com.tahsinsayeed.faust.persistence.memory.MemoryDatabase.book;
@@ -14,7 +10,7 @@ import static com.tahsinsayeed.faust.persistence.memory.MemoryDatabase.book;
 /**
  * Created by IMON on 9/1/2017.
  */
-public class BookRepository implements Repository<Book>  {
+public class BookRepository implements Repository<Book> {
 
 
 

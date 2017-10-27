@@ -1,19 +1,23 @@
 package com.tahsinsayeed.faust.business.entity;
 
 import java.io.File;
+import java.util.UUID;
 
 public class Note {
-
+    private final String id;
+    private final String parentCourseId;
     private String title;
     private final File location;
 
-    private Note(String title, File location) {
+    private Note(String id, String parentCourseId, String title, File location) {
+        this.id = id;
+        this.parentCourseId = parentCourseId;
         this.title = title;
         this.location = location;
     }
 
-    public static Note create(String title, File location) {
-        return new Note(title, location);
+    public static Note create(String title, String parentCourseId, File location) {
+        return new Note(UUID.randomUUID().toString(), parentCourseId, title, location);
     }
 
     public String getTitle() {
@@ -24,7 +28,15 @@ public class Note {
         this.title = title;
     }
 
-    public File getLocation() {
+    public File getFile() {
         return location;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getParentCourseId() {
+        return parentCourseId;
     }
 }

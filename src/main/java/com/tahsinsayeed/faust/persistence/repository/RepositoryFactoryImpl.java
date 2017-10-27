@@ -2,18 +2,10 @@ package com.tahsinsayeed.faust.persistence.repository;
 
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.entity.Class;
+import com.tahsinsayeed.faust.business.interactor.*;
 
 public class RepositoryFactoryImpl implements RepositoryFactory {
 
-    @Override
-    public Repository<Event> getEventRepository() {
-        return new EventRepository();
-    }
-
-    @Override
-    public Repository<Semester> getSemesterRepository() {
-        return new SemesterRepository();
-    }
 
     @Override
     public Repository<Course> getCourseRepository() {
@@ -25,10 +17,7 @@ public class RepositoryFactoryImpl implements RepositoryFactory {
         return new ClassRepository();
     }
 
-    @Override
-    public Repository<Attendance> getAttendanceRepository() {
-        return new AttendanceRepository();
-    }
+
 
     @Override
     public Repository<Assignment> getAssignmentRepository() {

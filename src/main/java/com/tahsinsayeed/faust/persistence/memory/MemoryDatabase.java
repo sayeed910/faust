@@ -10,30 +10,27 @@ import java.util.*;
 
 
 public class MemoryDatabase {
-    public static Map<String, Attendance> attendance = new Hashtable<>();
     public static Map<String, Assignment> assignments = new Hashtable<>();
     public static Map<String, Book> book = new Hashtable<>();
     public static Map<String, Course> courses = Maps.newHashMap();
     public static Map<String, Class> classes = new Hashtable<>();
-    public static Map<String, Event> events = new Hashtable<>();
     public static Map<String, Exam> exams = new Hashtable<>();
     public static Map<String, Holiday> holidays = new Hashtable<>();
     public static Map<String, Note> notebook = new Hashtable<>();
     public static Map<String, Schedule> schedules = new Hashtable<>();
-    public static Map<String, Semester> semester = new Hashtable<>();
 
 
     static {
         System.out.println("started");
-        Assignment assignment1 = Assignment.createWithDescription("CSE-3201",
+        Assignment assignment1 = Assignment.create("CSE-3201",
                 "Assignment1", "Design a Softwer", LocalDate.now());
-        Assignment assignment2 = Assignment.createWithDescription("CSE-3202",
+        Assignment assignment2 = Assignment.create("CSE-3202",
                 "Assignment2", "Create a Http Server", LocalDate.of(2017, 10, 10));
-        Assignment assignment3 = Assignment.createWithDescription("CSE-3202",
+        Assignment assignment3 = Assignment.create("CSE-3202",
                 "Assignment3", "Draw a DFA", LocalDate.of(2017, 10, 01));
-        Assignment assignment4 = Assignment.createWithDescription("CSE-3202",
+        Assignment assignment4 = Assignment.create("CSE-3202",
                 "Assignment4", "Write a C code", LocalDate.of(2017, 10, 14));
-        Assignment assignment5 = Assignment.createWithDescription("CSE-3202",
+        Assignment assignment5 = Assignment.create("CSE-3202",
                 "Assignment5", "Matrics and Vector", LocalDate.of(2017, 10, 10));
 
         assignments.put(assignment1.getId(), assignment1);

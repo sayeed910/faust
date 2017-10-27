@@ -3,7 +3,8 @@ package com.tahsinsayeed.faust.business.dto;
 import com.tahsinsayeed.faust.business.entity.Exam;
 import javafx.collections.*;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class UpcomingTask {
     private ObservableList<ClassDto> upcomingClasses;
@@ -46,5 +47,20 @@ public class UpcomingTask {
     public void setUpcomingExams(List<ExamDto> upcomingExams) {
         this.upcomingExams.clear();
         this.upcomingExams.addAll(upcomingExams);
+    }
+
+    public ObservableList<String> getList(){
+        List<String> exams =  upcomingExams.stream().map(e->e.getName()).collect(Collectors.toList());
+        List<String> assignments =  upcomingAssignments.stream().map(e->e.getTitle()).collect(Collectors.toList());
+        List<String> classes =  upcomingExams.stream().map(e->e.getName()).collect(Collectors.toList());
+
+        List<String> items = new ArrayList<>(exams);
+        items.addAll(assignments);
+        items.addAll(classes);
+
+
+
+        return FXCollections.observableArrayList(items);
+
     }
 }

@@ -2,34 +2,36 @@ package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.dto.*;
 import com.tahsinsayeed.faust.business.entity.*;
-import com.tahsinsayeed.faust.persistence.memory.repository.*;
+import com.tahsinsayeed.faust.business.request.NewAssignmentRequest;
+import com.tahsinsayeed.faust.presentation.controller.Interactor;
 
 import java.time.LocalDate;
 
 public class AddAssignmentInteractor implements Interactor {
-    private String title;
-    private String description;
-    private String parentCourseId;
-    private LocalDate dueDate;
-    private RepositoryFactory repositoryFactory;
-    private final DtoBank dtoBank = DtoBank.getInstance();
 
-    public AddAssignmentInteractor(String parentCourseId, String title, LocalDate dueDate, String description) {
-        this.parentCourseId = parentCourseId;
-        this.dueDate = dueDate;
-        this.title = this.title;
-        this.description = this.description;
-        this.repositoryFactory = new RepositoryFactoryImpl();
+    private final Repository<Course> courseRepository;
+    private final Repository<Assignment> assignmentRepository;
+
+    public AddAssignmentInteractor(Repository<Course> courseRepository, Repository<Assignment>assignmentRepository) {
+        this.courseRepository = courseRepository;
+        this.assignmentRepository = assignmentRepository;
     }
 
     @Override
-    public void execute() {
-        Repository<Assignment> assignmentRepository = repositoryFactory.getAssignmentRepository();
-        Assignment assignment = Assignment.createWithDescription(parentCourseId, title, description, dueDate);
+    public void execute(Request request) {
+        NewAssignmentRequest assignmentRequest = (NewAssignmentRequest) request;
+
+        Course parentCourse = courseRepository.get(assignmentRequest.parentCourseId);
+        if (parentCourse == null) throw new CourseNotFound();
+
+        Assignment assignment = Assignment.create(assignmentRequest.parentCourseId,
+                        assignmentRequest.title, assignmentRequest.description,
+                        assignmentRequest.dateOfSubmission);
+
         assignmentRepository.save(assignment);
-        AssignmentDto assignmentDto = new AssignmentDto(assignment,
-                repositoryFactory.getCourseRepository().get(assignment.getParentCourseId()));
-        dtoBank.addAssignment(assignmentDto);
+        AssignmentDto assignmentDto = new AssignmentDto(assignment,parentCourse.getName());
+        DtoBank.getInstance().addAssignment(assignmentDto);
+
         UpcomingTaskRetriever.create(LocalDate.now()).execute();
 
     }

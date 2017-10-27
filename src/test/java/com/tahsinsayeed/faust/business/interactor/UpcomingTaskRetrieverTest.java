@@ -27,7 +27,7 @@ public class UpcomingTaskRetrieverTest {
         List<Class> classes = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            classes.add(Class.create("courseId",
+            classes.add(Class.create("parentCourseId",
                     date.getDayOfWeek(), LocalTime.of(8, 30)));
         }
 

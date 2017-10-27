@@ -1,6 +1,7 @@
 package com.tahsinsayeed.faust.persistence.memory.repository;
 
 import com.tahsinsayeed.faust.business.entity.Assignment;
+import com.tahsinsayeed.faust.business.interactor.Repository;
 
 import java.util.*;
 

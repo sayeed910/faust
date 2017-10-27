@@ -1,32 +1,25 @@
 package com.tahsinsayeed.faust.business.entity;
 
-import java.util.Date;
-
-import static java.util.Objects.requireNonNull;
+import java.time.LocalDate;
 
 public class Holiday {
-    private final Date date;
-    private String holidayName;
+    private final LocalDate date;
+    private final String holidayName;
 
-    public static Holiday createEvent(Date date, String event){
-        final Date date1 = requireNonNull(date, "Date of a holidays can not be null");
-        final String event1 = requireNonNull(event, "For null holidays the other constructor should be used");
-
-        return new Holiday(date1, event1);
+    public static Holiday create(LocalDate date, String name){
+          return new Holiday(date, name);
     }
 
-    public static Holiday createEvent(Date date){
-        final Date date1 = requireNonNull(date, "Date of an holidayName can not be null");
-
-        return new Holiday(date1, "");
+    public static Holiday createWithNoName(LocalDate date){
+        return new Holiday(date, "");
     }
 
-    protected Holiday(Date date, String holidayName) {
+    private Holiday(LocalDate date, String holidayName) {
         this.date = date;
         this.holidayName = holidayName;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
@@ -34,7 +27,5 @@ public class Holiday {
         return holidayName;
     }
 
-    public void setHolidayName(String holidayName) {
-        this.holidayName = holidayName;
-    }
+
 }

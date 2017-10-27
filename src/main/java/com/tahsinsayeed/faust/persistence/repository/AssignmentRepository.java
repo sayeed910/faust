@@ -3,6 +3,7 @@ package com.tahsinsayeed.faust.persistence.repository;
 import com.j256.ormlite.dao.*;
 import com.j256.ormlite.support.ConnectionSource;
 import com.tahsinsayeed.faust.business.entity.Assignment;
+import com.tahsinsayeed.faust.business.interactor.Repository;
 import com.tahsinsayeed.faust.persistence.DBConnection;
 
 import java.sql.SQLException;

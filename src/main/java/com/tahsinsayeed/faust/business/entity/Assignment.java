@@ -20,11 +20,11 @@ public class Assignment {
     }
 
     public static Assignment create(String parentCourseId,String title, LocalDate dueDate) {
-        return createWithDescription(parentCourseId, title,"", dueDate);
+        return create(parentCourseId, title,"", dueDate);
     }
 
 
-    public static Assignment createWithDescription(String parentCourseId, String title, String description, LocalDate dueDate) {
+    public static Assignment create(String parentCourseId, String title, String description, LocalDate dueDate) {
         return new Assignment(parentCourseId, title, description, dueDate);
     }
 

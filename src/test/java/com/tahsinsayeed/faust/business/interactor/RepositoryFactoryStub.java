@@ -2,7 +2,6 @@ package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.entity.Class;
-import com.tahsinsayeed.faust.persistence.memory.repository.*;
 
 public class RepositoryFactoryStub implements RepositoryFactory {
 
@@ -10,15 +9,6 @@ public class RepositoryFactoryStub implements RepositoryFactory {
     public Repository<Assignment> assignmentRepository = null;
     public Repository<Exam> examRepository = null;
 
-    @Override
-    public Repository<Event> getEventRepository() {
-        return null;
-    }
-
-    @Override
-    public Repository<Semester> getSemesterRepository() {
-        return null;
-    }
 
     @Override
     public Repository<Course> getCourseRepository() {
@@ -30,10 +20,7 @@ public class RepositoryFactoryStub implements RepositoryFactory {
         return classRepository;
     }
 
-    @Override
-    public Repository<Attendance> getAttendanceRepository() {
-        return null;
-    }
+
 
     @Override
     public Repository<Assignment> getAssignmentRepository() {

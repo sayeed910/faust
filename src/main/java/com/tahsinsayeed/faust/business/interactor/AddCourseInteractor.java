@@ -2,32 +2,28 @@ package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.dto.*;
 import com.tahsinsayeed.faust.business.entity.Course;
-import com.tahsinsayeed.faust.persistence.memory.repository.*;
+import com.tahsinsayeed.faust.business.request.NewCourseRequest;
+import com.tahsinsayeed.faust.presentation.controller.Interactor;
 
 public class AddCourseInteractor implements Interactor {
-    private String id;
-    private String name;
-    private RepositoryFactory repositoryFactory;
-    private DtoBank dtoBank = DtoBank.getInstance();
 
-    public AddCourseInteractor(String id, String name) {
-        this.id = id;
-        this.name = name;
-        this.repositoryFactory = new RepositoryFactoryImpl();
+    private Repository<Course> courseRepository;
+
+
+    public AddCourseInteractor(Repository<Course> courseRepository) {
+        this.courseRepository = courseRepository;
     }
 
     @Override
-    public void execute() {
-        Repository<Course> courseRepository = repositoryFactory.getCourseRepository();
+    public void execute(Request request) {
 
-        if (id.isEmpty() || name.isEmpty()) return;
+        NewCourseRequest courseRequest = (NewCourseRequest) request;
 
-        Course course = Course.create(id, name);
+        Course course = Course.create(courseRequest.courseId, courseRequest.courseName);
         courseRepository.save(course);
 
         CourseDto courseDto = new CourseDto(course);
-        dtoBank.addCourse(courseDto);
-        new PopulateDataModelInteractor().execute();
+        DtoBank.getInstance().addCourse(courseDto);
     }
 
 }

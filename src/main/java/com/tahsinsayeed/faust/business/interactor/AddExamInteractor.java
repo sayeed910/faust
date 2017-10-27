@@ -2,34 +2,36 @@ package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.dto.*;
 import com.tahsinsayeed.faust.business.entity.*;
-import com.tahsinsayeed.faust.persistence.memory.repository.*;
+import com.tahsinsayeed.faust.business.request.NewExamRequest;
+import com.tahsinsayeed.faust.presentation.controller.Interactor;
 
 import java.time.*;
 
 public class AddExamInteractor implements Interactor {
-    private final String courseId;
-    private final String name;
-    private final LocalDate examDate;
-    private final LocalTime examTime;
-    private RepositoryFactory repositoryFactory;
-    private DtoBank dtoBank = DtoBank.getInstance();
+    Repository<Course> courseRepository;
+    Repository<Exam> examRepository;
 
-    public AddExamInteractor(String courseId, String examName, LocalDate examDate, LocalTime examTime) {
-        this.courseId = courseId;
-        this.name = examName;
-        this.examDate = examDate;
-        this.examTime = examTime;
-        this.repositoryFactory = new RepositoryFactoryImpl();
+    public AddExamInteractor(Repository<Course> courseRepository, Repository<Exam> examRepository) {
+
+        this.courseRepository = courseRepository;
+        this.examRepository = examRepository;
     }
 
     @Override
-    public void execute() {
-        Repository<Exam> examRepository = repositoryFactory.getExamRepository();
-        Exam exam = Exam.create(name, courseId, examDate, examTime);
+    public void execute(Request request) {
+
+        NewExamRequest examRequest = (NewExamRequest) request;
+
+        Course parentCourse = courseRepository.get(examRequest.parentCourseId);
+        if (parentCourse == null) throw new CourseNotFound();
+
+
+        Exam exam = Exam.create(examRequest.title, examRequest.parentCourseId,
+                examRequest.examDate, examRequest.examTime);
         examRepository.save(exam);
 
-        ExamDto examDto = new ExamDto(exam, repositoryFactory.getCourseRepository().get(exam.getCourseId()));
-        dtoBank.addExam(examDto);
+        ExamDto examDto = new ExamDto(exam, parentCourse.getName());
+        DtoBank.getInstance().addExam(examDto);
 
         UpcomingTaskRetriever.create(LocalDate.now()).execute();
     }

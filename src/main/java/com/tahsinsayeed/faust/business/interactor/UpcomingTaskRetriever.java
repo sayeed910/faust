@@ -5,12 +5,13 @@ import com.tahsinsayeed.faust.business.dto.*;
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.entity.Class;
 import com.tahsinsayeed.faust.persistence.memory.repository.*;
+import com.tahsinsayeed.faust.presentation.controller.Interactor;
 
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class UpcomingTaskRetriever implements Interactor{
+public class UpcomingTaskRetriever implements Interactor {
     private final LocalDate date;
     private final RepositoryFactory repositoryFactory;
     private final Repository<Course> courseRepository;

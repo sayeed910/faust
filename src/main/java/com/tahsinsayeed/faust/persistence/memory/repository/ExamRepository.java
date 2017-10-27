@@ -1,16 +1,16 @@
 package com.tahsinsayeed.faust.persistence.memory.repository;
 
 import com.tahsinsayeed.faust.business.entity.Exam;
-
-import static com.tahsinsayeed.faust.persistence.memory.MemoryDatabase.*;
-
+import com.tahsinsayeed.faust.business.interactor.Repository;
 
 import java.util.*;
+
+import static com.tahsinsayeed.faust.persistence.memory.MemoryDatabase.exams;
 
 /**
  * Created by IMON on 9/1/2017.
  */
-public class ExamRepository implements Repository<Exam>  {
+public class ExamRepository implements Repository<Exam> {
 
 
     @Override

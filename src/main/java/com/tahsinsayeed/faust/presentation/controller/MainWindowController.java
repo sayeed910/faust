@@ -1,23 +1,15 @@
 package com.tahsinsayeed.faust.presentation.controller;
 
+import com.google.common.eventbus.*;
+import com.google.inject.Inject;
 import com.jfoenix.controls.*;
-import com.tahsinsayeed.faust.presentation.controller.datafx.ExtendedAnimatedFlowContainer;
-
+import com.tahsinsayeed.faust.business.dto.DtoBank;
+import com.tahsinsayeed.faust.presentation.EntityCreatorFactory;
 import com.tahsinsayeed.faust.presentation.view.SideBarView;
-import io.datafx.controller.flow.*;
-import io.datafx.controller.flow.context.*;
 import javafx.animation.Transition;
-import javafx.application.Platform;
 import javafx.fxml.*;
-import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
+import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
-import io.datafx.controller.*;
-
-import javax.annotation.PostConstruct;
-
-import static io.datafx.controller.flow.container.ContainerAnimations.*;
 
 public class MainWindowController {
     @FXML
@@ -35,10 +27,15 @@ public class MainWindowController {
     @FXML
     private JFXDrawer drawer;
 
-    private JFXPopup toolbarPopup;
+    @FXML
+    private StackPane content;
 
-    public void initialize() throws Exception{
-        System.out.println("init");
+    private JFXPopup toolbarPopup;
+    public JFXListView<String> listView;
+
+    @Inject private EventBus mainEventBus;
+
+    public void initialize() throws Exception {
 
         drawer.setOnDrawerOpening(e -> {
             final Transition animation = titleBurger.getAnimation();
@@ -59,7 +56,7 @@ public class MainWindowController {
             }
         });
 
-        SideBarView sideBar = new SideBarView(new SideBarController(root));
+        SideBarView sideBar = new SideBarView(new SideBarController(root, new EntityCreatorFactory()));
 
         drawer.setSidePane(sideBar.getContainer());
 
@@ -71,33 +68,29 @@ public class MainWindowController {
                 JFXPopup.PopupHPosition.RIGHT,
                 -12,
                 15));
-//
-//        // create the inner flow and content
-//        context = new ViewFlowContext();
-//        // set the default controller
-//        Flow innerFlow = new Flow(ButtonController.class);
-//
-//        final FlowHandler flowHandler = innerFlow.createHandler(context);
-//        context.register("ContentFlowHandler", flowHandler);
-//        context.register("ContentFlow", innerFlow);
-//        final Duration containerAnimationDuration = Duration.millis(320);
-//        drawer.setContent(flowHandler.start(new ExtendedAnimatedFlowContainer(containerAnimationDuration, SWIPE_LEFT)));
-//        context.register("ContentPane", drawer.getContent().get(0));
-//
-//        // side controller will add links to the content flow
-//        Flow sideMenuFlow = new Flow(SideMenuController.class);
-//        final FlowHandler sideMenuFlowHandler = sideMenuFlow.createHandler(context);
-//        drawer.setSidePane(sideMenuFlowHandler.start(new ExtendedAnimatedFlowContainer(containerAnimationDuration,
-//                SWIPE_LEFT)));
+
+        mainEventBus.register(this);
+
+
+
+        DtoBank dtoBank = DtoBank.getInstance();
+
+        listView = new JFXListView<>();
+        listView.setItems(dtoBank.getUpcomingTask().getList());
+        listView.getItems().forEach(e -> System.out.println(e));
+        content.getChildren().add(listView);
+        content.setAlignment(Pos.CENTER);
+        listView.setVerticalGap(20.0);
+        listView.setPrefWidth(400);
+        listView.setPrefHeight(700);
     }
 
-//    @FXML
-//    public void alert(MouseEvent mouseEvent) {
-//        drawer.setContent(new Button("button"));
-//        drawer.open();
-//    }
 
+    @Subscribe
+    public void handleSideBarItemSelected(Object o){
 
     }
+
+}
 
 
