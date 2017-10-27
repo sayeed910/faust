@@ -3,7 +3,7 @@ package com.tahsinsayeed.faust;
 import com.google.inject.*;
 import com.jfoenix.controls.JFXDecorator;
 import com.tahsinsayeed.faust.business.interactor.PopulateDataModelInteractor;
-import com.tahsinsayeed.faust.presentation.controller.Interactor;
+import com.tahsinsayeed.faust.persistence.memory.repository.CourseRepository;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,10 +20,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         PdfViewerFactory.init();
+
+        PopulateDataModelInteractor startupInteractor = new PopulateDataModelInteractor(new CourseRepository());
+        startupInteractor.execute(null);
+
         Injector injector = Guice.createInjector(new FaustModule());
 
-        Interactor startupInteractor = injector.getInstance(PopulateDataModelInteractor.class);
-        startupInteractor.execute(null);
+
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Main.fxml"));
         loader.setControllerFactory(injector::getInstance);

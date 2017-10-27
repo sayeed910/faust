@@ -20,6 +20,7 @@ public class AssignmentCreationController implements EntityCreationController {
     JFXDatePicker dtDueDate;
     JFXTextArea txtDescription;
     JFXComboBox<String> txtParentCourseId;
+    public JFXDialog dialog;
 
     @Inject
     public AssignmentCreationController(RequestBuilder requestBuilder, InteractorFactory factory){

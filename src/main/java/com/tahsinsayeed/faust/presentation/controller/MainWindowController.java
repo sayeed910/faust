@@ -3,7 +3,9 @@ package com.tahsinsayeed.faust.presentation.controller;
 import com.google.common.eventbus.*;
 import com.google.inject.Inject;
 import com.jfoenix.controls.*;
-import com.tahsinsayeed.faust.presentation.view.SideBarView;
+import com.tahsinsayeed.faust.presentation.EntityCreatorFactory;
+import com.tahsinsayeed.faust.presentation.event.NewItemEvent;
+import com.tahsinsayeed.faust.presentation.view.*;
 import javafx.animation.Transition;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
@@ -36,6 +38,9 @@ public class MainWindowController {
     @Inject
     SideBarView sideBar;
 
+    @Inject
+    EntityCreatorFactory entityCreatorFactory;
+
     public void initialize() throws Exception {
 
         drawer.setOnDrawerOpening(e -> {
@@ -67,8 +72,10 @@ public class MainWindowController {
 
 
     @Subscribe
-    public void handleNewItemCalss(String item){
-        System.out.println(item);
+    public void handleNewItemCall(NewItemEvent event){
+        System.out.println("called " + event.itemName);
+        EntityCreationView view = entityCreatorFactory.create(event.itemName);
+        view.showDialog(root);
     }
 
 }

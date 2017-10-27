@@ -1,0 +1,25 @@
+package com.tahsinsayeed.faust;
+
+import com.google.inject.*;
+import com.tahsinsayeed.faust.business.dto.*;
+import com.tahsinsayeed.faust.presentation.entitycreator.assignmentcreator.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * Created by sayeed on 10/27/17.
+ */
+public class AssignmentCreationViewProvider implements Provider<AssignmentCreator> {
+    @Inject
+    AssignmentCreationController controller;
+    @Override
+    public AssignmentCreator get() {
+        return new AssignmentCreator(getExistingCourseIds(), controller);
+    }
+
+    private List<String> getExistingCourseIds(){
+        return DtoBank.getInstance().getCourses().stream()
+                .map(CourseDto::getId).collect(Collectors.toList());
+    }
+}

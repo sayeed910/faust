@@ -1,7 +1,7 @@
 package com.tahsinsayeed.faust.presentation.entitycreator.coursecreator;
 
 import com.google.inject.Inject;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import com.tahsinsayeed.faust.business.interactor.*;
 import com.tahsinsayeed.faust.presentation.controller.*;
 import com.tahsinsayeed.faust.util.ContentValues;
@@ -15,6 +15,7 @@ public class CourseCreationController implements EntityCreationController {
     Label error;
     JFXTextField idInput;
     JFXTextField nameInput;
+    JFXDialog dialog;
 
     @Inject
     public CourseCreationController(RequestBuilder requestBuilder, InteractorFactory factory){
@@ -32,6 +33,7 @@ public class CourseCreationController implements EntityCreationController {
         Request newCourseRequest = requestBuilder.make(RequestBuilder.RequestType.NEW_COURSE, args);
         try {
             courseCreator.execute(newCourseRequest);
+            dialog.close();
         } catch(CourseConflict ex){
             error.setText("Course with same id exists");
         }
@@ -41,6 +43,9 @@ public class CourseCreationController implements EntityCreationController {
     private ContentValues getRequestArgs() {
         String courseId = idInput.getText().trim();
         String courseName = nameInput.getText().trim();
+
+        System.out.println(courseId);
+        System.out.println(courseName);
 
         return new ContentValues(
                 "courseId", courseId,

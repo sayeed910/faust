@@ -3,6 +3,7 @@ package com.tahsinsayeed.faust.presentation.controller;
 import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;
 import com.tahsinsayeed.faust.business.dto.*;
+import com.tahsinsayeed.faust.presentation.event.NewItemEvent;
 import com.tahsinsayeed.faust.presentation.model.sidebar.*;
 import com.tahsinsayeed.faust.ui.RecursiveTreeItem;
 import javafx.collections.*;
@@ -47,7 +48,8 @@ public class SideBarController {
     }
 
     public void showNewItemDialog(String item) {
-        mainEventBus.post(item);
+        System.out.println("posting " + item);
+        mainEventBus.post(new NewItemEvent(item));
     }
 
     public void setNav(TreeView<SideBarItem> nav) {

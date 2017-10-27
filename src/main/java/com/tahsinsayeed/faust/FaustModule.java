@@ -7,6 +7,8 @@ import com.tahsinsayeed.faust.business.entity.Course;
 import com.tahsinsayeed.faust.business.interactor.*;
 import com.tahsinsayeed.faust.persistence.memory.repository.*;
 import com.tahsinsayeed.faust.presentation.controller.*;
+import com.tahsinsayeed.faust.presentation.entitycreator.assignmentcreator.AssignmentCreator;
+import com.tahsinsayeed.faust.presentation.entitycreator.examcreator.ExamCreator;
 
 /**
  * Created by sayeed on 10/26/17.
@@ -19,5 +21,9 @@ public class FaustModule extends AbstractModule {
         bind(InteractorFactory.class).to(InteractorFactoryImpl.class);
         bind(new TypeLiteral<Repository<Course>>(){}).to(CourseRepository.class);
         bind(EventBus.class).toInstance(new EventBus());
+        bind(ExamCreator.class).toProvider(ExamCreationViewProvider.class);
+        bind(AssignmentCreator.class).toProvider(AssignmentCreationViewProvider.class);
     }
+
+
 }

@@ -23,6 +23,8 @@ public class ContentValues {
      */
 
     public ContentValues(String... keyValuePair){
+        this();
+
 
         if (keyValuePair.length % 2 != 0) throw new IllegalArgumentException();
 

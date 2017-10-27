@@ -1,9 +1,9 @@
 package com.tahsinsayeed.faust.presentation;
 
-import com.google.inject.Inject;
-import com.tahsinsayeed.faust.presentation.entitycreator.assignmentcreator.AssignmentCreationView;
-import com.tahsinsayeed.faust.presentation.entitycreator.coursecreator.CourseCreationView;
-import com.tahsinsayeed.faust.presentation.entitycreator.examcreator.ExamCreationView;
+import com.google.inject.*;
+import com.tahsinsayeed.faust.presentation.entitycreator.assignmentcreator.AssignmentCreator;
+import com.tahsinsayeed.faust.presentation.entitycreator.coursecreator.CourseCreator;
+import com.tahsinsayeed.faust.presentation.entitycreator.examcreator.ExamCreator;
 import com.tahsinsayeed.faust.presentation.view.EntityCreationView;
 
 /**
@@ -11,16 +11,16 @@ import com.tahsinsayeed.faust.presentation.view.EntityCreationView;
  */
 public class EntityCreatorFactory {
     @Inject
-    CourseCreationView courseCreationView;
+    Provider<CourseCreator> courseCreationViewProvider;
     @Inject
-    AssignmentCreationView assignmentCreationView;
+    Provider<AssignmentCreator> assignmentCreationViewProvider;
     @Inject
-    ExamCreationView examCreationView;
+    Provider<ExamCreator> examCreationViewProvider;
 
     public EntityCreationView create(String entityName){
-        if (entityName.equalsIgnoreCase("course")) return courseCreationView;
-        else if (entityName.equalsIgnoreCase("assignment")) return assignmentCreationView;
-        else if (entityName.equalsIgnoreCase("exam")) return examCreationView;
+        if (entityName.equalsIgnoreCase("course")) return courseCreationViewProvider.get();
+        else if (entityName.equalsIgnoreCase("assignment")) return assignmentCreationViewProvider.get();
+        else if (entityName.equalsIgnoreCase("exam")) return examCreationViewProvider.get();
         else throw new IllegalArgumentException();
 
     }

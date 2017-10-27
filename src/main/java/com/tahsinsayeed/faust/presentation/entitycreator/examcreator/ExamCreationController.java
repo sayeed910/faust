@@ -1,5 +1,6 @@
 package com.tahsinsayeed.faust.presentation.entitycreator.examcreator;
 
+import com.google.inject.Inject;
 import com.jfoenix.controls.*;
 import com.tahsinsayeed.faust.business.interactor.Request;
 import com.tahsinsayeed.faust.presentation.controller.*;
@@ -22,6 +23,7 @@ public class ExamCreationController implements EntityCreationController {
     public JFXTextField fullMarksInput;
     public JFXTextField receivedMarksInput;
 
+    @Inject
     public ExamCreationController(RequestBuilder requestBuilder, InteractorFactory factory){
         this.requestBuilder = requestBuilder;
         this.interactorFactory = factory;
