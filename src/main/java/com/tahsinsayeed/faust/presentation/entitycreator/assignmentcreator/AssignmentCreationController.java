@@ -1,5 +1,6 @@
 package com.tahsinsayeed.faust.presentation.entitycreator.assignmentcreator;
 
+import com.google.inject.Inject;
 import com.jfoenix.controls.*;
 import com.tahsinsayeed.faust.business.interactor.*;
 import com.tahsinsayeed.faust.presentation.controller.*;
@@ -20,6 +21,7 @@ public class AssignmentCreationController implements EntityCreationController {
     JFXTextArea txtDescription;
     JFXComboBox<String> txtParentCourseId;
 
+    @Inject
     public AssignmentCreationController(RequestBuilder requestBuilder, InteractorFactory factory){
         this.requestBuilder = requestBuilder;
         this.interactorFactory = factory;

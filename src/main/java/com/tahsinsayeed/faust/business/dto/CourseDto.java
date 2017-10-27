@@ -26,10 +26,10 @@ public class CourseDto {
                 course.getBooks().stream().map(BookDto::new)
                         .collect(Collectors.toList()));
         this.exams = FXCollections.observableArrayList(
-                course.getExams().stream().map(exam -> new ExamDto(exam, course))
+                course.getExams().stream().map(exam -> new ExamDto(exam, course.getName()))
                         .collect(Collectors.toList()));
         this.assignments = FXCollections.observableArrayList(
-                course.getAssignments().stream().map(assignment -> new AssignmentDto(assignment, course))
+                course.getAssignments().stream().map(assignment -> new AssignmentDto(assignment, course.getName()))
                 .collect(Collectors.toList()));
     }
 

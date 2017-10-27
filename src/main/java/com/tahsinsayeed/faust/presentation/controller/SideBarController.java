@@ -1,10 +1,9 @@
 package com.tahsinsayeed.faust.presentation.controller;
 
+import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;
 import com.tahsinsayeed.faust.business.dto.*;
-import com.tahsinsayeed.faust.presentation.EntityCreatorFactory;
 import com.tahsinsayeed.faust.presentation.model.sidebar.*;
-import com.tahsinsayeed.faust.presentation.view.EntityCreationView;
 import com.tahsinsayeed.faust.ui.RecursiveTreeItem;
 import javafx.collections.*;
 import javafx.scene.control.TreeView;
@@ -18,13 +17,13 @@ public class SideBarController {
     ObservableList<CourseDto> courses;
 
     @Inject
-    EntityCreatorFactory entityCreatorFactory;
+    EventBus mainEventBus;
 
 
-    public SideBarController(StackPane root) {
+    public SideBarController() {
+        System.out.println("initiated sidebar controller");
         courses = DtoBank.getInstance().getCourses();
         rootTreeItem = new CourseItem(courses);
-        this.root = root;
 
         courses.addListener(this::updateTree);
     }
@@ -48,8 +47,7 @@ public class SideBarController {
     }
 
     public void showNewItemDialog(String item) {
-        EntityCreationView view = entityCreatorFactory.create(item);
-        view.showDialog(root);
+        mainEventBus.post(item);
     }
 
     public void setNav(TreeView<SideBarItem> nav) {

@@ -1,18 +1,17 @@
 package com.tahsinsayeed.faust.presentation.view;
 
+import com.google.inject.Inject;
 import com.jfoenix.controls.*;
 import com.tahsinsayeed.faust.presentation.controller.SideBarController;
 import com.tahsinsayeed.faust.presentation.model.sidebar.SideBarItem;
 import com.tahsinsayeed.faust.ui.RecursiveTreeItem;
-import javafx.collections.*;
+import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 
-public class SideBarView implements View {
-
-    VBox container;
+public class SideBarView extends VBox {
     TreeView<SideBarItem> nav;
     TreeItem<SideBarItem> rootItem;
     Button btnAdd;
@@ -20,7 +19,9 @@ public class SideBarView implements View {
     JFXListView<String> listOfOptions = new JFXListView<>();
     JFXPopup popup = new JFXPopup();
 
+    @Inject
     public SideBarView(SideBarController aController) {
+        System.out.println("initiated side bar view");
         this.controller = aController;
         SideBarItem rootTreeItem = controller.getRootTreeItem();
         rootItem = new RecursiveTreeItem<>(rootTreeItem, SideBarItem::getChildren);
@@ -28,21 +29,21 @@ public class SideBarView implements View {
 
         nav = new JFXTreeView<>(rootItem);
         nav.setShowRoot(false);
-        nav.prefHeightProperty().bind(getContainer().heightProperty().subtract(40));
+        nav.prefHeightProperty().bind(this.heightProperty().subtract(40));
         nav.setBorder(Border.EMPTY);
         nav.setStyle("-fx-background-color: transparent");
 
         btnAdd = new JFXButton("Add Item");
-        btnAdd.prefWidthProperty().bind(getContainer().widthProperty().subtract(-100));
+        btnAdd.prefWidthProperty().bind(this.widthProperty().subtract(-100));
         btnAdd.setStyle("-fx-background-color: #0D47A1; -fx-end-margin: 20px; -fx-start-margin: 20px; -fx-text-fill: white;");
         btnAdd.setFont(Font.font(20));
 
 
-        container = new VBox(nav, btnAdd);
-        container.setFillWidth(true);
-        container.setPrefWidth(400);
-        container.setPadding(new Insets(30, 0, 10, 0));
-        container.setPadding(new Insets(30, 10, 10, 10));
+        this.getChildren().addAll(nav, btnAdd);
+        this.setFillWidth(true);
+        this.setPrefWidth(400);
+        this.setPadding(new Insets(30, 0, 10, 0));
+        this.setPadding(new Insets(30, 10, 10, 10));
 
         nav.getStylesheets().add(getClass().getResource("/css/tree.css").toExternalForm());
 
@@ -63,8 +64,5 @@ public class SideBarView implements View {
         controller.setNav(nav);
     }
 
-    @Override
-    public Pane getContainer() {
-        return container;
-    }
+
 }
