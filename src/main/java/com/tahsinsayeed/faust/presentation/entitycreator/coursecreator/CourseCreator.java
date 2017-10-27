@@ -2,14 +2,14 @@ package com.tahsinsayeed.faust.presentation.entitycreator.coursecreator;
 
 import com.google.inject.Inject;
 import com.jfoenix.controls.*;
-import com.tahsinsayeed.faust.presentation.view.EntityCreationView;
+import com.tahsinsayeed.faust.presentation.view.EntityCreationDialog;
 import javafx.geometry.*;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 
-public class CourseCreator extends EntityCreationView {
+public class CourseCreator extends EntityCreationDialog {
     final VBox centerContainer;
     final BorderPane pane;
     final JFXTextField idInput;
