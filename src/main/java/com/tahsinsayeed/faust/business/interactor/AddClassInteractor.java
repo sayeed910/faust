@@ -29,7 +29,7 @@ public class AddClassInteractor implements Interactor {
         classRepository.save(clazz);
 
 
-        UpcomingTaskRetriever.create(LocalDate.now()).execute();
+        UpcomingTaskRetriever.create(LocalDate.now()).execute(null);
 
     }
 

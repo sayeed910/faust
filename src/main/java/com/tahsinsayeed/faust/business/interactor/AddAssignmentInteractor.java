@@ -32,7 +32,7 @@ public class AddAssignmentInteractor implements Interactor {
         AssignmentDto assignmentDto = new AssignmentDto(assignment,parentCourse.getName());
         DtoBank.getInstance().addAssignment(assignmentDto);
 
-        UpcomingTaskRetriever.create(LocalDate.now()).execute();
+        UpcomingTaskRetriever.create(LocalDate.now()).execute(null);
 
     }
 

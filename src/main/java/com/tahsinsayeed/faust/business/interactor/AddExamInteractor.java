@@ -11,6 +11,7 @@ public class AddExamInteractor implements Interactor {
     Repository<Course> courseRepository;
     Repository<Exam> examRepository;
 
+
     public AddExamInteractor(Repository<Course> courseRepository, Repository<Exam> examRepository) {
 
         this.courseRepository = courseRepository;
@@ -33,7 +34,7 @@ public class AddExamInteractor implements Interactor {
         ExamDto examDto = new ExamDto(exam, parentCourse.getName());
         DtoBank.getInstance().addExam(examDto);
 
-        UpcomingTaskRetriever.create(LocalDate.now()).execute();
+        UpcomingTaskRetriever.create(LocalDate.now()).execute(null);
     }
 
 }

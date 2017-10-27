@@ -25,6 +25,6 @@ public class PopulateDataModelInteractor implements Interactor {
 
         courses.forEach(course -> DtoBank.getInstance().addCourse(new CourseDto(course)));
 
-        UpcomingTaskRetriever.create(LocalDate.now()).execute();
+        UpcomingTaskRetriever.create(LocalDate.now()).execute(null);
     }
 }
