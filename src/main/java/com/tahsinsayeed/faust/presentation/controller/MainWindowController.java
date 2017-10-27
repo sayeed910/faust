@@ -4,7 +4,6 @@ import com.google.common.eventbus.*;
 import com.google.inject.Inject;
 import com.jfoenix.controls.*;
 import com.tahsinsayeed.faust.business.dto.DtoBank;
-import com.tahsinsayeed.faust.presentation.EntityCreatorFactory;
 import com.tahsinsayeed.faust.presentation.view.SideBarView;
 import javafx.animation.Transition;
 import javafx.fxml.*;
@@ -33,7 +32,10 @@ public class MainWindowController {
     private JFXPopup toolbarPopup;
     public JFXListView<String> listView;
 
-    @Inject private EventBus mainEventBus;
+    @Inject
+    private EventBus mainEventBus;
+
+    @Inject SideBarView sideBar;
 
     public void initialize() throws Exception {
 
@@ -56,9 +58,12 @@ public class MainWindowController {
             }
         });
 
-        SideBarView sideBar = new SideBarView(new SideBarController(root, new EntityCreatorFactory()));
 
         drawer.setSidePane(sideBar.getContainer());
+
+
+        mainEventBus.register(this);
+
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ui/popup/MainPopup.fxml"));
         toolbarPopup = new JFXPopup(loader.load());
@@ -68,10 +73,6 @@ public class MainWindowController {
                 JFXPopup.PopupHPosition.RIGHT,
                 -12,
                 15));
-
-        mainEventBus.register(this);
-
-
 
         DtoBank dtoBank = DtoBank.getInstance();
 
@@ -87,7 +88,8 @@ public class MainWindowController {
 
 
     @Subscribe
-    public void handleSideBarItemSelected(Object o){
+    public void handleNewItemCalss(String item){
+        System.out.println(item);
 
     }
 
