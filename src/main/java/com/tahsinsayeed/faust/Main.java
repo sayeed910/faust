@@ -2,6 +2,7 @@ package com.tahsinsayeed.faust;
 
 import com.google.inject.*;
 import com.jfoenix.controls.JFXDecorator;
+import com.sun.javafx.application.LauncherImpl;
 import com.tahsinsayeed.faust.business.interactor.PopulateDataModelInteractor;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
 import javafx.application.Application;
@@ -15,18 +16,13 @@ import java.util.logging.Logger;
 public class Main extends Application {
     private final Logger logger = Logger.getGlobal();
     private Scene scene;
-
+    private Injector injector;
+    private FXMLLoader loader;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         PdfViewerFactory.init();
-        Injector injector = Guice.createInjector(new FaustModule());
 
-        Interactor startupInteractor = injector.getInstance(PopulateDataModelInteractor.class);
-        startupInteractor.execute(null);
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Main.fxml"));
-        loader.setControllerFactory(injector::getInstance);
 
         StackPane root = loader.load();
 
@@ -49,8 +45,18 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        launch(args);
-//        LauncherImpl.launchApplication(Main.class, FaustPreloader.class, args);
+        LauncherImpl.launchApplication(Main.class, FaustPreloader.class, args);
+    }
+
+    @Override
+    public void init(){
+        injector = Guice.createInjector(new FaustModule());
+
+        Interactor startupInteractor = injector.getInstance(PopulateDataModelInteractor.class);
+        startupInteractor.execute(null);
+
+        loader = new FXMLLoader(getClass().getResource("/view/Main.fxml"));
+        loader.setControllerFactory(injector::getInstance);
     }
 
 
