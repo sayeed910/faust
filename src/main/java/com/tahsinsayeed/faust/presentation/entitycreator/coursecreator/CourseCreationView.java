@@ -1,5 +1,6 @@
 package com.tahsinsayeed.faust.presentation.entitycreator.coursecreator;
 
+import com.google.inject.Inject;
 import com.jfoenix.controls.*;
 import com.tahsinsayeed.faust.presentation.view.EntityCreationView;
 import javafx.geometry.*;
@@ -21,7 +22,7 @@ public class CourseCreationView implements EntityCreationView {
 
     private final CourseCreationController controller;
 
-    @Injec
+    @Inject
     public CourseCreationView(CourseCreationController controller){
         this.controller = controller;
         title = new Label("New Course");
