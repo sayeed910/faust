@@ -2,9 +2,11 @@ package com.tahsinsayeed.faust.persistence.repository;
 
 import com.j256.ormlite.dao.*;
 import com.j256.ormlite.support.ConnectionSource;
+import com.tahsinsayeed.faust.business.dto.ExamDto;
 import com.tahsinsayeed.faust.business.entity.Exam;
 import com.tahsinsayeed.faust.business.interactor.Repository;
 import com.tahsinsayeed.faust.persistence.DBConnection;
+import com.tahsinsayeed.faust.persistence.datamodel.ExamDataModel;
 
 import java.sql.SQLException;
 import java.util.*;
@@ -12,14 +14,14 @@ import java.util.*;
 /**
  * Created by IMON on 9/1/2017.
  */
-public class ExamRepository implements Repository<Exam> {
+public class ExamRepository implements Repository<ExamDto, Exam> {
 
-    private Dao<Exam, String> examDao;
+    private Dao<ExamDataModel, String> examDao;
 
     ExamRepository(DBConnection connection){
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
-            examDao = DaoManager.createDao(connectionSource, Exam.class);
+            examDao = DaoManager.createDao(connectionSource, ExamDataModel.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -53,27 +55,27 @@ public class ExamRepository implements Repository<Exam> {
     }
 
     @Override
-    public void save(Exam objectToSave) {
+    public void save(ExamDto objectToSave) {
         try {
-            examDao.create(objectToSave);
+            examDao.create(new ExamDataModel(objectToSave));
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void update(Exam objectToUpdate) {
+    public void update(ExamDto objectToUpdate) {
         try {
-            examDao.update(objectToUpdate);
+            examDao.update(new ExamDataModel(objectToUpdate));
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void delete(Exam objectToDelete) {
+    public void delete(ExamDto objectToDelete) {
         try {
-            examDao.delete(objectToDelete);
+            examDao.delete(new ExamDataModel(objectToDelete));
         } catch (SQLException e) {
             e.printStackTrace();
         }

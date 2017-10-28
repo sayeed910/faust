@@ -1,17 +1,36 @@
 package com.tahsinsayeed.faust.persistence.datamodel;
 
+import com.j256.ormlite.dao.ForeignCollection;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
+import com.j256.ormlite.table.DatabaseTable;
 import com.tahsinsayeed.faust.business.dto.CourseDto;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@DatabaseTable(tableName = "CourseDataModel")
 public class CourseDataModel {
+
+    @DatabaseField(id = true)
     private String id;
+
+    @DatabaseField
     private String name;
-    private List<BookDataModel> books;
-    private List<NoteDataModel> notes;
-    private List<ExamDataModel> exams;
-    private List<AssignmentDataModel> assignments;
+
+    @ForeignCollectionField
+    Collection<BookDataModel> books;
+
+    @ForeignCollectionField
+    Collection<NoteDataModel> notes;
+
+    @ForeignCollectionField
+    Collection<ExamDataModel> exams;
+
+    @ForeignCollectionField
+    Collection<AssignmentDataModel> assignments;
 
     public CourseDataModel() {
     }
@@ -42,7 +61,7 @@ public class CourseDataModel {
     }
 
     public List<BookDataModel> getBooks() {
-        return books;
+        return new ArrayList<>(books);
     }
 
     public void setBooks(List<BookDataModel> books) {
@@ -50,7 +69,7 @@ public class CourseDataModel {
     }
 
     public List<NoteDataModel> getNotes() {
-        return notes;
+        return new ArrayList<>(notes);
     }
 
     public void setNotes(List<NoteDataModel> notes) {
@@ -58,7 +77,7 @@ public class CourseDataModel {
     }
 
     public List<ExamDataModel> getExams() {
-        return exams;
+        return new ArrayList<>(exams);
     }
 
     public void setExams(List<ExamDataModel> exams) {
@@ -66,7 +85,7 @@ public class CourseDataModel {
     }
 
     public List<AssignmentDataModel> getAssignments() {
-        return assignments;
+        return new ArrayList<>(assignments);
     }
 
     public void setAssignments(List<AssignmentDataModel> assignments) {

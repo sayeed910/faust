@@ -2,9 +2,11 @@ package com.tahsinsayeed.faust.persistence.repository;
 
 import com.j256.ormlite.dao.*;
 import com.j256.ormlite.support.ConnectionSource;
+import com.tahsinsayeed.faust.business.dto.BookDto;
 import com.tahsinsayeed.faust.business.entity.Book;
 import com.tahsinsayeed.faust.business.interactor.Repository;
 import com.tahsinsayeed.faust.persistence.DBConnection;
+import com.tahsinsayeed.faust.persistence.datamodel.BookDataModel;
 
 import java.sql.SQLException;
 import java.util.*;
@@ -12,13 +14,13 @@ import java.util.*;
 /**
  * Created by IMON on 9/1/2017.
  */
-public class BookRepository implements Repository<Book> {
+public class BookRepository implements Repository<BookDto, Book> {
 
-    private Dao<Book, String> assignmentDao;
+    private Dao<BookDataModel, String> assignmentDao;
      BookRepository(DBConnection connection){
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
-            assignmentDao = DaoManager.createDao(connectionSource, Book.class);
+            assignmentDao = DaoManager.createDao(connectionSource, BookDataModel.class);
         } catch (SQLException e) {
 
             e.printStackTrace();
@@ -54,27 +56,27 @@ public class BookRepository implements Repository<Book> {
     }
 
     @Override
-    public void save(Book objectToSave) {
+    public void save(BookDto objectToSave) {
         try {
-            assignmentDao.create(objectToSave);
+            assignmentDao.create(new BookDataModel(objectToSave));
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void update(Book objectToUpdate) {
+    public void update(BookDto objectToUpdate) {
         try {
-            assignmentDao.update(objectToUpdate);
+            assignmentDao.update(new BookDataModel(objectToUpdate));
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void delete(Book objectToDelete) {
+    public void delete(BookDto objectToDelete) {
         try {
-            assignmentDao.delete(objectToDelete);
+            assignmentDao.delete(new BookDataModel(objectToDelete));
         } catch (SQLException e) {
             e.printStackTrace();
         }

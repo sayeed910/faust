@@ -1,13 +1,32 @@
 package com.tahsinsayeed.faust.persistence.datamodel;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 import com.tahsinsayeed.faust.business.dto.AssignmentDto;
 
+
+
+@DatabaseTable(tableName = "AssignmentDataModel")
 public class AssignmentDataModel {
+
+    @DatabaseField(id = true)
     private String id;
+
+    @DatabaseField
     private String parentCourseId;
+
+    @DatabaseField
     private String title;
+
+    @DatabaseField
     private String description;
+
+    @DatabaseField
     private boolean finished;
+
+    @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName = "course_data_model_id")
+    private CourseDataModel courseDataModel;
+
 
     public AssignmentDataModel() {
     }

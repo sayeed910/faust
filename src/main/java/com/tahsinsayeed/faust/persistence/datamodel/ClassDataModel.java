@@ -1,14 +1,24 @@
 package com.tahsinsayeed.faust.persistence.datamodel;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 import com.tahsinsayeed.faust.business.dto.ClassDto;
 
 import java.time.format.DateTimeFormatter;
 
+@DatabaseTable(tableName = "ClassDataModel")
 public class ClassDataModel {
 
+    @DatabaseField(id = true)
     private String id;
+
+    @DatabaseField
     private int classDay;
+
+    @DatabaseField
     private String classTime;
+
+    @DatabaseField
     private String courseName;
 
     public ClassDataModel() {
