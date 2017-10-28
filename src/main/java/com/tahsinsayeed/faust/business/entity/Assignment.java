@@ -10,6 +10,7 @@ public class Assignment {
     private LocalDate dueDate;
     private String description;
     private String parentCourseId;
+    private boolean finished;
 
     private Assignment(String parentCourseId, String title, String description, LocalDate dueDate) {
         this.parentCourseId = parentCourseId;
@@ -17,6 +18,7 @@ public class Assignment {
         this.title = title;
         this.dueDate = dueDate;
         this.description = description;
+        this.finished = false;
     }
 
     public static Assignment create(String parentCourseId,String title, LocalDate dueDate) {
@@ -50,5 +52,13 @@ public class Assignment {
 
     public String getParentCourseId() {
         return parentCourseId;
+    }
+
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
     }
 }

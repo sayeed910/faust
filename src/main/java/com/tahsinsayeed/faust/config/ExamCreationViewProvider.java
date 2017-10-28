@@ -1,4 +1,4 @@
-package com.tahsinsayeed.faust;
+package com.tahsinsayeed.faust.config;
 
 import com.google.inject.*;
 import com.tahsinsayeed.faust.business.dto.*;

@@ -1,7 +1,7 @@
 package com.tahsinsayeed.faust.presentation.entitycreator.assignmentcreator;
 
 import com.jfoenix.controls.*;
-import com.tahsinsayeed.faust.presentation.view.EntityCreationView;
+import com.tahsinsayeed.faust.presentation.view.EntityCreationDialog;
 import javafx.collections.FXCollections;
 import javafx.geometry.*;
 import javafx.scene.control.Label;
@@ -11,7 +11,7 @@ import javafx.scene.text.Font;
 
 import java.util.List;
 
-public class AssignmentCreator extends EntityCreationView {
+public class AssignmentCreator extends EntityCreationDialog {
     VBox container = new VBox();
     BorderPane pane = new BorderPane();
     private final JFXTextField nameInput;

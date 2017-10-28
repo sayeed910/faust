@@ -3,7 +3,7 @@ package com.tahsinsayeed.faust.presentation.controller;
 import com.google.common.eventbus.*;
 import com.google.inject.Inject;
 import com.jfoenix.controls.*;
-import com.tahsinsayeed.faust.presentation.EntityCreatorFactory;
+import com.tahsinsayeed.faust.presentation.*;
 import com.tahsinsayeed.faust.presentation.event.NewItemEvent;
 import com.tahsinsayeed.faust.presentation.view.*;
 import javafx.animation.Transition;
@@ -29,8 +29,7 @@ public class MainWindowController {
     @FXML
     private StackPane content;
 
-    private JFXPopup toolbarPopup;
-    public JFXListView<String> listView;
+    @FXML StackPane fab;
 
     @Inject
     private EventBus mainEventBus;
@@ -40,6 +39,9 @@ public class MainWindowController {
 
     @Inject
     EntityCreatorFactory entityCreatorFactory;
+
+    @Inject
+    NewItem newItem;
 
     public void initialize() throws Exception {
 
@@ -65,6 +67,9 @@ public class MainWindowController {
 
         drawer.setSidePane(sideBar);
 
+        fab.getChildren().add(newItem);
+
+
 
         mainEventBus.register(this);
 
@@ -74,7 +79,7 @@ public class MainWindowController {
     @Subscribe
     public void handleNewItemCall(NewItemEvent event){
         System.out.println("called " + event.itemName);
-        EntityCreationView view = entityCreatorFactory.create(event.itemName);
+        EntityCreationDialog view = entityCreatorFactory.create(event.itemName);
         view.showDialog(root);
     }
 

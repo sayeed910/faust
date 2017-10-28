@@ -2,7 +2,7 @@ package com.tahsinsayeed.faust.presentation.entitycreator.examcreator;
 
 import com.jfoenix.controls.*;
 import com.jfoenix.validation.*;
-import com.tahsinsayeed.faust.presentation.view.EntityCreationView;
+import com.tahsinsayeed.faust.presentation.view.EntityCreationDialog;
 import com.tahsinsayeed.faust.ui.component.FloatingTextField;
 import javafx.collections.FXCollections;
 import javafx.geometry.*;
@@ -14,7 +14,7 @@ import javafx.scene.text.Font;
 
 import java.util.List;
 
-public class ExamCreator extends EntityCreationView{
+public class ExamCreator extends EntityCreationDialog {
     private final JFXComboBox<String> txtParentCourseId;
     VBox container = new VBox();
     BorderPane pane = new BorderPane();

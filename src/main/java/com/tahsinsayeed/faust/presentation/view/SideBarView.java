@@ -5,19 +5,14 @@ import com.jfoenix.controls.*;
 import com.tahsinsayeed.faust.presentation.controller.SideBarController;
 import com.tahsinsayeed.faust.presentation.model.sidebar.SideBarItem;
 import com.tahsinsayeed.faust.ui.RecursiveTreeItem;
-import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.scene.text.Font;
 
 public class SideBarView extends VBox {
     TreeView<SideBarItem> nav;
     TreeItem<SideBarItem> rootItem;
-    Button btnAdd;
     SideBarController controller;
-    JFXListView<String> listOfOptions = new JFXListView<>();
-    JFXPopup popup = new JFXPopup();
 
     @Inject
     public SideBarView(SideBarController aController) {
@@ -33,33 +28,15 @@ public class SideBarView extends VBox {
         nav.setBorder(Border.EMPTY);
         nav.setStyle("-fx-background-color: transparent");
 
-        btnAdd = new JFXButton("Add Item");
-        btnAdd.prefWidthProperty().bind(this.widthProperty().subtract(-100));
-        btnAdd.setStyle("-fx-background-color: #0D47A1; -fx-end-margin: 20px; -fx-start-margin: 20px; -fx-text-fill: white;");
-        btnAdd.setFont(Font.font(20));
 
 
-        this.getChildren().addAll(nav, btnAdd);
+        this.getChildren().addAll(nav);
         this.setFillWidth(true);
         this.setPrefWidth(400);
         this.setPadding(new Insets(30, 0, 10, 0));
         this.setPadding(new Insets(30, 10, 10, 10));
 
         nav.getStylesheets().add(getClass().getResource("/css/tree.css").toExternalForm());
-
-
-
-
-        listOfOptions.setItems(FXCollections.observableArrayList("Course", "Assignment", "Exam", "Class", "Book"));
-        popup.setPopupContent(listOfOptions);
-
-        listOfOptions.setOnMouseClicked(event -> {
-            String selectedItem = listOfOptions.getSelectionModel().getSelectedItem();
-            controller.showNewItemDialog(selectedItem);
-            popup.hide();
-        });
-
-        btnAdd.setOnAction((e) -> popup.show(btnAdd, JFXPopup.PopupVPosition.BOTTOM, JFXPopup.PopupHPosition.RIGHT));
 
         controller.setNav(nav);
     }

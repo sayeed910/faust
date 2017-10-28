@@ -8,31 +8,19 @@ import java.time.LocalDate;
  * Created by sayeed on 10/25/17.
  */
 public class HolidayDto {
-    private String name;
-    private LocalDate date;
+    public final String id;
+    public final String name;
+    public final LocalDate date;
 
-    public HolidayDto(){
 
-    }
 
-    public HolidayDto(Holiday holiday){
+    private HolidayDto(Holiday holiday){
+        this.id = holiday.getId();
         this.name = holiday.getHolidayName();
         this.date = holiday.getDate();
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public static HolidayDto from(Holiday holiday) {
+        return new HolidayDto(holiday);
     }
 }

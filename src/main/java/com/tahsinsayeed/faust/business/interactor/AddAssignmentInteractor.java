@@ -29,7 +29,7 @@ public class AddAssignmentInteractor implements Interactor {
                         assignmentRequest.dateOfSubmission);
 
         assignmentRepository.save(assignment);
-        AssignmentDto assignmentDto = new AssignmentDto(assignment,parentCourse.getName());
+        AssignmentDto assignmentDto = AssignmentDto.from(assignment,parentCourse.getName());
         DtoBank.getInstance().addAssignment(assignmentDto);
 
         UpcomingTaskRetriever.create(LocalDate.now()).execute(null);

@@ -25,7 +25,7 @@ public class AddBookInteractor implements Interactor {
         Book book = Book.create(bookRequest.name, bookRequest.parentCourseId,new File(bookRequest.filePath));
         bookRepository.save(book);
 
-        BookDto bookDto = new BookDto(book);
+        BookDto bookDto = BookDto.from(book);
         DtoBank.getInstance().addBook(bookDto);
 
     }

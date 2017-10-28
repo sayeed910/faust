@@ -33,7 +33,8 @@ public class Main extends Application {
         primaryStage.setTitle("Faust");
         scene = new Scene(decorator, 800, 600);
         scene.getStylesheets().addAll(getClass().getResource("/css/jfoenix-components.css").toExternalForm(),
-                getClass().getResource("/css/jfoenix-main-demo.css").toExternalForm());
+                getClass().getResource("/css/jfoenix-main-demo.css").toExternalForm(),
+                getClass().getResource("/css/application.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setMaximized(true);
         primaryStage.show();
