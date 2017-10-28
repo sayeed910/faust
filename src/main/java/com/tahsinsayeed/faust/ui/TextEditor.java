@@ -18,8 +18,6 @@ public class TextEditor {
     private TextEditor(WebView view) {
         viewer = view;
         quillHandler = new QuillRequestHandler(viewer.getEngine());
-
-
     }
 
     public static TextEditor create(WebView view) {

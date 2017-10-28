@@ -4,7 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.tahsinsayeed.faust.business.dto.AssignmentDto;
 
-
+import java.time.format.DateTimeFormatter;
 
 @DatabaseTable(tableName = "AssignmentDataModel")
 public class AssignmentDataModel {
@@ -22,6 +22,9 @@ public class AssignmentDataModel {
     private String description;
 
     @DatabaseField
+    private String dueDate;
+
+    @DatabaseField
     private boolean finished;
 
     @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName = "course_data_model_id")
@@ -37,6 +40,7 @@ public class AssignmentDataModel {
         this.description = assignment.description;
         this.id = assignment.id;
         this.finished = assignment.finished;
+        this.dueDate = assignment.dueDate.format(DateTimeFormatter.ISO_LOCAL_DATE);
     }
 
 
@@ -100,5 +104,13 @@ public class AssignmentDataModel {
 
     public void setFinished(boolean finished) {
         this.finished = finished;
+    }
+
+    public String getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
     }
 }

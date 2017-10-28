@@ -20,6 +20,11 @@ public class Note {
         return new Note(UUID.randomUUID().toString(), parentCourseId, title, location);
     }
 
+
+    public static Note withId(String id, String title, String parentCourseId, File location) {
+        return new Note(id, parentCourseId, title, location);
+    }
+
     public String getTitle() {
         return title;
     }

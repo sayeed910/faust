@@ -16,10 +16,6 @@ public class PdfViewer {
     private String pdfUrl;
     private final WebView viewer;
 
-
-
-
-
     public static PdfViewer getInstance(){
 
        return getInstance(new WebView());

@@ -3,13 +3,15 @@ package com.tahsinsayeed.faust.persistence.repository;
 import com.j256.ormlite.dao.*;
 import com.j256.ormlite.support.ConnectionSource;
 import com.tahsinsayeed.faust.business.dto.BookDto;
-import com.tahsinsayeed.faust.business.entity.Book;
+import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.interactor.Repository;
 import com.tahsinsayeed.faust.persistence.DBConnection;
-import com.tahsinsayeed.faust.persistence.datamodel.BookDataModel;
+import com.tahsinsayeed.faust.persistence.datamodel.*;
+import com.tahsinsayeed.faust.persistence.mapper.*;
 
 import java.sql.SQLException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by IMON on 9/1/2017.
@@ -17,10 +19,12 @@ import java.util.*;
 public class BookRepository implements Repository<BookDto, Book> {
 
     private Dao<BookDataModel, String> assignmentDao;
-     BookRepository(DBConnection connection){
+    private DataModelToEntityMapper<BookDataModel, Book> mapper;
+     BookRepository(DBConnection connection, DataModelToEntityMapper<BookDataModel, Book> mapper ){
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
             assignmentDao = DaoManager.createDao(connectionSource, BookDataModel.class);
+            this.mapper = mapper;
         } catch (SQLException e) {
 
             e.printStackTrace();
@@ -29,7 +33,7 @@ public class BookRepository implements Repository<BookDto, Book> {
     }
 
      BookRepository() {
-        this(DBConnection.getInstance());
+        this(DBConnection.getInstance(), new BookMapper());
     }
 
 
@@ -37,7 +41,7 @@ public class BookRepository implements Repository<BookDto, Book> {
     public Book get(String id) {
 
         try {
-            return assignmentDao.queryForId(id);
+            return mapper.map(assignmentDao.queryForId(id));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -48,7 +52,8 @@ public class BookRepository implements Repository<BookDto, Book> {
     @Override
     public List<Book> getAll() {
         try {
-            return assignmentDao.queryForAll();
+            return assignmentDao.queryForAll().stream()
+                    .map(bookDataModel -> mapper.map(bookDataModel)).collect(Collectors.toList());
         } catch (SQLException e) {
             e.printStackTrace();
         }

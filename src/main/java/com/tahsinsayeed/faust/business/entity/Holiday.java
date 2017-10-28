@@ -12,9 +12,13 @@ public class Holiday {
           return new Holiday(date, name);
     }
 
-    public static Holiday createWithNoName(LocalDate date){
-        return new Holiday(date, "");
+
+
+    public static Holiday withId(String id, LocalDate date, String name){
+        return new Holiday(date, name);
     }
+
+
 
     private Holiday(LocalDate date, String holidayName) {
         this.date = date;

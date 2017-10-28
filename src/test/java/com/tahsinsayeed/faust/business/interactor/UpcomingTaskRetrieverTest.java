@@ -49,7 +49,7 @@ public class UpcomingTaskRetrieverTest {
         List<Assignment> assignments = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            assignments.add(Assignment.create("course","exams", LocalDate.now()));
+            assignments.add(Assignment.withRandomId("course","exams", LocalDate.now()));
         }
 
         return assignments;

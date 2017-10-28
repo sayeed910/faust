@@ -7,18 +7,22 @@ import com.tahsinsayeed.faust.business.entity.Class;
 import com.tahsinsayeed.faust.business.interactor.Repository;
 import com.tahsinsayeed.faust.persistence.DBConnection;
 import com.tahsinsayeed.faust.persistence.datamodel.ClassDataModel;
+import com.tahsinsayeed.faust.persistence.mapper.*;
 
 import java.sql.SQLException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by IMON on 9/1/2017.
  */
 public class ClassRepository implements Repository<ClassDto, Class> {
 
+    private final DataModelToEntityMapper<ClassDataModel, Class> mapper;
     private Dao<ClassDataModel, String> classDao;
 
-    ClassRepository(DBConnection connection) {
+    ClassRepository(DBConnection connection, DataModelToEntityMapper<ClassDataModel, Class> mapper) {
+        this.mapper = mapper;
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
             classDao = DaoManager.createDao(connectionSource, ClassDataModel.class);
@@ -29,7 +33,7 @@ public class ClassRepository implements Repository<ClassDto, Class> {
     }
 
     ClassRepository() {
-        this(DBConnection.getInstance());
+        this(DBConnection.getInstance(), new ClassMapper());
     }
 
 
@@ -37,7 +41,7 @@ public class ClassRepository implements Repository<ClassDto, Class> {
     public Class get(String id) {
 
         try {
-            return classDao.queryForId(id);
+            return mapper.map(classDao.queryForId(id));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -48,7 +52,8 @@ public class ClassRepository implements Repository<ClassDto, Class> {
     @Override
     public List<Class> getAll() {
         try {
-            return classDao.queryForAll();
+            return classDao.queryForAll().stream()
+                    .map(mapper::map).collect(Collectors.toList());
         } catch (SQLException e) {
             e.printStackTrace();
         }

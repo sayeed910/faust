@@ -72,7 +72,7 @@ public class Course {
         return books;
     }
 
-    public void addBook(Note note) { this.notes.add(note); }
+    public void addNote(Note note) { this.notes.add(note); }
 
     public List<Note> getNotes() {
         return notes;

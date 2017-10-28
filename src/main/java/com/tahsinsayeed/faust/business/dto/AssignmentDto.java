@@ -1,12 +1,15 @@
 package com.tahsinsayeed.faust.business.dto;
 
-import com.tahsinsayeed.faust.business.entity.*;
+import com.tahsinsayeed.faust.business.entity.Assignment;
+
+import java.time.LocalDate;
 
 public class AssignmentDto {
     public final String id;
     public final String parentCourseId;
     public final String title;
     public final String description;
+    public final LocalDate dueDate;
     public final boolean finished;
 
 
@@ -16,6 +19,7 @@ public class AssignmentDto {
         this.description = assignment.getDescription();
         this.id = assignment.getId();
         this.finished = assignment.isFinished();
+        this.dueDate = assignment.getDueDate();
     }
 
     public static AssignmentDto from(Assignment assignment) {

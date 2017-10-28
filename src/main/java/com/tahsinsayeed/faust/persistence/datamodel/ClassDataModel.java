@@ -19,7 +19,7 @@ public class ClassDataModel {
     private String classTime;
 
     @DatabaseField
-    private String courseName;
+    private String parentCourseId;
 
     public ClassDataModel() {
     }
@@ -28,6 +28,7 @@ public class ClassDataModel {
         this.classDay = clazz.classDay.getValue();
         this.classTime = clazz.classTime.format(DateTimeFormatter.ISO_LOCAL_TIME);
         this.id = clazz.id;
+        this.parentCourseId = clazz.parentCourseId;
     }
 
     public String getId() {
@@ -54,11 +55,11 @@ public class ClassDataModel {
         this.classTime = classTime;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public String getParentCourseId() {
+        return parentCourseId;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public void setParentCourseId(String parentCourseId) {
+        this.parentCourseId = parentCourseId;
     }
 }

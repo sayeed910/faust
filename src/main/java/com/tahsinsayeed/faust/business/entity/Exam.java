@@ -24,6 +24,11 @@ public class Exam {
         return new Exam(UUID.randomUUID().toString(), parentCourseId, examName, examDate, examTime);
     }
 
+    public static Exam withId(String id, String examName, String parentCourseId, LocalDate examDate, LocalTime examTime){
+        return new Exam(UUID.randomUUID().toString(), parentCourseId, examName, examDate, examTime);
+    }
+
+
     public LocalDate getDate() {
         return date;
     }

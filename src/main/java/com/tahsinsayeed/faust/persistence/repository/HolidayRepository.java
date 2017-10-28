@@ -3,22 +3,25 @@ package com.tahsinsayeed.faust.persistence.repository;
 import com.j256.ormlite.dao.*;
 import com.j256.ormlite.support.ConnectionSource;
 import com.tahsinsayeed.faust.business.dto.HolidayDto;
-import com.tahsinsayeed.faust.business.entity.Holiday;
+import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.interactor.Repository;
 import com.tahsinsayeed.faust.persistence.DBConnection;
-import com.tahsinsayeed.faust.persistence.datamodel.HolidayDataModel;
+import com.tahsinsayeed.faust.persistence.datamodel.*;
+import com.tahsinsayeed.faust.persistence.mapper.*;
 
 import java.sql.SQLException;
 import java.util.*;
-
+import java.util.stream.Collectors;
 
 /**
  * Created by IMON on 8/13/2017.
  */
 public class HolidayRepository implements Repository<HolidayDto, Holiday> {
+    private final DataModelToEntityMapper<HolidayDataModel, Holiday> mapper;
     private  Dao<HolidayDataModel, String> holidayDao;
-     HolidayRepository(DBConnection connection){
-        ConnectionSource connectionSource = connection.getConnectionSource();
+     HolidayRepository(DBConnection connection, DataModelToEntityMapper<HolidayDataModel, Holiday> mapper){
+         this.mapper = mapper;
+         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
             holidayDao = DaoManager.createDao(connectionSource, HolidayDataModel.class);
         } catch (SQLException e) {
@@ -27,7 +30,7 @@ public class HolidayRepository implements Repository<HolidayDto, Holiday> {
     }
 
      HolidayRepository() {
-        this(DBConnection.getInstance());
+        this(DBConnection.getInstance(), new HolidayMapper());
     }
 
 
@@ -35,7 +38,7 @@ public class HolidayRepository implements Repository<HolidayDto, Holiday> {
     public Holiday get(String id) {
 
         try {
-            return holidayDao.queryForId(id);
+            return mapper.map(holidayDao.queryForId(id));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -46,7 +49,8 @@ public class HolidayRepository implements Repository<HolidayDto, Holiday> {
     @Override
     public List<Holiday> getAll() {
         try {
-            return holidayDao.queryForAll();
+            return holidayDao.queryForAll().stream()
+                    .map(mapper::map).collect(Collectors.toList());
         } catch (SQLException e) {
             e.printStackTrace();
         }

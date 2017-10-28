@@ -3,22 +3,26 @@ package com.tahsinsayeed.faust.persistence.repository;
 import com.j256.ormlite.dao.*;
 import com.j256.ormlite.support.ConnectionSource;
 import com.tahsinsayeed.faust.business.dto.ExamDto;
-import com.tahsinsayeed.faust.business.entity.Exam;
+import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.interactor.Repository;
 import com.tahsinsayeed.faust.persistence.DBConnection;
-import com.tahsinsayeed.faust.persistence.datamodel.ExamDataModel;
+import com.tahsinsayeed.faust.persistence.datamodel.*;
+import com.tahsinsayeed.faust.persistence.mapper.*;
 
 import java.sql.SQLException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by IMON on 9/1/2017.
  */
 public class ExamRepository implements Repository<ExamDto, Exam> {
 
+    private final DataModelToEntityMapper<ExamDataModel, Exam> mapper;
     private Dao<ExamDataModel, String> examDao;
 
-    ExamRepository(DBConnection connection){
+    ExamRepository(DBConnection connection, DataModelToEntityMapper<ExamDataModel, Exam> mapper){
+        this.mapper = mapper;
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
             examDao = DaoManager.createDao(connectionSource, ExamDataModel.class);
@@ -28,7 +32,7 @@ public class ExamRepository implements Repository<ExamDto, Exam> {
     }
 
     ExamRepository() {
-        this(DBConnection.getInstance());
+        this(DBConnection.getInstance(), new ExamMapper());
     }
 
 
@@ -36,7 +40,7 @@ public class ExamRepository implements Repository<ExamDto, Exam> {
     public Exam get(String id) {
 
         try {
-            return examDao.queryForId(id);
+            return mapper.map(examDao.queryForId(id));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -47,7 +51,8 @@ public class ExamRepository implements Repository<ExamDto, Exam> {
     @Override
     public List<Exam> getAll() {
         try {
-            return examDao.queryForAll();
+            return examDao.queryForAll().stream()
+                    .map(mapper::map).collect(Collectors.toList());
         } catch (SQLException e) {
             e.printStackTrace();
         }

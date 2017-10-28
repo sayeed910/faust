@@ -7,9 +7,11 @@ import com.tahsinsayeed.faust.business.entity.Assignment;
 import com.tahsinsayeed.faust.business.interactor.Repository;
 import com.tahsinsayeed.faust.persistence.DBConnection;
 import com.tahsinsayeed.faust.persistence.datamodel.AssignmentDataModel;
+import com.tahsinsayeed.faust.persistence.mapper.*;
 
 import java.sql.SQLException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by IMON on 9/1/2017.
@@ -17,10 +19,13 @@ import java.util.*;
 public class AssignmentRepository implements Repository<AssignmentDto, Assignment> {
 
     private Dao<AssignmentDataModel, String> assignmentDao;
-     AssignmentRepository(DBConnection connection){
+    private DataModelToEntityMapper<AssignmentDataModel, Assignment> mapper;
+
+     AssignmentRepository(DBConnection connection, DataModelToEntityMapper<AssignmentDataModel, Assignment> mapper){
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
             assignmentDao = DaoManager.createDao(connectionSource, AssignmentDataModel.class);
+            this.mapper = mapper;
         } catch (SQLException e) {
 
             e.printStackTrace();
@@ -29,7 +34,7 @@ public class AssignmentRepository implements Repository<AssignmentDto, Assignmen
     }
 
      AssignmentRepository() {
-        this(DBConnection.getInstance());
+        this(DBConnection.getInstance(), new AssignmentMapper() );
     }
 
 
@@ -37,7 +42,7 @@ public class AssignmentRepository implements Repository<AssignmentDto, Assignmen
     public Assignment get(String id) {
 
         try {
-            return assignmentDao.queryForId(id);
+            return mapper.map(assignmentDao.queryForId(id));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -48,7 +53,8 @@ public class AssignmentRepository implements Repository<AssignmentDto, Assignmen
     @Override
     public List<Assignment> getAll() {
         try {
-            return assignmentDao.queryForAll();
+            return assignmentDao.queryForAll().stream()
+                    .map(assignmentDataModel -> mapper.map(assignmentDataModel)).collect(Collectors.toList());
         } catch (SQLException e) {
             e.printStackTrace();
         }
