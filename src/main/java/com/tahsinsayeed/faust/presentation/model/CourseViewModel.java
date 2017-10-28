@@ -1,14 +1,17 @@
 package com.tahsinsayeed.faust.presentation.model;
 
+import com.tahsinsayeed.faust.business.dto.CourseDto;
+import com.tahsinsayeed.faust.business.dto.NoteDto;
 import com.tahsinsayeed.faust.business.entity.*;
 import javafx.beans.property.*;
 import javafx.collections.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CourseViewModel {
-    private String id;
+    private SimpleStringProperty id;
     private StringProperty name;
     private ObservableList<BookViewModel> books;
     private ObservableList<NoteViewModel> notes;
@@ -18,32 +21,33 @@ public class CourseViewModel {
     public CourseViewModel() {
     }
 
-    public CourseViewModel(Course course){
-        this.id =  course.getId();
-        this.name = new SimpleStringProperty(course.getName());
-        this.notes = FXCollections.observableArrayList(course.getNotes());
-        this.books = FXCollections.observableArrayList(
-                course.getBooks().stream().map(BookViewModel::new)
+    public CourseViewModel(CourseDto course){
+        this.id = new SimpleStringProperty(course.id);
+        this.name = new SimpleStringProperty(course.name);
+
+        this.notes = FXCollections.observableList(course.notes.stream()
+                .map(NoteViewModel::new).collect(Collectors.toCollection(ArrayList::new)));
+        this.books =  FXCollections.observableList(course.books.stream()
+                .map(BookViewModel::new).collect(Collectors.toCollection(ArrayList::new)));
+        this.exams = FXCollections.observableList(
+                course.exams.stream().map(ExamViewModel::new)
                         .collect(Collectors.toList()));
-        this.exams = FXCollections.observableArrayList(
-                course.getExams().stream().map(exam -> new ExamViewModel(exam, course))
-                        .collect(Collectors.toList()));
-        this.assignments = FXCollections.observableArrayList(
-                course.getAssignments().stream().map(assignment -> new AssignmentViewModel(assignment, course))
+        this.assignments = FXCollections.observableList(
+                course.assignments.stream().map(AssignmentViewModel::new)
                 .collect(Collectors.toList()));
     }
 
 
-    public String getId() {
+    public SimpleStringProperty getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.id.set(id);
     }
 
-    public String getName() {
-        return name.get();
+    public StringProperty getName() {
+        return name;
     }
 
     public void setName(String name) {
@@ -55,15 +59,15 @@ public class CourseViewModel {
     }
 
     public void setBooks(List<BookViewModel> books) {
-        this.books = FXCollections.observableArrayList(books);
+        this.books = FXCollections.observableList(books);
     }
 
-    public ObservableList<Note> getNotes() {
+    public ObservableList<NoteViewModel> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<Note> notes) {
-        this.notes = FXCollections.observableArrayList(notes);
+    public void addNote(NoteDto notes) {
+        this.notes.add(new NoteViewModel(notes));
     }
 
     public ObservableList<ExamViewModel> getExams() {
@@ -71,7 +75,7 @@ public class CourseViewModel {
     }
 
     public void setExams(List<ExamViewModel> exams) {
-        this.exams = FXCollections.observableArrayList(exams);
+        this.exams = FXCollections.observableList(exams);
     }
 
     public ObservableList<AssignmentViewModel> getAssignments() {
@@ -79,7 +83,7 @@ public class CourseViewModel {
     }
 
     public void setAssignments(List<AssignmentViewModel> assignments) {
-        this.assignments = FXCollections.observableArrayList(assignments);
+        this.assignments = FXCollections.observableList(assignments);
     }
 
 

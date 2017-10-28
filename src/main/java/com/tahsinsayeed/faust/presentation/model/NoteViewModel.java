@@ -1,55 +1,58 @@
 package com.tahsinsayeed.faust.presentation.model;
 
+import com.tahsinsayeed.faust.business.dto.NoteDto;
 import com.tahsinsayeed.faust.business.entity.Note;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 /**
  * Created by sayeed on 10/25/17.
  */
 public class NoteViewModel {
-    private String id;
-    private String title;
-    private String parentCourseId;
-    private String filePath;
+    private SimpleStringProperty id;
+    private StringProperty title;
+    private StringProperty parentCourseId;
+    private StringProperty filePath;
 
     public NoteViewModel() {
     }
 
-    public NoteViewModel(Note note){
-        this.title = note.getTitle();
-        this.parentCourseId = note.getParentCourseId();
-        this.id = note.getId();
-        this.filePath = note.getFile().getAbsolutePath();
+    public NoteViewModel(NoteDto note){
+        this.title = new SimpleStringProperty(note.title);
+        this.parentCourseId = new SimpleStringProperty(note.parentCourseId);
+        this.id = new SimpleStringProperty(note.id);
+        this.filePath = new SimpleStringProperty(note.filePath);
     }
 
-    public String getId() {
+    public SimpleStringProperty getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.id.set(id);
     }
 
-    public String getTitle() {
+    public StringProperty getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.title.set(title);
     }
 
-    public String getParentCourseId() {
+    public StringProperty getParentCourseId() {
         return parentCourseId;
     }
 
     public void setParentCourseId(String parentCourseId) {
-        this.parentCourseId = parentCourseId;
+        this.parentCourseId.set(parentCourseId);
     }
 
-    public String getFilePath() {
+    public StringProperty getFilePath() {
         return filePath;
     }
 
     public void setFilePath(String filePath) {
-        this.filePath = filePath;
+        this.filePath.set(filePath);
     }
 }

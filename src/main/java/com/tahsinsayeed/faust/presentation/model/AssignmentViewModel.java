@@ -2,9 +2,10 @@ package com.tahsinsayeed.faust.presentation.model;
 
 import com.tahsinsayeed.faust.business.dto.AssignmentDto;
 import javafx.beans.property.*;
+import sun.java2d.pipe.SpanShapeRenderer;
 
 public class AssignmentViewModel {
-    private StringProperty id;
+    private SimpleStringProperty id;
     private StringProperty parentCourseId;
     private StringProperty title;
     private StringProperty description;
@@ -26,36 +27,36 @@ public class AssignmentViewModel {
         this.id.set(id);
     }
 
-    public String getCourseName() {
-        return courseName;
+    public StringProperty getCourseName() {
+        return title;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public void setCourseName(String title) {
+        this.title.set(title);
     }
 
-    public String getTitle() {
+    public StringProperty getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.title.set(title);
     }
 
-    public String getDescription() {
+    public StringProperty getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.description.set(description);
     }
 
-    public String getParentCourseId() {
+    public StringProperty getParentCourseId() {
         return parentCourseId;
     }
 
     public void setParentCourseId(String parentCourseId) {
-        this.parentCourseId = parentCourseId;
+        this.parentCourseId.set(parentCourseId);
     }
 
     @Override

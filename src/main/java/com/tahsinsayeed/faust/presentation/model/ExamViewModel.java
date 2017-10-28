@@ -1,55 +1,57 @@
         package com.tahsinsayeed.faust.presentation.model;
 
+import com.j256.ormlite.stmt.query.In;
+import com.tahsinsayeed.faust.business.dto.ExamDto;
 import com.tahsinsayeed.faust.business.entity.Exam;
+import com.tahsinsayeed.faust.persistence.datamodel.ExamDataModel;
+import javafx.beans.property.*;
 
 import java.time.*;
 
 public class ExamViewModel {
-    private String name;
-    private double receivedMark;
-    private int totalMark;
-    private String id;
+    private StringProperty name;
+    private DoubleProperty receivedMark;
+    private IntegerProperty totalMark;
+    private SimpleStringProperty id;
     private LocalDate examDate;
     private LocalTime examTime;
-    private String courseName;
-    private String parentCourseId;
+    private StringProperty parentCourseId;
 
     public ExamViewModel() {
     }
 
-    public ExamViewModel(Exam exam, String courseName){
-        this.courseName = courseName;
-        this.parentCourseId = exam.getCourseId();
-        this.examDate = exam.getDate();
-        this.examTime = exam.getTime();
-        this.id = exam.getExamId();
-        this.name = exam.getName();
-        this.totalMark = exam.getTotalMark();
-        this.receivedMark = exam.getReceivedMark();
+    public ExamViewModel(ExamDto exam){
+        this.name=new SimpleStringProperty(exam.name);
+        this.parentCourseId = new SimpleStringProperty(exam.parentCourseId);
+        this.examDate = exam.examDate;
+        this.examTime = exam.examTime;
+        this.id = new SimpleStringProperty(exam.id);
+        this.totalMark =new  SimpleIntegerProperty(exam.totalMark);
+        this.receivedMark = new  SimpleDoubleProperty(exam.receivedMark);
     }
 
-    public double getReceivedMark() {
+    public DoubleProperty getReceivedMark() {
         return receivedMark;
     }
 
     public void setReceivedMark(double receivedMark) {
-        this.receivedMark = receivedMark;
+        this.receivedMark.setValue(receivedMark);
     }
 
-    public int getTotalMark() {
+    public IntegerProperty getTotalMark() {
         return totalMark;
     }
 
     public void setTotalMark(int totalMark) {
-        this.totalMark = totalMark;
+        this.totalMark.setValue(totalMark);
     }
 
-    public String getId() {
+    public SimpleStringProperty getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.id.set(id);
     }
 
     public LocalDate getExamDate() {
@@ -68,27 +70,19 @@ public class ExamViewModel {
         this.examTime = examTime;
     }
 
-    public String getCourseName() {
-        return courseName;
-    }
-
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
-    public String getName() {
+    public StringProperty getName() {
         return name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name.set(name);
     }
 
-    public String getParentCourseId() {
+    public StringProperty getParentCourseId() {
         return parentCourseId;
     }
 
     public void setParentCourseId(String parentCourseId) {
-        this.parentCourseId = parentCourseId;
+        this.parentCourseId.set(parentCourseId);
     }
 }
