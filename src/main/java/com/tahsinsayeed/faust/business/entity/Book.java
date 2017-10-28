@@ -1,5 +1,7 @@
 package com.tahsinsayeed.faust.business.entity;
 
+import javafx.stage.FileChooser;
+
 import java.io.File;
 
 public class Book {
@@ -11,6 +13,8 @@ public class Book {
         this.name = name;
         this.parentCourseId = parentCourseId;
         this.file = file;
+
+//        FileChooser
     }
 
     public static Book create(String name, String parentCourseId, File file) {

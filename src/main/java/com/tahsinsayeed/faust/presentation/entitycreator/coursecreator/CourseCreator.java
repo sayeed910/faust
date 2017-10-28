@@ -9,6 +9,10 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 
+/**
+ * Created by Shamim on 10/28/17.
+ */
+
 public class CourseCreator extends EntityCreationView {
     final VBox centerContainer;
     final BorderPane pane;

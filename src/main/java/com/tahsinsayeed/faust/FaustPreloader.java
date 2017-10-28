@@ -1,4 +1,5 @@
 package com.tahsinsayeed.faust;
+
 import com.jfoenix.controls.JFXSpinner;
 import com.sun.org.apache.regexp.internal.REDebugCompiler;
 import javafx.application.Preloader;
@@ -49,7 +50,7 @@ public class FaustPreloader extends Preloader {
         ImageView imageView = new ImageView(image);
         imageView.setFitHeight(300);
         imageView.setFitWidth(280);
-        Label loading= new Label("Loading");
+        Label loading = new Label("Loading");
         loading.setFont(Font.font("Cambria", 32));
         loading.setTextFill(Color.web("#EEEA13"));
         //loading.setTextFill(Color.MAGENTA);
@@ -59,10 +60,10 @@ public class FaustPreloader extends Preloader {
         //spinner.resize(20,20);
 
         VBox vbox2;
-        vbox2 = new VBox(spinner,loading);
+        vbox2 = new VBox(spinner, loading);
         vbox2.setAlignment(Pos.CENTER);
         vbox2.setSpacing(5);
-        VBox vbox= new VBox(imageView,vbox2);
+        VBox vbox = new VBox(imageView, vbox2);
         vbox.setAlignment(Pos.CENTER);
         vbox.setSpacing(00);
         vbox.setBackground(new Background(new BackgroundFill(Color.web("#070C6F"), CornerRadii.EMPTY, Insets.EMPTY)));
@@ -80,23 +81,23 @@ public class FaustPreloader extends Preloader {
         stage.show();
     }*/
 
-  /*  @Override
-    public void init() throws Exception {
-//        System.out.println(MyApplication.STEP() + "MyPreloader#init (could be used to initialize preloader view), thread: " + Thread.currentThread().getName());
+    /*  @Override
+      public void init() throws Exception {
+  //        System.out.println(MyApplication.STEP() + "MyPreloader#init (could be used to initialize preloader view), thread: " + Thread.currentThread().getName());
 
-        // If preloader has complex UI it's initialization can be done in MyPreloader#init
-        Platform.runLater(() -> {
-            Label title = new Label("Showing preloader stage!\nLoading, please wait...");
-            title.setTextAlignment(TextAlignment.CENTER);
-            progress = new Label("0%");
+          // If preloader has complex UI it's initialization can be done in MyPreloader#init
+          Platform.runLater(() -> {
+              Label title = new Label("Showing preloader stage!\nLoading, please wait...");
+              title.setTextAlignment(TextAlignment.CENTER);
+              progress = new Label("0%");
 
-            VBox root = new VBox(title, progress);
-            root.setAlignment(Pos.CENTER);
+              VBox root = new VBox(title, progress);
+              root.setAlignment(Pos.CENTER);
 
-            scene = new Scene(root, WIDTH, HEIGHT);
-        });
-    }
-*/
+              scene = new Scene(root, WIDTH, HEIGHT);
+          });
+      }
+  */
     @Override
     public void start(Stage Stage) throws Exception {
 //        System.out.println(MyApplication.STEP() + "MyPreloader#start (showing preloader stage), thread: " + Thread.currentThread().getName());
@@ -113,7 +114,7 @@ public class FaustPreloader extends Preloader {
     public void handleApplicationNotification(PreloaderNotification info) {
         // Handle application notification in this point (see MyApplication#init).
         if (info instanceof ProgressNotification) {
-          //  progress.setText(((ProgressNotification) info).getProgress() + "%");
+            //  progress.setText(((ProgressNotification) info).getProgress() + "%");
         }
     }
 
@@ -125,7 +126,7 @@ public class FaustPreloader extends Preloader {
             case BEFORE_LOAD:
                 spinner.setVisible(false);
                 // Called after MyPreloader#start is called.
-                System.out.println( "BEFORE_LOAD");
+                System.out.println("BEFORE_LOAD");
                 break;
             case BEFORE_INIT:
                 spinner.setVisible(true);
