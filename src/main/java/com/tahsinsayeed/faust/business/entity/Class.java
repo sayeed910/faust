@@ -6,6 +6,7 @@ public class Class {
     private final String courseId;
     private DayOfWeek day;
     private LocalTime startTime;
+    private String id;
 
     public Class(String courseId, DayOfWeek day, LocalTime startTime) {
         this.courseId = courseId;
@@ -56,5 +57,9 @@ public class Class {
         result = 31 * result + (day != null ? day.hashCode() : 0);
         result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
         return result;
+    }
+
+    public String getId() {
+        return id;
     }
 }

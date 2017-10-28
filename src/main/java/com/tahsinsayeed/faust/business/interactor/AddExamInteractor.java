@@ -31,7 +31,7 @@ public class AddExamInteractor implements Interactor {
                 examRequest.examDate, examRequest.examTime);
         examRepository.save(exam);
 
-        ExamDto examDto = new ExamDto(exam, parentCourse.getName());
+        ExamDto examDto = ExamDto.from(exam, parentCourse.getName());
         DtoBank.getInstance().addExam(examDto);
 
         UpcomingTaskRetriever.create(LocalDate.now()).execute(null);

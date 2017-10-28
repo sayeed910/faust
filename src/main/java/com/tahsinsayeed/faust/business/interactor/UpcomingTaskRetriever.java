@@ -37,7 +37,7 @@ public class UpcomingTaskRetriever implements Interactor {
         List<Class> classes = repositoryFactory.getClassRepository().getAll();
         return classes.stream()
                 .filter((clazz)-> clazz.getDay().equals(date.getDayOfWeek()))
-                .map(aClass -> new ClassDto(aClass, courseRepository.get(aClass.getCourseId()).getName()))
+                .map(aClass -> ClassDto.from(aClass, courseRepository.get(aClass.getCourseId()).getName()))
                 .collect(Collectors.toList());
 
     }
@@ -47,7 +47,7 @@ public class UpcomingTaskRetriever implements Interactor {
         List<Exam> exams = repositoryFactory.getExamRepository().getAll();
         return exams.stream()
                 .filter((exam)-> exam.getDate().equals(date))
-                .map(exam -> new ExamDto(exam, courseRepository.get(exam.getCourseId()).getName()))
+                .map(exam -> ExamDto.from(exam, courseRepository.get(exam.getCourseId()).getName()))
                 .collect(Collectors.toList());
     }
 
@@ -56,14 +56,14 @@ public class UpcomingTaskRetriever implements Interactor {
         return assignments.stream()
                 .filter((assignment)-> assignment.getDate().equals(date))
                  .map(assignment ->
-                         new AssignmentDto(assignment,
+                         AssignmentDto.from(assignment,
                                  courseRepository.get(assignment.getParentCourseId()).getName()))
                 .collect(Collectors.toList());
     }
 
     @Override
     public void execute(Request request) {
-        dtoBank.setUpcomingTask(new UpcomingTask(getTodaysClasses(), getTodaysAssignments(), getTodaysExams()));
+        dtoBank.setUpcomingTask(UpcomingTasks.from(getTodaysClasses(), getTodaysAssignments(), getTodaysExams()));
     }
 
 
