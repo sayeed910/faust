@@ -1,33 +1,34 @@
-        package com.tahsinsayeed.faust.presentation.model;
+package com.tahsinsayeed.faust.presentation.model;
 
+import com.tahsinsayeed.faust.business.dto.ClassDto;
 import com.tahsinsayeed.faust.business.entity.Class;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 import java.time.*;
 import java.util.UUID;
 
 public class ClassViewModel {
 
-    private String id;
+    private StringProperty id;
     private DayOfWeek classDay;
     private LocalTime classTime;
-    private String courseName;
 
     public ClassViewModel() {
     }
 
-    public ClassViewModel(Class clazz, String courseName){
-        this.courseName = courseName;
-        this.classDay = clazz.getDay();
-        this.classTime = clazz.getStartTime();
-        this.id = UUID.randomUUID().toString();
+    public ClassViewModel(ClassDto clazz){
+        this.classDay = clazz.classDay;
+        this.classTime = clazz.classTime;
+        this.id = new SimpleStringProperty(clazz.id);
     }
 
-    public String getId() {
+    public StringProperty  getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String  id) {
+        this.id.set(id);
     }
 
     public DayOfWeek getClassDay() {
@@ -46,11 +47,4 @@ public class ClassViewModel {
         this.classTime = classTime;
     }
 
-    public String getCourseName() {
-        return courseName;
-    }
-
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
 }
