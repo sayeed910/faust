@@ -29,7 +29,7 @@ public class HolidayCreationController implements EntityCreationController {
     public void add() {
         ContentValues values = getRequestArgs();
         Interactor HolidayCreator = interactorFactory.make(InteractorFactory.InteractorType.ADD_HOLIDAY);
-        Request newHolidayRequest = requestBuilder.make(RequestBuilder.RequestType.NEW_HOLYDAY, values);
+        Request newHolidayRequest = requestBuilder.make(RequestBuilder.RequestType.NEW_HOLIDAY, values);
 
         HolidayCreator.execute(newHolidayRequest);
 

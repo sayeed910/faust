@@ -2,7 +2,7 @@ package com.tahsinsayeed.faust.presentation.entitycreator.holidaycreator;
 
 import com.jfoenix.controls.*;
 import com.jfoenix.validation.*;
-import com.tahsinsayeed.faust.presentation.view.EntityCreationView;
+import com.tahsinsayeed.faust.presentation.view.EntityCreationDialog;
 import com.tahsinsayeed.faust.ui.component.FloatingTextField;
 import javafx.collections.FXCollections;
 import javafx.geometry.*;
@@ -18,7 +18,7 @@ import java.util.List;
         Creted by Shamim 10/28/2017
 */
 
-public class HolidayCreator extends EntityCreationView{
+public class HolidayCreator extends EntityCreationDialog{
     VBox container = new VBox();
     BorderPane pane = new BorderPane();
     private final JFXTextField nameInput;

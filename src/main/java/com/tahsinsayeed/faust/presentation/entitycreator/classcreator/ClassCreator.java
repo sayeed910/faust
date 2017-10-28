@@ -1,7 +1,7 @@
 package com.tahsinsayeed.faust.presentation.entitycreator.classcreator;
 
 import com.jfoenix.controls.*;
-import com.tahsinsayeed.faust.presentation.view.EntityCreationView;
+import com.tahsinsayeed.faust.presentation.view.EntityCreationDialog;
 import javafx.collections.FXCollections;
 import javafx.geometry.*;
 import javafx.scene.control.Label;
@@ -11,7 +11,7 @@ import javafx.scene.text.Font;
 
 import java.util.List;
 
-public class ClassCreator extends EntityCreationView {
+public class ClassCreator extends EntityCreationDialog {
     VBox container = new VBox();
     BorderPane pane = new BorderPane();
     private final JFXTimePicker startTime;

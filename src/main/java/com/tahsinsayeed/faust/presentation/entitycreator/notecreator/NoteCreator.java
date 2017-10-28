@@ -2,7 +2,7 @@ package com.tahsinsayeed.faust.presentation.entitycreator.notecreator;
 
         import com.jfoenix.controls.*;
         import com.jfoenix.validation.*;
-        import com.tahsinsayeed.faust.presentation.view.EntityCreationView;
+        import com.tahsinsayeed.faust.presentation.view.EntityCreationDialog;
         import com.tahsinsayeed.faust.ui.component.FloatingTextField;
         import javafx.collections.FXCollections;
         import javafx.geometry.*;
@@ -10,14 +10,13 @@ package com.tahsinsayeed.faust.presentation.entitycreator.notecreator;
         import javafx.scene.layout.*;
         import javafx.scene.paint.Paint;
         import javafx.scene.text.Font;
-        import javafx.stage.FileChooser;
         import java.util.List;
 
 /**
  * Created by Shamim on 10/28/17.
  */
 
-public class NoteCreator extends EntityCreationView{
+public class NoteCreator extends EntityCreationDialog{
     private final JFXComboBox<String> txtParentCourseId;
     VBox container = new VBox();
     BorderPane pane = new BorderPane();

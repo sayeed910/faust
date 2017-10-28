@@ -2,7 +2,7 @@ package com.tahsinsayeed.faust.presentation.entitycreator.bookcreator;
 
         import com.jfoenix.controls.*;
         import com.jfoenix.validation.*;
-        import com.tahsinsayeed.faust.presentation.view.EntityCreationView;
+        import com.tahsinsayeed.faust.presentation.view.EntityCreationDialog;
         import com.tahsinsayeed.faust.ui.component.FloatingTextField;
         import javafx.collections.FXCollections;
         import javafx.geometry.*;
@@ -18,7 +18,7 @@ package com.tahsinsayeed.faust.presentation.entitycreator.bookcreator;
  * Created by Shamim on 10/28/17.
  */
 
-public class BookCreator extends EntityCreationView{
+public class BookCreator extends EntityCreationDialog{
     private final JFXComboBox<String> txtParentCourseId;
     VBox container = new VBox();
     BorderPane pane = new BorderPane();
