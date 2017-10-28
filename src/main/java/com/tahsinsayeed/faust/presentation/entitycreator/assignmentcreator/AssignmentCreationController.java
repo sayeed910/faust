@@ -76,6 +76,8 @@ public class AssignmentCreationController implements EntityCreationController {
                 "assignmentTitle", assignmentTitle,
                 "dueDate", dueDate,
                 "description", description);
+
+//        file.getAbsolutePath()
     }
 
     @Override
