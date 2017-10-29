@@ -2,6 +2,7 @@ package com.tahsinsayeed.faust.persistence.mapper;
 
 import com.tahsinsayeed.faust.business.entity.Holiday;
 import com.tahsinsayeed.faust.persistence.datamodel.HolidayDataModel;
+import com.tahsinsayeed.faust.persistence.repository.DataModelToEntityMapper;
 
 import java.time.LocalDate;
 

@@ -2,7 +2,7 @@ package com.tahsinsayeed.faust.persistence.datamodel;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-import com.tahsinsayeed.faust.business.dto.NoteDto;
+import com.tahsinsayeed.faust.business.entity.Note;
 
 /**
  * Created by sayeed on 10/25/17.
@@ -29,11 +29,11 @@ public class NoteDataModel {
     public NoteDataModel() {
     }
 
-    public NoteDataModel(NoteDto note){
-        this.title = note.title;
-        this.parentCourseId = note.parentCourseId;
-        this.id = note.id;
-        this.filePath = note.filePath;
+    public NoteDataModel(Note note){
+        this.title = note.getTitle();
+        this.parentCourseId = note.getParentCourseId();
+        this.id = note.getId();
+        this.filePath = note.getFile().getAbsolutePath();
     }
 
     public String getId() {

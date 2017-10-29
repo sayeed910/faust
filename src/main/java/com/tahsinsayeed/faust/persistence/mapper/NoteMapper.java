@@ -2,6 +2,7 @@ package com.tahsinsayeed.faust.persistence.mapper;
 
 import com.tahsinsayeed.faust.business.entity.Note;
 import com.tahsinsayeed.faust.persistence.datamodel.NoteDataModel;
+import com.tahsinsayeed.faust.persistence.repository.DataModelToEntityMapper;
 
 import java.io.File;
 

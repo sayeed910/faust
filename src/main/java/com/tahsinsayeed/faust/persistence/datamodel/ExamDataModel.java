@@ -2,7 +2,7 @@ package com.tahsinsayeed.faust.persistence.datamodel;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-import com.tahsinsayeed.faust.business.dto.ExamDto;
+import com.tahsinsayeed.faust.business.entity.Exam;
 
 import java.time.format.DateTimeFormatter;
 
@@ -33,14 +33,14 @@ public class ExamDataModel {
     public ExamDataModel() {
     }
 
-    public ExamDataModel(ExamDto exam){
-        this.parentCourseId = exam.parentCourseId;
-        this.examDate = exam.examDate.format(DateTimeFormatter.ISO_LOCAL_DATE);
-        this.examTime = exam.examTime.format(DateTimeFormatter.ISO_LOCAL_TIME);
-        this.id = exam.id;
-        this.name = exam.name;
-        this.totalMark = exam.totalMark;
-        this.receivedMark = exam.receivedMark;
+    public ExamDataModel(Exam exam){
+        this.parentCourseId = exam.getCourseId();
+        this.examDate = exam.getDate().format(DateTimeFormatter.ISO_LOCAL_DATE);
+        this.examTime = exam.getTime().format(DateTimeFormatter.ISO_LOCAL_TIME);
+        this.id = exam.getExamId();
+        this.name = exam.getName();
+        this.totalMark = exam.getTotalMark();
+        this.receivedMark = exam.getReceivedMark();
     }
 
     public double getReceivedMark() {

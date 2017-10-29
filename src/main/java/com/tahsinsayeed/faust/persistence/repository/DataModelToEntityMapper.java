@@ -1,4 +1,4 @@
-package com.tahsinsayeed.faust.persistence.mapper;
+package com.tahsinsayeed.faust.persistence.repository;
 
 /**
  * Created by sayeed on 10/28/17.

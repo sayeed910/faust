@@ -2,7 +2,7 @@ package com.tahsinsayeed.faust.persistence.datamodel;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-import com.tahsinsayeed.faust.business.dto.BookDto;
+import com.tahsinsayeed.faust.business.entity.Book;
 
 @DatabaseTable(tableName = "BookDataModel")
 public class BookDataModel {
@@ -22,11 +22,11 @@ public class BookDataModel {
     public BookDataModel() {
     }
 
-    public BookDataModel(BookDto book){
+    public BookDataModel(Book book){
 
-        this.name = book.name;
-        this.parentCourseId = book.parentCourseId;
-        this.filePath = book.filePath;
+        this.name = book.getName();
+        this.parentCourseId = book.getParentCourseId();
+        this.filePath = book.getFile().getAbsolutePath();
     }
 
     public String getName() {

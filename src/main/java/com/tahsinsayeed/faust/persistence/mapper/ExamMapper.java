@@ -2,6 +2,7 @@ package com.tahsinsayeed.faust.persistence.mapper;
 
 import com.tahsinsayeed.faust.business.entity.Exam;
 import com.tahsinsayeed.faust.persistence.datamodel.ExamDataModel;
+import com.tahsinsayeed.faust.persistence.repository.DataModelToEntityMapper;
 
 import java.time.*;
 

@@ -2,7 +2,7 @@ package com.tahsinsayeed.faust.persistence.datamodel;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-import com.tahsinsayeed.faust.business.dto.HolidayDto;
+import com.tahsinsayeed.faust.business.entity.Holiday;
 
 import java.time.format.DateTimeFormatter;
 
@@ -26,10 +26,10 @@ public class HolidayDataModel {
 
     }
 
-    public HolidayDataModel(HolidayDto holiday){
-        this.name = holiday.name;
-        this.date = holiday.date.format(DateTimeFormatter.ISO_LOCAL_DATE);
-        this.id = holiday.id;
+    public HolidayDataModel(Holiday holiday){
+        this.name = holiday.getHolidayName();
+        this.date = holiday.getDate().format(DateTimeFormatter.ISO_LOCAL_DATE);
+        this.id = holiday.getId();
 
     }
 

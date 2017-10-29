@@ -3,6 +3,7 @@ package com.tahsinsayeed.faust.persistence.mapper;
 import com.google.inject.Inject;
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.persistence.datamodel.*;
+import com.tahsinsayeed.faust.persistence.repository.DataModelToEntityMapper;
 
 /**
  * Created by sayeed on 10/28/17.

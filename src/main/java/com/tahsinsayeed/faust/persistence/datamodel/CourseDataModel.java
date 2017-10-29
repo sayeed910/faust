@@ -1,14 +1,10 @@
 package com.tahsinsayeed.faust.persistence.datamodel;
 
-import com.j256.ormlite.dao.ForeignCollection;
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.ForeignCollectionField;
+import com.j256.ormlite.field.*;
 import com.j256.ormlite.table.DatabaseTable;
-import com.tahsinsayeed.faust.business.dto.CourseDto;
+import com.tahsinsayeed.faust.business.entity.Course;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @DatabaseTable(tableName = "CourseDataModel")
@@ -35,13 +31,13 @@ public class CourseDataModel {
     public CourseDataModel() {
     }
 
-    public CourseDataModel(CourseDto course) {
-        this.id = course.id;
-        this.name = course.name;
-        this.notes = course.notes.stream().map(NoteDataModel::new).collect(Collectors.toList());
-        this.books = course.books.stream().map(BookDataModel::new).collect(Collectors.toList());
-        this.exams = course.exams.stream().map(ExamDataModel::new).collect(Collectors.toList());
-        this.assignments = course.assignments.stream().map(AssignmentDataModel::new).collect(Collectors.toList());
+    public CourseDataModel(Course course) {
+        this.id = course.getId();
+        this.name = course.getName();
+        this.notes = course.getNotes().stream().map(NoteDataModel::new).collect(Collectors.toList());
+        this.books = course.getBooks().stream().map(BookDataModel::new).collect(Collectors.toList());
+        this.exams = course.getExams().stream().map(ExamDataModel::new).collect(Collectors.toList());
+        this.assignments = course.getAssignments().stream().map(AssignmentDataModel::new).collect(Collectors.toList());
     }
 
     public String getId() {

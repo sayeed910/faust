@@ -2,7 +2,7 @@ package com.tahsinsayeed.faust.persistence.datamodel;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-import com.tahsinsayeed.faust.business.dto.AssignmentDto;
+import com.tahsinsayeed.faust.business.entity.Assignment;
 
 import java.time.format.DateTimeFormatter;
 
@@ -34,13 +34,13 @@ public class AssignmentDataModel {
     public AssignmentDataModel() {
     }
 
-    public AssignmentDataModel(AssignmentDto assignment){
-        this.parentCourseId = assignment.parentCourseId;
-        this.title = assignment.title;
-        this.description = assignment.description;
-        this.id = assignment.id;
-        this.finished = assignment.finished;
-        this.dueDate = assignment.dueDate.format(DateTimeFormatter.ISO_LOCAL_DATE);
+    public AssignmentDataModel(Assignment assignment){
+        this.parentCourseId = assignment.getParentCourseId();
+        this.title = assignment.getTitle();
+        this.description = assignment.getDescription();
+        this.id = assignment.getId();
+        this.finished = assignment.isFinished();
+        this.dueDate = assignment.getDueDate().format(DateTimeFormatter.ISO_LOCAL_DATE);
     }
 
 

@@ -2,7 +2,7 @@ package com.tahsinsayeed.faust.persistence.datamodel;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-import com.tahsinsayeed.faust.business.dto.ClassDto;
+import com.tahsinsayeed.faust.business.entity.Class;
 
 import java.time.format.DateTimeFormatter;
 
@@ -24,11 +24,11 @@ public class ClassDataModel {
     public ClassDataModel() {
     }
 
-    public ClassDataModel(ClassDto clazz){
-        this.classDay = clazz.classDay.getValue();
-        this.classTime = clazz.classTime.format(DateTimeFormatter.ISO_LOCAL_TIME);
-        this.id = clazz.id;
-        this.parentCourseId = clazz.parentCourseId;
+    public ClassDataModel(Class clazz){
+        this.classDay = clazz.getDay().getValue();
+        this.classTime = clazz.getStartTime().format(DateTimeFormatter.ISO_LOCAL_TIME);
+        this.id = clazz.getId();
+        this.parentCourseId = clazz.getCourseId();
     }
 
     public String getId() {
