@@ -2,13 +2,13 @@ package com.tahsinsayeed.faust.presentation.model;
 
 import com.tahsinsayeed.faust.business.dto.AssignmentDto;
 import javafx.beans.property.*;
-import sun.java2d.pipe.SpanShapeRenderer;
 
 public class AssignmentViewModel {
     private SimpleStringProperty id;
     private StringProperty parentCourseId;
     private StringProperty title;
     private StringProperty description;
+    private BooleanProperty finished;
 
 
 
@@ -17,6 +17,7 @@ public class AssignmentViewModel {
         this.title = new SimpleStringProperty(assignment.title);
         this.description = new SimpleStringProperty(assignment.description);
         this.id = new SimpleStringProperty(assignment.id);
+        this.finished = new SimpleBooleanProperty(assignment.finished);
     }
 
     public StringProperty getId() {
@@ -27,13 +28,7 @@ public class AssignmentViewModel {
         this.id.set(id);
     }
 
-    public StringProperty getCourseName() {
-        return title;
-    }
 
-    public void setCourseName(String title) {
-        this.title.set(title);
-    }
 
     public StringProperty getTitle() {
         return title;
@@ -76,5 +71,17 @@ public class AssignmentViewModel {
         int result = parentCourseId != null ? parentCourseId.hashCode() : 0;
         result = 31 * result + (title != null ? title.hashCode() : 0);
         return result;
+    }
+
+    public boolean isFinished() {
+        return finished.get();
+    }
+
+    public BooleanProperty finishedProperty() {
+        return finished;
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished.set(finished);
     }
 }

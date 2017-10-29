@@ -1,27 +1,31 @@
-package com.tahsinsayeed.faust.persistence.repository;
+package com.tahsinsayeed.faust.persistence.repository_old;
 
 import com.j256.ormlite.dao.*;
 import com.j256.ormlite.support.ConnectionSource;
+import com.tahsinsayeed.faust.business.dto.AssignmentDto;
 import com.tahsinsayeed.faust.business.entity.Assignment;
 import com.tahsinsayeed.faust.business.interactor.Repository;
 import com.tahsinsayeed.faust.persistence.DBConnection;
 import com.tahsinsayeed.faust.persistence.datamodel.AssignmentDataModel;
-import com.tahsinsayeed.faust.persistence.mapper.AssignmentMapper;
+import com.tahsinsayeed.faust.persistence.mapper.*;
 
 import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-
-public class AssignmentRepository implements Repository<Assignment> {
+/**
+ * Created by IMON on 9/1/2017.
+ */
+public class AssignmentRepository implements Repository<AssignmentDto, Assignment> {
 
     private Dao<AssignmentDataModel, String> assignmentDao;
     private DataModelToEntityMapper<AssignmentDataModel, Assignment> mapper;
+
      AssignmentRepository(DBConnection connection, DataModelToEntityMapper<AssignmentDataModel, Assignment> mapper){
-         this.mapper = mapper;
-         ConnectionSource connectionSource = connection.getConnectionSource();
+        ConnectionSource connectionSource = connection.getConnectionSource();
         try {
             assignmentDao = DaoManager.createDao(connectionSource, AssignmentDataModel.class);
+            this.mapper = mapper;
         } catch (SQLException e) {
 
             e.printStackTrace();
@@ -30,7 +34,7 @@ public class AssignmentRepository implements Repository<Assignment> {
     }
 
      AssignmentRepository() {
-        this(DBConnection.getInstance(), new AssignmentMapper());
+        this(DBConnection.getInstance(), new AssignmentMapper() );
     }
 
 
@@ -49,7 +53,8 @@ public class AssignmentRepository implements Repository<Assignment> {
     @Override
     public List<Assignment> getAll() {
         try {
-            return assignmentDao.queryForAll().stream().map(mapper::map).collect(Collectors.toList());
+            return assignmentDao.queryForAll().stream()
+                    .map(assignmentDataModel -> mapper.map(assignmentDataModel)).collect(Collectors.toList());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -57,7 +62,7 @@ public class AssignmentRepository implements Repository<Assignment> {
     }
 
     @Override
-    public void save(Assignment objectToSave) {
+    public void save(AssignmentDto objectToSave) {
         try {
             assignmentDao.create(new AssignmentDataModel(objectToSave));
         } catch (SQLException e) {
@@ -66,7 +71,7 @@ public class AssignmentRepository implements Repository<Assignment> {
     }
 
     @Override
-    public void update(Assignment objectToUpdate) {
+    public void update(AssignmentDto objectToUpdate) {
         try {
             assignmentDao.update(new AssignmentDataModel(objectToUpdate));
         } catch (SQLException e) {
@@ -75,7 +80,7 @@ public class AssignmentRepository implements Repository<Assignment> {
     }
 
     @Override
-    public void delete(Assignment objectToDelete) {
+    public void delete(AssignmentDto objectToDelete) {
         try {
             assignmentDao.delete(new AssignmentDataModel(objectToDelete));
         } catch (SQLException e) {
