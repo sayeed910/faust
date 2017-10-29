@@ -8,7 +8,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
 /**
- * Created by sayeed on 10/29/17.
+ * Created by IMON on 10/29/17.
  */
 public class AssignmentView extends VBox {
 
