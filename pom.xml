@@ -142,6 +142,12 @@
             <version>4.1.0</version>
             <classifier>no_aop</classifier>
         </dependency>
+        <dependency>
+            <groupId>org.jfxtras</groupId>
+            <artifactId>jfxtras-agenda</artifactId>
+            <version>8.0-r5</version>
+        </dependency>
+
 
 
 

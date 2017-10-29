@@ -1,10 +1,8 @@
         package com.tahsinsayeed.faust.presentation.model;
 
-import com.j256.ormlite.stmt.query.In;
 import com.tahsinsayeed.faust.business.dto.ExamDto;
-import com.tahsinsayeed.faust.business.entity.Exam;
-import com.tahsinsayeed.faust.persistence.datamodel.ExamDataModel;
 import javafx.beans.property.*;
+import jfxtras.scene.control.agenda.Agenda;
 
 import java.time.*;
 
@@ -16,6 +14,7 @@ public class ExamViewModel {
     private LocalDate examDate;
     private LocalTime examTime;
     private StringProperty parentCourseId;
+    private Agenda.AppointmentImplLocal appointment;
 
     public ExamViewModel() {
     }
@@ -28,6 +27,12 @@ public class ExamViewModel {
         this.id = new SimpleStringProperty(exam.id);
         this.totalMark =new  SimpleIntegerProperty(exam.totalMark);
         this.receivedMark = new  SimpleDoubleProperty(exam.receivedMark);
+
+        appointment = new Agenda.AppointmentImplLocal();
+
+        appointment.setStartLocalDateTime(LocalDateTime.of(examDate, examTime));
+        appointment.setEndLocalDateTime(LocalDateTime.of(examDate, examTime.plusHours(3)));
+        appointment.setSummary(exam.parentCourseId + " " + exam.name);
     }
 
     public DoubleProperty getReceivedMark() {
@@ -84,5 +89,9 @@ public class ExamViewModel {
 
     public void setParentCourseId(String parentCourseId) {
         this.parentCourseId.set(parentCourseId);
+    }
+
+    public Agenda.AppointmentImplLocal getAppointment(){
+        return appointment;
     }
 }
