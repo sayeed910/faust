@@ -19,6 +19,7 @@ public class BookRepository implements Repository<Book> {
 
     private Dao<BookDataModel, String> bookDao;
     private DataModelToEntityMapper<BookDataModel, Book> mapper;
+
     BookRepository(DBConnection connection,DataModelToEntityMapper<BookDataModel, Book> mapper){
         this.mapper = mapper;
         ConnectionSource connectionSource = connection.getConnectionSource();
