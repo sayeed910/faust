@@ -5,28 +5,34 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.tahsinsayeed.faust.business.entity.Exam;
 import com.tahsinsayeed.faust.business.interactor.Repository;
 import com.tahsinsayeed.faust.persistence.DBConnection;
+import com.tahsinsayeed.faust.persistence.datamodel.ExamDataModel;
+import com.tahsinsayeed.faust.persistence.mapper.ExamMapper;
 
 import java.sql.SQLException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by IMON on 9/1/2017.
  */
 public class ExamRepository implements Repository<Exam> {
 
-    private Dao<Exam, String> examDao;
-
-    ExamRepository(DBConnection connection){
+    private Dao<ExamDataModel, String> examDao;
+    private DataModelToEntityMapper<ExamDataModel, Exam> mapper;
+    ExamRepository(DBConnection connection, DataModelToEntityMapper<ExamDataModel, Exam> mapper){
+        this.mapper = mapper;
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
-            examDao = DaoManager.createDao(connectionSource, Exam.class);
+            examDao = DaoManager.createDao(connectionSource, ExamDataModel.class);
         } catch (SQLException e) {
+
             e.printStackTrace();
+
         }
     }
 
     ExamRepository() {
-        this(DBConnection.getInstance());
+        this(DBConnection.getInstance(), new ExamMapper());
     }
 
 
@@ -34,7 +40,7 @@ public class ExamRepository implements Repository<Exam> {
     public Exam get(String id) {
 
         try {
-            return examDao.queryForId(id);
+            return mapper.map(examDao.queryForId(id));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -45,7 +51,7 @@ public class ExamRepository implements Repository<Exam> {
     @Override
     public List<Exam> getAll() {
         try {
-            return examDao.queryForAll();
+            return examDao.queryForAll().stream().map(mapper::map).collect(Collectors.toList());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -55,7 +61,7 @@ public class ExamRepository implements Repository<Exam> {
     @Override
     public void save(Exam objectToSave) {
         try {
-            examDao.create(objectToSave);
+            examDao.create(new ExamDataModel(objectToSave));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -64,7 +70,7 @@ public class ExamRepository implements Repository<Exam> {
     @Override
     public void update(Exam objectToUpdate) {
         try {
-            examDao.update(objectToUpdate);
+            examDao.update(new ExamDataModel(objectToUpdate));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -73,7 +79,7 @@ public class ExamRepository implements Repository<Exam> {
     @Override
     public void delete(Exam objectToDelete) {
         try {
-            examDao.delete(objectToDelete);
+            examDao.delete(new ExamDataModel(objectToDelete));
         } catch (SQLException e) {
             e.printStackTrace();
         }

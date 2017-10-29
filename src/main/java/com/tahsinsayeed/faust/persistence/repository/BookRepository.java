@@ -5,20 +5,25 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.tahsinsayeed.faust.business.entity.Book;
 import com.tahsinsayeed.faust.business.interactor.Repository;
 import com.tahsinsayeed.faust.persistence.DBConnection;
+import com.tahsinsayeed.faust.persistence.datamodel.BookDataModel;
+import com.tahsinsayeed.faust.persistence.mapper.BookMapper;
 
 import java.sql.SQLException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by IMON on 9/1/2017.
  */
 public class BookRepository implements Repository<Book> {
 
-    private Dao<Book, String> assignmentDao;
-     BookRepository(DBConnection connection){
+    private Dao<BookDataModel, String> bookDao;
+    private DataModelToEntityMapper<BookDataModel, Book> mapper;
+    BookRepository(DBConnection connection,DataModelToEntityMapper<BookDataModel, Book> mapper){
+        this.mapper = mapper;
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
-            assignmentDao = DaoManager.createDao(connectionSource, Book.class);
+            bookDao = DaoManager.createDao(connectionSource, BookDataModel.class);
         } catch (SQLException e) {
 
             e.printStackTrace();
@@ -26,16 +31,18 @@ public class BookRepository implements Repository<Book> {
         }
     }
 
-     BookRepository() {
-        this(DBConnection.getInstance());
+
+    BookRepository() {
+        this(DBConnection.getInstance(), new BookMapper());
     }
+
 
 
     @Override
     public Book get(String id) {
 
         try {
-            return assignmentDao.queryForId(id);
+            return mapper.map(bookDao.queryForId(id));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -43,10 +50,11 @@ public class BookRepository implements Repository<Book> {
         return null;
     }
 
+
     @Override
     public List<Book> getAll() {
         try {
-            return assignmentDao.queryForAll();
+            return bookDao.queryForAll().stream().map(mapper::map).collect(Collectors.toList());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -56,7 +64,7 @@ public class BookRepository implements Repository<Book> {
     @Override
     public void save(Book objectToSave) {
         try {
-            assignmentDao.create(objectToSave);
+            bookDao.create(new BookDataModel(objectToSave));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -65,7 +73,7 @@ public class BookRepository implements Repository<Book> {
     @Override
     public void update(Book objectToUpdate) {
         try {
-            assignmentDao.update(objectToUpdate);
+            bookDao.update(new BookDataModel(objectToUpdate));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -74,7 +82,7 @@ public class BookRepository implements Repository<Book> {
     @Override
     public void delete(Book objectToDelete) {
         try {
-            assignmentDao.delete(objectToDelete);
+            bookDao.delete(new BookDataModel(objectToDelete));
         } catch (SQLException e) {
             e.printStackTrace();
         }

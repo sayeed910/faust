@@ -5,29 +5,34 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.tahsinsayeed.faust.business.entity.Class;
 import com.tahsinsayeed.faust.business.interactor.Repository;
 import com.tahsinsayeed.faust.persistence.DBConnection;
+import com.tahsinsayeed.faust.persistence.datamodel.ClassDataModel;
+import com.tahsinsayeed.faust.persistence.mapper.ClassMapper;
 
 import java.sql.SQLException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by IMON on 9/1/2017.
  */
 public class ClassRepository implements Repository<Class> {
 
-    private Dao<Class, String> classDao;
-
-    ClassRepository(DBConnection connection) {
+    private Dao<ClassDataModel, String> classDao;
+    private DataModelToEntityMapper<ClassDataModel, Class> mapper;
+    ClassRepository(DBConnection connection, DataModelToEntityMapper<ClassDataModel, Class> mapper){
+        this.mapper = mapper;
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
-            classDao = DaoManager.createDao(connectionSource, Class.class);
+            classDao = DaoManager.createDao(connectionSource, ClassDataModel.class);
         } catch (SQLException e) {
 
             e.printStackTrace();
+
         }
     }
 
     ClassRepository() {
-        this(DBConnection.getInstance());
+        this(DBConnection.getInstance(), new ClassMapper());
     }
 
 
@@ -35,7 +40,7 @@ public class ClassRepository implements Repository<Class> {
     public Class get(String id) {
 
         try {
-            return classDao.queryForId(id);
+            return mapper.map(classDao.queryForId(id));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -46,7 +51,7 @@ public class ClassRepository implements Repository<Class> {
     @Override
     public List<Class> getAll() {
         try {
-            return classDao.queryForAll();
+            return classDao.queryForAll().stream().map(mapper::map).collect(Collectors.toList());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -56,7 +61,7 @@ public class ClassRepository implements Repository<Class> {
     @Override
     public void save(Class objectToSave) {
         try {
-            classDao.create(objectToSave);
+            classDao.create(new ClassDataModel(objectToSave));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -65,7 +70,7 @@ public class ClassRepository implements Repository<Class> {
     @Override
     public void update(Class objectToUpdate) {
         try {
-            classDao.update(objectToUpdate);
+            classDao.update(new ClassDataModel(objectToUpdate));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -74,7 +79,7 @@ public class ClassRepository implements Repository<Class> {
     @Override
     public void delete(Class objectToDelete) {
         try {
-            classDao.delete(objectToDelete);
+            classDao.delete(new ClassDataModel(objectToDelete));
         } catch (SQLException e) {
             e.printStackTrace();
         }
