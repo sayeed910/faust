@@ -1,6 +1,6 @@
 package com.tahsinsayeed.faust.presentation.model.sidebar;
 
-import com.tahsinsayeed.faust.business.dto.AssignmentDto;
+import com.tahsinsayeed.faust.presentation.model.AssignmentViewModel;
 import javafx.collections.*;
 
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class AssignmentItem implements SideBarItem {
     private ObservableList<SideBarItem> children;
 
-    public AssignmentItem(List<AssignmentDto> assignmentDtos) {
+    public AssignmentItem(List<AssignmentViewModel> assignmentDtos) {
         children = FXCollections.observableArrayList(
                 assignmentDtos.stream()
                         .map(AssignmentChildItem::new).collect(Collectors.toList())

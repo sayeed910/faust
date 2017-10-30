@@ -27,10 +27,7 @@ public class RepositoryFactoryStub implements RepositoryFactory {
         return assignmentRepository;
     }
 
-    @Override
-    public Repository<Schedule> getScheduleRepository() {
-        return null;
-    }
+
 
     @Override
     public Repository<Holiday> getHolidayRepository() {

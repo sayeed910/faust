@@ -23,7 +23,7 @@ public class NewItem extends JFXButton {
         setText("+");
         getStyleClass().add("fab");
 
-        items = FXCollections.observableArrayList("Course", "Exam", "Assignment");
+        items = FXCollections.observableArrayList("Course", "Exam", "Assignment", "Book", "Note", "Class", "Holiday");
         listOfItems = new JFXListView<>();
         listOfItems.setItems(items);
 

@@ -2,16 +2,10 @@ package com.tahsinsayeed.faust.presentation.entitycreator.notecreator;
 
 import com.google.inject.Inject;
 import com.jfoenix.controls.*;
-import com.tahsinsayeed.faust.business.entity.Note;
 import com.tahsinsayeed.faust.business.interactor.Request;
 import com.tahsinsayeed.faust.presentation.controller.*;
 import com.tahsinsayeed.faust.util.ContentValues;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.stage.FileChooser;
-
-import java.time.format.DateTimeFormatter;
 
 /**
  * Created by Shamim on 10/28/17.
@@ -34,9 +28,9 @@ public class NoteCreationController implements EntityCreationController {
     public void add() {
         ContentValues values = getRequestArgs();
         Interactor NoteCreator = interactorFactory.make(InteractorFactory.InteractorType.ADD_NOTE);
-        Request newExamRequest = requestBuilder.make(RequestBuilder.RequestType.NEW_NOTE, values);
+        Request newNoteRequest = requestBuilder.make(RequestBuilder.RequestType.NEW_NOTE, values);
 
-        NoteCreator.execute(newExamRequest);
+        NoteCreator.execute(newNoteRequest);
 
     }
 

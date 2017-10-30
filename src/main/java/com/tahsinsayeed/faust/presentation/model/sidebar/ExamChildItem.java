@@ -1,14 +1,14 @@
 package com.tahsinsayeed.faust.presentation.model.sidebar;
 
-import com.tahsinsayeed.faust.business.dto.ExamDto;
+import com.tahsinsayeed.faust.presentation.model.ExamViewModel;
 import javafx.collections.*;
 
 public class ExamChildItem implements SideBarItem {
 
     private String title;
 
-    public ExamChildItem(ExamDto examDto) {
-        title = examDto.getName();
+    public ExamChildItem(ExamViewModel exam) {
+        title = exam.getName().get();
     }
 
     @Override

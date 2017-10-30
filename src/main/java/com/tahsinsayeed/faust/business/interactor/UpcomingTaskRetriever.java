@@ -4,11 +4,12 @@ import com.google.common.annotations.VisibleForTesting;
 import com.tahsinsayeed.faust.business.dto.*;
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.entity.Class;
-import com.tahsinsayeed.faust.persistence.memory.repository.*;
+import com.tahsinsayeed.faust.persistence.repository.RepositoryFactoryImpl;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
+import com.tahsinsayeed.faust.presentation.model.DtoBank;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class UpcomingTaskRetriever implements Interactor {
@@ -37,7 +38,7 @@ public class UpcomingTaskRetriever implements Interactor {
         List<Class> classes = repositoryFactory.getClassRepository().getAll();
         return classes.stream()
                 .filter((clazz)-> clazz.getDay().equals(date.getDayOfWeek()))
-                .map(aClass -> ClassDto.from(aClass, courseRepository.get(aClass.getCourseId()).getName()))
+                .map(ClassDto::from)
                 .collect(Collectors.toList());
 
     }
@@ -47,23 +48,21 @@ public class UpcomingTaskRetriever implements Interactor {
         List<Exam> exams = repositoryFactory.getExamRepository().getAll();
         return exams.stream()
                 .filter((exam)-> exam.getDate().equals(date))
-                .map(exam -> ExamDto.from(exam, courseRepository.get(exam.getCourseId()).getName()))
+                .map(ExamDto::from)
                 .collect(Collectors.toList());
     }
 
     private List<AssignmentDto> getTodaysAssignments() {
         List<Assignment> assignments = repositoryFactory.getAssignmentRepository().getAll();
         return assignments.stream()
-                .filter((assignment)-> assignment.getDate().equals(date))
-                 .map(assignment ->
-                         AssignmentDto.from(assignment,
-                                 courseRepository.get(assignment.getParentCourseId()).getName()))
+                .filter((assignment)-> assignment.getDueDate().equals(date))
+                 .map(AssignmentDto::from)
                 .collect(Collectors.toList());
     }
 
     @Override
     public void execute(Request request) {
-        dtoBank.setUpcomingTask(UpcomingTasks.from(getTodaysClasses(), getTodaysAssignments(), getTodaysExams()));
+//        dtoBank.setUpcomingTask(UpcomingTasks.from(getTodaysClasses(), getTodaysAssignments(), getTodaysExams()));
     }
 
 

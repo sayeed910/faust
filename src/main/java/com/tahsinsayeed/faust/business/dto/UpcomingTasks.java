@@ -3,7 +3,7 @@ package com.tahsinsayeed.faust.business.dto;
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.entity.Class;
 
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class UpcomingTasks {
@@ -21,5 +21,9 @@ public class UpcomingTasks {
     public static UpcomingTasks from(List<Class> upcomingClasses,
                                      List<Assignment> upcomingAssignments, List<Exam> upcomingExams) {
         return new UpcomingTasks(upcomingClasses, upcomingAssignments, upcomingExams);
+    }
+
+    public static UpcomingTasks empty(){
+        return new UpcomingTasks(new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
     }
 }

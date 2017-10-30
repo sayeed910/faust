@@ -1,13 +1,17 @@
 package com.tahsinsayeed.faust.persistence;
+
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
+import com.tahsinsayeed.faust.config.Config;
 
-
+import java.io.File;
 import java.sql.SQLException;
 
 public class DBConnection {
 
-    public static final String url = "jdbc:hsqldb:file:testdb";
+    public static final String url = "jdbc:hsqldb:file:" + new File(Config.get("config_dir")).getAbsolutePath()
+            + File.separator + "db";
+
 
     private static  DBConnection INSTANCE = null;
 
@@ -15,7 +19,8 @@ public class DBConnection {
 
     private DBConnection(){
         try {
-            connectionSource = new JdbcConnectionSource(url);
+            System.out.println(url);
+            connectionSource = new JdbcConnectionSource(url, "faust", "faust");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

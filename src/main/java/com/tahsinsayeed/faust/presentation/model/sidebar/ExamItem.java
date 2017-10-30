@@ -1,6 +1,6 @@
 package com.tahsinsayeed.faust.presentation.model.sidebar;
 
-import com.tahsinsayeed.faust.business.dto.*;
+import com.tahsinsayeed.faust.presentation.model.ExamViewModel;
 import javafx.collections.*;
 
 import java.util.List;
@@ -9,9 +9,9 @@ import java.util.stream.Collectors;
 public class ExamItem implements SideBarItem {
     private ObservableList<SideBarItem> children;
 
-    public ExamItem(List<ExamDto> examDtos) {
+    public ExamItem(List<ExamViewModel> exams) {
         children = FXCollections.observableArrayList(
-                examDtos.stream()
+                exams.stream()
                         .map(ExamChildItem::new).collect(Collectors.toList())
         );
     }

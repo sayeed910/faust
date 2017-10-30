@@ -30,6 +30,18 @@ public class RequestBuilderImpl implements RequestBuilder {
                         LocalDate.parse(args.get("examDate")),
                         LocalTime.parse(args.get("examTime"))
                 );
+            case NEW_BOOK:
+                return new NewBookRequest(
+                        args.get("courseId"),
+                        args.get("bookName"),
+                        args.get("filePath")
+                );
+            case NEW_CLASS:
+                return new NewClassRequest(
+                        args.get("courseId"),
+                        DayOfWeek.valueOf(args.get("nameOfDay")),
+                        LocalTime.parse(args.get("startTime"))
+                );
             default: throw new UnsupportedOperationException();
         }
     }

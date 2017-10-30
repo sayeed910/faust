@@ -6,7 +6,7 @@ import com.tahsinsayeed.faust.business.RequestBuilderImpl;
 import com.tahsinsayeed.faust.business.entity.Course;
 import com.tahsinsayeed.faust.business.interactor.*;
 import com.tahsinsayeed.faust.config.*;
-import com.tahsinsayeed.faust.persistence.memory.repository.*;
+import com.tahsinsayeed.faust.persistence.repository.*;
 import com.tahsinsayeed.faust.presentation.controller.*;
 import com.tahsinsayeed.faust.presentation.entitycreator.assignmentcreator.AssignmentCreator;
 import com.tahsinsayeed.faust.presentation.entitycreator.examcreator.ExamCreator;

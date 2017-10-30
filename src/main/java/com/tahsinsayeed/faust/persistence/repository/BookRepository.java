@@ -26,9 +26,7 @@ public class BookRepository implements Repository<Book> {
         try {
             bookDao = DaoManager.createDao(connectionSource, BookDataModel.class);
         } catch (SQLException e) {
-
             e.printStackTrace();
-
         }
     }
 

@@ -3,7 +3,8 @@ package com.tahsinsayeed.faust;
 import com.google.inject.*;
 import com.jfoenix.controls.JFXDecorator;
 import com.sun.javafx.application.LauncherImpl;
-import com.tahsinsayeed.faust.business.interactor.PopulateDataModelInteractor;
+import com.tahsinsayeed.faust.business.interactor.*;
+import com.tahsinsayeed.faust.config.Config;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.logging.Logger;
 
 public class Main extends Application {
@@ -21,7 +23,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        PdfViewerFactory.init();
+//        PdfViewerFactory.init();
 
 
         StackPane root = loader.load();
@@ -51,6 +53,13 @@ public class Main extends Application {
 
     @Override
     public void init(){
+
+        File config_dir = new File(Config.get("config_dir"));
+        if (!(config_dir.exists() && config_dir.isDirectory())){
+            new FirstRunInteractor().execute(null);
+        }
+
+
         injector = Guice.createInjector(new FaustModule());
 
         Interactor startupInteractor = injector.getInstance(PopulateDataModelInteractor.class);

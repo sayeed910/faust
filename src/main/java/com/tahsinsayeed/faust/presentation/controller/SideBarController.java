@@ -2,7 +2,7 @@ package com.tahsinsayeed.faust.presentation.controller;
 
 import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;
-import com.tahsinsayeed.faust.business.dto.*;
+import com.tahsinsayeed.faust.presentation.model.*;
 import com.tahsinsayeed.faust.presentation.model.sidebar.*;
 import com.tahsinsayeed.faust.ui.RecursiveTreeItem;
 import javafx.collections.*;
@@ -14,7 +14,7 @@ public class SideBarController {
     private SideBarItem rootTreeItem;
     private StackPane root;
     TreeView<SideBarItem> nav;
-    ObservableList<CourseDto> courses;
+    ObservableList<CourseViewModel> courses;
 
     @Inject
     EventBus mainEventBus;
@@ -28,7 +28,7 @@ public class SideBarController {
         courses.addListener(this::updateTree);
     }
 
-    private void updateTree(ListChangeListener.Change<? extends CourseDto> change) {
+    private void updateTree(ListChangeListener.Change<? extends CourseViewModel> change) {
         change.next();
 
         if (change.wasAdded()) {

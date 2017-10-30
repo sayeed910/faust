@@ -1,6 +1,6 @@
         package com.tahsinsayeed.faust.presentation.model;
 
-        import com.tahsinsayeed.faust.business.dto.UpcomingTasks;
+        import com.tahsinsayeed.faust.business.dto.*;
         import javafx.beans.Observable;
         import javafx.collections.*;
         import javafx.util.Callback;
@@ -40,59 +40,61 @@ public class DtoBank {
                 };
             }
         });
-        upcomingTask = UpcomingTasks.from();
+        upcomingTask = UpcomingTasks.empty();
         indexOfCourse = new Hashtable<>();
     }
 
-    public void addExam(ExamViewModel exam) {
+    public void addExam(ExamDto exam) {
 
-        if (indexOfCourse.containsKey(exam.getParentCourseId())) {
-            int index = indexOfCourse.get(exam.getParentCourseId());
-            CourseViewModel courseDto = courses.get(index);
-            courseDto.getExams().add(exam);
+        if (indexOfCourse.containsKey(exam.parentCourseId)) {
+            int index = indexOfCourse.get(exam.parentCourseId);
+            CourseViewModel courseViewModel = courses.get(index);
+            courseViewModel.getExams().add(new ExamViewModel(exam));
             courses.remove(index);
-            courses.add(index, courseDto);
+            courses.add(index, courseViewModel);
         } else {
             Logger.getGlobal().warning("Course to add exams does not exist");
         }
     }
 
-    public void addAssignment(AssignmentViewModel assignment) {
+    public void addAssignment(AssignmentDto assignment) {
 
-        if (indexOfCourse.containsKey(assignment.getParentCourseId())) {
-            int index = indexOfCourse.get(assignment.getParentCourseId());
-            CourseViewModel courseDto = courses.get(index);
-            courseDto.getAssignments().add(assignment);
+        if (indexOfCourse.containsKey(assignment.parentCourseId)) {
+            int index = indexOfCourse.get(assignment.parentCourseId);
+            CourseViewModel courseViewModel = courses.get(index);
+            courseViewModel.getAssignments().add(new AssignmentViewModel(assignment));
             courses.remove(index);
-            courses.add(index, courseDto);
+            courses.add(index, courseViewModel);
         } else {
 
-            Logger.getGlobal().warning("Course to add exams does not exist" + assignment.getParentCourseId());
+            Logger.getGlobal().warning("Course to add exams does not exist" + assignment.parentCourseId);
         }
     }
 
-    public void addBook(BookViewModel book) {
-        int index = indexOfCourse.get(book.getParentCourseId());
+    public void addBook(BookDto book) {
+        int index = indexOfCourse.get(book.parentCourseId);
 
         if (index != -1) {
-            CourseViewModel courseDto = courses.get(index);
-            courseDto.getBooks().add(book);
-            courses.add(index, courseDto);
+            CourseViewModel courseViewModel = courses.get(index);
+            courseViewModel.getBooks().add(new BookViewModel(book));
+            courses.remove(index);
+            courses.add(index, courseViewModel);
         } else {
             Logger.getGlobal().warning("Course to add exams does not exist");
         }
     }
 
-    public void addCourse(CourseViewModel course) {
+    public void addCourse(CourseDto course) {
 
-        if (!indexOfCourse.containsKey(course.getId())) {
-            courses.add(course);
-            indexOfCourse.put(course.getId(), courses.indexOf(course));
-            System.out.println(course.getId() + courses.indexOf(course));
+        if (!indexOfCourse.containsKey(course.id)) {
+            CourseViewModel courseViewModel = new CourseViewModel(course);
+            courses.add(courseViewModel);
+            indexOfCourse.put(course.id, courses.indexOf(courseViewModel));
+            System.out.println(course.id + courses.indexOf(courseViewModel));
         } else {
-            int index = indexOfCourse.get(course.getId());
+            int index = indexOfCourse.get(course.id);
             courses.remove(index);
-            courses.add(index, course);
+            courses.add(index, new CourseViewModel(course));
         }
     }
 
@@ -104,9 +106,5 @@ public class DtoBank {
         return upcomingTask;
     }
 
-    public void setUpcomingTask(UpcomingTasks aUpcomingTask) {
-        this.upcomingTask.setUpcomingClasses(aUpcomingTask.getUpcomingClasses());
-        this.upcomingTask.setUpcomingAssignments(aUpcomingTask.getUpcomingAssignments());
-        this.upcomingTask.setUpcomingExams(aUpcomingTask.getUpcomingExams());
-    }
+
 }

@@ -18,7 +18,6 @@ public class CourseCreator extends EntityCreationDialog {
     final Label error;
     final HBox bottomPane;
     private final Label title;
-    final JFXDialog dialog;
 
     private final CourseCreationController controller;
 

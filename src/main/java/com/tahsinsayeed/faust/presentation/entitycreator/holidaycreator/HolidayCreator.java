@@ -1,18 +1,15 @@
 package com.tahsinsayeed.faust.presentation.entitycreator.holidaycreator;
 
+import com.google.inject.Inject;
 import com.jfoenix.controls.*;
-import com.jfoenix.validation.*;
+import com.jfoenix.validation.RequiredFieldValidator;
 import com.tahsinsayeed.faust.presentation.view.EntityCreationDialog;
 import com.tahsinsayeed.faust.ui.component.FloatingTextField;
-import javafx.collections.FXCollections;
 import javafx.geometry.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
-
-
-import java.util.List;
 
 /*
         Creted by Shamim 10/28/2017
@@ -26,10 +23,11 @@ public class HolidayCreator extends EntityCreationDialog{
     private final HBox bottomContainer;
     private Button btnOk;
     private Label error;
+
     private final HolidayCreationController controller;
 
-
-    public HolidayCreator(List<String> existingCourseIds, HolidayCreationController controller){
+    @Inject
+    public HolidayCreator(HolidayCreationController controller){
         this.controller = controller;
 
         Label title = new Label("New Holiday");

@@ -49,8 +49,8 @@ public class ClassCreationController implements EntityCreationController {
 
         return new ContentValues(
                 "courseId", parentCourseId,
-                "Name Of Day", dayOfWeek,
-                "Start Time", classTime
+                "nameOfDay", dayOfWeek,
+                "startTime", classTime
         );
 
     }

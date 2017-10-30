@@ -2,13 +2,11 @@ package com.tahsinsayeed.faust.persistence;
 
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import com.tahsinsayeed.faust.business.entity.*;
-import com.tahsinsayeed.faust.business.entity.Class;
 import com.tahsinsayeed.faust.persistence.datamodel.*;
 
 import java.sql.SQLException;
 
-class Database {
+public class Database {
     DBConnection connection;
 
     private Database(DBConnection connection){
@@ -20,14 +18,20 @@ class Database {
         return new Database(connectionSource);
     }
 
-    public void create() throws SQLException {
+    public void create() {
         ConnectionSource connectionSource = connection.getConnectionSource();
 
-        TableUtils.createTable(connectionSource, AssignmentDataModel.class);
-        TableUtils.createTable(connectionSource, ClassDataModel.class);
-        TableUtils.createTable(connectionSource, CourseDataModel.class);
-        TableUtils.createTable(connectionSource, ExamDataModel.class);
-        TableUtils.createTable(connectionSource, HolidayDataModel.class);
+        try {
+            TableUtils.createTable(connectionSource, AssignmentDataModel.class);
+            TableUtils.createTable(connectionSource, ClassDataModel.class);
+            TableUtils.createTable(connectionSource, CourseDataModel.class);
+            TableUtils.createTable(connectionSource, ExamDataModel.class);
+            TableUtils.createTable(connectionSource, HolidayDataModel.class);
+            TableUtils.createTable(connectionSource, BookDataModel.class);
+            TableUtils.createTable(connectionSource, NoteDataModel.class);
+        } catch (SQLException ex){
+            throw new RuntimeException(ex);
+        }
 
     }
 

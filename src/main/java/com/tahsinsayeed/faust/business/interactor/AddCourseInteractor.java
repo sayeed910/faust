@@ -1,15 +1,17 @@
 package com.tahsinsayeed.faust.business.interactor;
 
-import com.tahsinsayeed.faust.business.dto.*;
+import com.google.inject.Inject;
+import com.tahsinsayeed.faust.business.dto.CourseDto;
 import com.tahsinsayeed.faust.business.entity.Course;
 import com.tahsinsayeed.faust.business.request.NewCourseRequest;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
+import com.tahsinsayeed.faust.presentation.model.DtoBank;
 
 public class AddCourseInteractor implements Interactor {
 
     private Repository<Course> courseRepository;
 
-
+    @Inject
     public AddCourseInteractor(Repository<Course> courseRepository) {
         this.courseRepository = courseRepository;
     }

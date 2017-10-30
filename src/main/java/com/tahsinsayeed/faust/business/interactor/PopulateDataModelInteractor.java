@@ -1,9 +1,10 @@
 package com.tahsinsayeed.faust.business.interactor;
 
 import com.google.inject.Inject;
-import com.tahsinsayeed.faust.business.dto.*;
+import com.tahsinsayeed.faust.business.dto.CourseDto;
 import com.tahsinsayeed.faust.business.entity.Course;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
+import com.tahsinsayeed.faust.presentation.model.DtoBank;
 
 import java.time.LocalDate;
 import java.util.List;

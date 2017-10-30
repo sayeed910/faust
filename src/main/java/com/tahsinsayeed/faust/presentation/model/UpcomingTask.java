@@ -49,9 +49,9 @@ public class UpcomingTask {
     }
 
     public ObservableList<String> getList(){
-        List<String> exams =  upcomingExams.stream().map(e->e.getName()).collect(Collectors.toList());
-        List<String> assignments =  upcomingAssignments.stream().map(e->e.getTitle()).collect(Collectors.toList());
-        List<String> classes =  upcomingExams.stream().map(e->e.getName()).collect(Collectors.toList());
+        List<String> exams =  upcomingExams.stream().map(e->e.getName().get()).collect(Collectors.toList());
+        List<String> assignments =  upcomingAssignments.stream().map(e->e.getTitle().get()).collect(Collectors.toList());
+        List<String> classes =  upcomingExams.stream().map(e->e.getName().get()).collect(Collectors.toList());
 
         List<String> items = new ArrayList<>(exams);
         items.addAll(assignments);

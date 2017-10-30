@@ -1,9 +1,11 @@
 package com.tahsinsayeed.faust.business.interactor;
 
-import com.tahsinsayeed.faust.business.dto.*;
+import com.google.inject.Inject;
+import com.tahsinsayeed.faust.business.dto.BookDto;
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.request.NewBookRequest;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
+import com.tahsinsayeed.faust.presentation.model.DtoBank;
 
 import java.io.File;
 
@@ -12,6 +14,7 @@ public class AddBookInteractor implements Interactor {
     private final Repository<Book> bookRepository;
     private final Repository<Course> courseRepository;
 
+    @Inject
     public AddBookInteractor(Repository<Book> bookRepository, Repository<Course> courseRepository) {
 
         this.bookRepository = bookRepository;

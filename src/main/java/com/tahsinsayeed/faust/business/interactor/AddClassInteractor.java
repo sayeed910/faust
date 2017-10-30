@@ -1,5 +1,6 @@
 package com.tahsinsayeed.faust.business.interactor;
 
+import com.google.inject.Inject;
 import com.tahsinsayeed.faust.business.entity.Class;
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.request.NewClassRequest;
@@ -12,6 +13,7 @@ public class AddClassInteractor implements Interactor {
     private final Repository<Class> classRepository;
     private final Repository<Course> courseRepository;
 
+    @Inject
     public AddClassInteractor(Repository<Class> classRepository, Repository<Course> courseRepository) {
         this.classRepository = classRepository;
         this.courseRepository = courseRepository;

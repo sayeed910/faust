@@ -2,12 +2,10 @@ package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.entity.Class;
-import org.junit.*;
+import org.junit.Before;
 
 import java.time.*;
 import java.util.*;
-
-import static org.hamcrest.MatcherAssert.assertThat;
 
 public class UpcomingTaskRetrieverTest {
 
@@ -49,7 +47,7 @@ public class UpcomingTaskRetrieverTest {
         List<Assignment> assignments = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            assignments.add(Assignment.withRandomId("course","exams", LocalDate.now()));
+            assignments.add(Assignment.withRandomId("id","course","exams", LocalDate.now()));
         }
 
         return assignments;

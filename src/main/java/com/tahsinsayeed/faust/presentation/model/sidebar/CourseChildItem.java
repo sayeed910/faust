@@ -1,6 +1,6 @@
 package com.tahsinsayeed.faust.presentation.model.sidebar;
 
-import com.tahsinsayeed.faust.business.dto.CourseDto;
+import com.tahsinsayeed.faust.presentation.model.CourseViewModel;
 import javafx.collections.*;
 
 public class CourseChildItem implements SideBarItem {
@@ -8,12 +8,12 @@ public class CourseChildItem implements SideBarItem {
     private ObservableList<SideBarItem> children;
     private String title;
 
-    public CourseChildItem(CourseDto courseDto) {
-        title = String.format("%s",courseDto.getName());
+    public CourseChildItem(CourseViewModel course) {
+        title = String.format("%s",course.getName().get());
         children = FXCollections.observableArrayList(
-                new AssignmentItem(courseDto.getAssignments()),
-                        new ExamItem(courseDto.getExams()),
-                        new BookItem(courseDto.getBooks()));
+                new AssignmentItem(course.getAssignments()),
+                        new ExamItem(course.getExams()),
+                        new BookItem(course.getBooks()));
     }
 
     public CourseChildItem(){

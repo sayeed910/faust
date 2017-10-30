@@ -1,13 +1,13 @@
 package com.tahsinsayeed.faust.presentation.model.sidebar;
 
-import com.tahsinsayeed.faust.business.dto.*;
+import com.tahsinsayeed.faust.presentation.model.AssignmentViewModel;
 import javafx.collections.*;
 
 public class AssignmentChildItem implements SideBarItem {
     private String title;
 
-    public AssignmentChildItem(AssignmentDto assignmentDto) {
-        title = assignmentDto.getTitle();
+    public AssignmentChildItem(AssignmentViewModel assignment) {
+        title = assignment.getTitle().get();
     }
 
     @Override

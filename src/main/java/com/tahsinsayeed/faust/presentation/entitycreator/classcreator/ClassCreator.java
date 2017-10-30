@@ -32,7 +32,7 @@ public class ClassCreator extends EntityCreationDialog {
         title.setPadding(new Insets(10, 10, 30, 10));
 
         txtDayOfWeek= new JFXComboBox<>(FXCollections.observableArrayList("SUNDAY","MONDAY","TUESDAY","WEDNESSDAY","THURSDAY","FRIDAY","SATURDAY"));
-        txtDayOfWeek.setPromptText("Name Of Day");
+        txtDayOfWeek.setPromptText("Day");
         txtDayOfWeek.setLabelFloat(true);
 
         startTime = new JFXTimePicker();

@@ -1,5 +1,6 @@
 package com.tahsinsayeed.faust.business.interactor;
 
+import com.google.inject.Inject;
 import com.tahsinsayeed.faust.business.dto.AssignmentDto;
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.request.NewAssignmentRequest;
@@ -13,6 +14,7 @@ public class AddAssignmentInteractor implements Interactor {
     private final Repository<Course> courseRepository;
     private final Repository<Assignment> assignmentRepository;
 
+    @Inject
     public AddAssignmentInteractor(Repository<Course> courseRepository, Repository<Assignment>assignmentRepository) {
         this.courseRepository = courseRepository;
         this.assignmentRepository = assignmentRepository;
