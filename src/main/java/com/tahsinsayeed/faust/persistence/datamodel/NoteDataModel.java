@@ -3,6 +3,7 @@ package com.tahsinsayeed.faust.persistence.datamodel;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.tahsinsayeed.faust.business.entity.Note;
+import com.tahsinsayeed.faust.persistence.repository.CourseRepository;
 
 /**
  * Created by sayeed on 10/25/17.
@@ -23,7 +24,7 @@ public class NoteDataModel {
     @DatabaseField
     private String filePath;
 
-    @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName = "course_data_model_id")
+    @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName="course_id")
     private CourseDataModel courseDataModel;
 
     public NoteDataModel() {
@@ -34,6 +35,7 @@ public class NoteDataModel {
         this.parentCourseId = note.getParentCourseId();
         this.id = note.getId();
         this.filePath = note.getFile().getAbsolutePath();
+        this.courseDataModel = new CourseDataModel(new CourseRepository().get(parentCourseId));
     }
 
     public String getId() {

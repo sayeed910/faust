@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 public class BookCreationViewProvider implements Provider<BookCreator> {
     @Inject
     BookCreationController controller;
+
     @Override
     public BookCreator get() {
         return new BookCreator(getExistingCourseIds(), controller);

@@ -3,17 +3,22 @@ package com.tahsinsayeed.faust.persistence.datamodel;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.tahsinsayeed.faust.business.entity.Exam;
+import com.tahsinsayeed.faust.persistence.repository.CourseRepository;
 
 import java.time.format.DateTimeFormatter;
 
 @DatabaseTable(tableName = "ExamDataModel")
 public class ExamDataModel {
+    @DatabaseField
     private String name;
+    @DatabaseField
     private double receivedMark;
+    @DatabaseField
     private int totalMark;
 
     @DatabaseField(id = true)
     private String id;
+
 
     @DatabaseField
     private String examDate;
@@ -27,7 +32,7 @@ public class ExamDataModel {
     @DatabaseField
     private String parentCourseId;
 
-    @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName = "course_data_model_id")
+    @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName="course_id")
     private CourseDataModel courseDataModel;
 
     public ExamDataModel() {
@@ -41,6 +46,7 @@ public class ExamDataModel {
         this.name = exam.getName();
         this.totalMark = exam.getTotalMark();
         this.receivedMark = exam.getReceivedMark();
+        this.courseDataModel = new CourseDataModel(new CourseRepository().get(parentCourseId));
     }
 
     public double getReceivedMark() {
@@ -105,5 +111,13 @@ public class ExamDataModel {
 
     public void setParentCourseId(String parentCourseId) {
         this.parentCourseId = parentCourseId;
+    }
+
+    public CourseDataModel getCourseDataModel() {
+        return courseDataModel;
+    }
+
+    public void setCourseDataModel(CourseDataModel courseDataModel) {
+        this.courseDataModel = courseDataModel;
     }
 }

@@ -32,7 +32,7 @@ public class CourseRepository implements Repository<Course> {
         }
     }
 
-    CourseRepository() {
+    public CourseRepository() {
         this(DBConnection.getInstance(), new CourseMapper());
     }
 
