@@ -26,9 +26,7 @@ public class NoteRepository<T> implements Repository<Note> {
         try {
             noteDao = DaoManager.createDao(connectionSource, NoteDataModel.class);
         } catch (SQLException e) {
-
             e.printStackTrace();
-
         }
     }
 
