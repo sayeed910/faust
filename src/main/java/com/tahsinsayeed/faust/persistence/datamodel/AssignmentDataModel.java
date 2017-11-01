@@ -27,7 +27,7 @@ public class AssignmentDataModel {
     @DatabaseField
     private boolean finished;
 
-    @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName="course_id")
+    @DatabaseField(foreign = true, columnName="course_id")
     private CourseDataModel courseDataModel;
 
 
@@ -41,7 +41,8 @@ public class AssignmentDataModel {
         this.id = assignment.getId();
         this.finished = assignment.isFinished();
         this.dueDate = assignment.getDueDate().format(DateTimeFormatter.ISO_LOCAL_DATE);
-//        this.courseDataModel = new CourseDataModel(new CourseRepository().get(parentCourseId));
+        this.courseDataModel = new CourseDataModel();
+        this.courseDataModel.setId(parentCourseId);
     }
 
 
@@ -113,5 +114,13 @@ public class AssignmentDataModel {
 
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
+    }
+
+    public CourseDataModel getCourseDataModel() {
+        return courseDataModel;
+    }
+
+    public void setCourseDataModel(CourseDataModel courseDataModel) {
+        this.courseDataModel = courseDataModel;
     }
 }

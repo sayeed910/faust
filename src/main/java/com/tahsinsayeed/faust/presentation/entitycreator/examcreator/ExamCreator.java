@@ -82,6 +82,7 @@ public class ExamCreator extends EntityCreationDialog {
         controller.fullMarksInput = fullMarksInput;
         controller.receivedMarksInput = receivedMarksInput;
         controller.error = error;
+        controller.dialog = dialog;
     }
 
     @Override

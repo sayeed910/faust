@@ -19,13 +19,13 @@ public class CourseDataModel {
     @ForeignCollectionField
     Collection<BookDataModel> books;
 
-    @ForeignCollectionField
+    @ForeignCollectionField(eager = true, foreignFieldName = "courseDataModel")
     Collection<NoteDataModel> notes;
 
-    @ForeignCollectionField
+    @ForeignCollectionField(eager = true, foreignFieldName = "courseDataModel")
     Collection<ExamDataModel> exams;
 
-    @ForeignCollectionField
+    @ForeignCollectionField(eager = true, foreignFieldName = "courseDataModel")
     Collection<AssignmentDataModel> assignments;
 
     public CourseDataModel() {

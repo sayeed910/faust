@@ -84,4 +84,13 @@ public class ClassRepository implements Repository<Class> {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public boolean idExists(String id) {
+        try {
+            return classDao.idExists(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

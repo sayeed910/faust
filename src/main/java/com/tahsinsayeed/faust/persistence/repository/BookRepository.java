@@ -86,4 +86,13 @@ public class BookRepository implements Repository<Book> {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public boolean idExists(String id) {
+        try {
+            return bookDao.idExists(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

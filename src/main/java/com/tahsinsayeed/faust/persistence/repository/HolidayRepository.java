@@ -85,4 +85,13 @@ public class HolidayRepository implements Repository<Holiday> {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public boolean idExists(String id) {
+        try {
+            return holidayDao.idExists(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

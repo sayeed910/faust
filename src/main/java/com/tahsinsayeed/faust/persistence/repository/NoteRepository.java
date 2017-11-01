@@ -2,28 +2,29 @@ package com.tahsinsayeed.faust.persistence.repository;
 
 import com.j256.ormlite.dao.*;
 import com.j256.ormlite.support.ConnectionSource;
-import com.tahsinsayeed.faust.business.entity.Exam;
+import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.interactor.Repository;
 import com.tahsinsayeed.faust.persistence.DBConnection;
-import com.tahsinsayeed.faust.persistence.datamodel.ExamDataModel;
-import com.tahsinsayeed.faust.persistence.mapper.ExamMapper;
+import com.tahsinsayeed.faust.persistence.datamodel.*;
+import com.tahsinsayeed.faust.persistence.mapper.NoteMapper;
 
 import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Created by IMON on 9/1/2017.
+ * Created by sayeed on 11/2/17.
  */
-public class ExamRepository implements Repository<Exam> {
+public class NoteRepository<T> implements Repository<Note> {
 
-    private Dao<ExamDataModel, String> examDao;
-    private DataModelToEntityMapper<ExamDataModel, Exam> mapper;
-    ExamRepository(DBConnection connection, DataModelToEntityMapper<ExamDataModel, Exam> mapper){
+    private Dao<NoteDataModel, String> noteDao;
+    private DataModelToEntityMapper<NoteDataModel, Note> mapper;
+
+    public NoteRepository(DBConnection connection, DataModelToEntityMapper<NoteDataModel, Note> mapper){
         this.mapper = mapper;
         ConnectionSource connectionSource = connection.getConnectionSource();
         try {
-            examDao = DaoManager.createDao(connectionSource, ExamDataModel.class);
+            noteDao = DaoManager.createDao(connectionSource, NoteDataModel.class);
         } catch (SQLException e) {
 
             e.printStackTrace();
@@ -31,16 +32,15 @@ public class ExamRepository implements Repository<Exam> {
         }
     }
 
-    ExamRepository() {
-        this(DBConnection.getInstance(), new ExamMapper());
+    public NoteRepository() {
+        this(DBConnection.getInstance(), new NoteMapper());
     }
 
-
     @Override
-    public Exam get(String id) {
+    public Note get(String id) {
 
         try {
-            return mapper.map(examDao.queryForId(id));
+            return mapper.map(noteDao.queryForId(id));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -49,9 +49,9 @@ public class ExamRepository implements Repository<Exam> {
     }
 
     @Override
-    public List<Exam> getAll() {
+    public List<Note> getAll() {
         try {
-            return examDao.queryForAll().stream().map(mapper::map).collect(Collectors.toList());
+            return noteDao.queryForAll().stream().map(mapper::map).collect(Collectors.toList());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -59,27 +59,27 @@ public class ExamRepository implements Repository<Exam> {
     }
 
     @Override
-    public void save(Exam objectToSave) {
+    public void save(Note objectToSave) {
         try {
-            examDao.create(new ExamDataModel(objectToSave));
+            noteDao.create(new NoteDataModel(objectToSave));
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void update(Exam objectToUpdate) {
+    public void update(Note objectToUpdate) {
         try {
-            examDao.update(new ExamDataModel(objectToUpdate));
+            noteDao.update(new NoteDataModel(objectToUpdate));
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void delete(Exam objectToDelete) {
+    public void delete(Note objectToDelete) {
         try {
-            examDao.delete(new ExamDataModel(objectToDelete));
+            noteDao.delete(new NoteDataModel(objectToDelete));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -88,7 +88,7 @@ public class ExamRepository implements Repository<Exam> {
     @Override
     public boolean idExists(String id) {
         try {
-            return examDao.idExists(id);
+            return noteDao.idExists(id);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

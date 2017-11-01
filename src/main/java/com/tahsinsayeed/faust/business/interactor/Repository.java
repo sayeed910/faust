@@ -9,5 +9,5 @@ public interface Repository<T> {
     void update(T objectToUpdateDto);
     void delete(T objectToDeleteDto);
 
-
+    boolean idExists(String id);
 }

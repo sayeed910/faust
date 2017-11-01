@@ -24,8 +24,7 @@ public class AddAssignmentInteractor implements Interactor {
     public void execute(Request request) {
         NewAssignmentRequest assignmentRequest = (NewAssignmentRequest) request;
 
-        Course parentCourse = courseRepository.get(assignmentRequest.parentCourseId);
-        if (parentCourse == null) throw new CourseNotFound();
+        if (!courseRepository.idExists(assignmentRequest.parentCourseId)) throw new CourseNotFound();
 
         Assignment assignment = Assignment.withRandomId(assignmentRequest.parentCourseId,
                         assignmentRequest.title, assignmentRequest.description,
