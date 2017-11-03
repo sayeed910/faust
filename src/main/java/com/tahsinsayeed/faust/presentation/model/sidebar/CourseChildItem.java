@@ -13,7 +13,8 @@ public class CourseChildItem implements SideBarItem {
         children = FXCollections.observableArrayList(
                 new AssignmentItem(course.getAssignments()),
                         new ExamItem(course.getExams()),
-                        new BookItem(course.getBooks()));
+                        new BookItem(course.getBooks()),
+                new NoteItem(course.getNotes()));
     }
 
     public CourseChildItem(){

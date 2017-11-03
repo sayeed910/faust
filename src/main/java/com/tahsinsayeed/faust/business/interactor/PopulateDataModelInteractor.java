@@ -4,7 +4,7 @@ import com.google.inject.Inject;
 import com.tahsinsayeed.faust.business.dto.CourseDto;
 import com.tahsinsayeed.faust.business.entity.Course;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
-import com.tahsinsayeed.faust.presentation.model.DtoBank;
+import com.tahsinsayeed.faust.presentation.model.ViewModelStorage;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -24,7 +24,7 @@ public class PopulateDataModelInteractor implements Interactor {
 
         if (courses == null) return;
 
-        courses.forEach(course -> DtoBank.getInstance().addCourse(new CourseDto(course)));
+        courses.forEach(course -> ViewModelStorage.getInstance().add(new CourseDto(course)));
 
         UpcomingTaskRetriever.create(LocalDate.now()).execute(null);
     }

@@ -53,7 +53,7 @@ public class BookCreationController implements EntityCreationController {
         return new ContentValues(
                 "courseId", parentCourseId,
                 "bookName", bookName,
-                "filePath", fileName
+                "content", fileName
         );
 
     }

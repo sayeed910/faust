@@ -5,7 +5,7 @@ import com.tahsinsayeed.faust.business.dto.ExamDto;
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.request.NewExamRequest;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
-import com.tahsinsayeed.faust.presentation.model.DtoBank;
+import com.tahsinsayeed.faust.presentation.model.ViewModelStorage;
 
 import java.time.LocalDate;
 
@@ -35,7 +35,7 @@ public class AddExamInteractor implements Interactor {
         examRepository.save(exam);
 
         ExamDto examDto = ExamDto.from(exam);
-        DtoBank.getInstance().addExam(examDto);
+        ViewModelStorage.getInstance().add(examDto);
 
         UpcomingTaskRetriever.create(LocalDate.now()).execute(null);
     }

@@ -34,7 +34,7 @@ public class RequestBuilderImpl implements RequestBuilder {
                 return new NewBookRequest(
                         args.get("courseId"),
                         args.get("bookName"),
-                        args.get("filePath")
+                        args.get("content")
                 );
             case NEW_CLASS:
                 return new NewClassRequest(

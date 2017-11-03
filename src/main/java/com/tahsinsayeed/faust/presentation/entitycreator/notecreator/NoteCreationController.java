@@ -1,10 +1,10 @@
 package com.tahsinsayeed.faust.presentation.entitycreator.notecreator;
 
+import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;
 import com.jfoenix.controls.*;
-import com.tahsinsayeed.faust.business.interactor.Request;
 import com.tahsinsayeed.faust.presentation.controller.*;
-import com.tahsinsayeed.faust.util.ContentValues;
+import com.tahsinsayeed.faust.presentation.event.NewNoteEvent;
 import javafx.scene.control.Label;
 
 /**
@@ -16,35 +16,28 @@ public class NoteCreationController implements EntityCreationController {
     private InteractorFactory interactorFactory;
     Label error;
     JFXTextField nameInput;
-
+    EventBus mainEventBus;
 
     @Inject
-    public NoteCreationController(RequestBuilder requestBuilder, InteractorFactory factory){
+    public NoteCreationController(RequestBuilder requestBuilder, InteractorFactory factory, EventBus mainEventBus){
         this.requestBuilder = requestBuilder;
         this.interactorFactory = factory;
+        this.mainEventBus = mainEventBus;
     }
 
     @Override
     public void add() {
-        ContentValues values = getRequestArgs();
-        Interactor NoteCreator = interactorFactory.make(InteractorFactory.InteractorType.ADD_NOTE);
-        Request newNoteRequest = requestBuilder.make(RequestBuilder.RequestType.NEW_NOTE, values);
-
-        NoteCreator.execute(newNoteRequest);
-
+        mainEventBus.post(getNoteEvent());
     }
 
 
 
-    private ContentValues getRequestArgs() {
+    private NewNoteEvent getNoteEvent() {
         String parentCourseId = txtParentCourseId.getSelectionModel().getSelectedItem();
-        String NoteName = nameInput.getText().trim();
+        String noteName = nameInput.getText().trim();
 
 
-        return new ContentValues(
-                "courseId", parentCourseId,
-                "NoteName", NoteName
-        );
+        return new NewNoteEvent(parentCourseId, noteName);
 
     }
 

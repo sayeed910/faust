@@ -5,7 +5,7 @@ import com.tahsinsayeed.faust.business.dto.CourseDto;
 import com.tahsinsayeed.faust.business.entity.Course;
 import com.tahsinsayeed.faust.business.request.NewCourseRequest;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
-import com.tahsinsayeed.faust.presentation.model.DtoBank;
+import com.tahsinsayeed.faust.presentation.model.ViewModelStorage;
 
 public class AddCourseInteractor implements Interactor {
 
@@ -25,7 +25,7 @@ public class AddCourseInteractor implements Interactor {
         courseRepository.save(course);
 
         CourseDto courseDto = new CourseDto(course);
-        DtoBank.getInstance().addCourse(courseDto);
+        ViewModelStorage.getInstance().add(courseDto);
     }
 
 }

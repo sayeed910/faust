@@ -1,50 +1,44 @@
         package com.tahsinsayeed.faust.presentation.model;
 
         import com.tahsinsayeed.faust.business.dto.*;
-        import javafx.beans.Observable;
-        import javafx.collections.*;
-        import javafx.util.Callback;
+import javafx.beans.Observable;
+import javafx.collections.*;
 
-        import java.util.*;
-        import java.util.logging.Logger;
+import java.util.*;
+import java.util.logging.Logger;
 
-public class DtoBank {
-    private static DtoBank ourInstance;
+public class ViewModelStorage {
+    private static ViewModelStorage ourInstance;
 
     private ObservableList<CourseViewModel> courses;
     private UpcomingTasks upcomingTask;
     private Map<String, Integer> indexOfCourse;
 
-    public static DtoBank getInstance() {
+    public static ViewModelStorage getInstance() {
 
         if (ourInstance == null) {
-            synchronized (DtoBank.class) {
+            synchronized (ViewModelStorage.class) {
                 if (ourInstance == null)
-                    ourInstance = new DtoBank();
+                    ourInstance = new ViewModelStorage();
             }
         }
 
         return ourInstance;
     }
 
-    private DtoBank() {
-        courses = FXCollections.observableArrayList(new Callback<CourseViewModel, javafx.beans.Observable[]>() {
-            @Override
-            public Observable[] call(CourseViewModel courseDto) {
-                return new Observable[]{
-                        courseDto.nameProperty(),
-                        courseDto.getAssignments(),
-                        courseDto.getExams(),
-                        courseDto.getBooks(),
-                        courseDto.getNotes()
-                };
-            }
+    private ViewModelStorage() {
+        courses = FXCollections.observableArrayList(courseDto -> new Observable[]{
+                courseDto.nameProperty(),
+                courseDto.getAssignments(),
+                courseDto.getExams(),
+                courseDto.getBooks(),
+                courseDto.getNotes()
         });
         upcomingTask = UpcomingTasks.empty();
         indexOfCourse = new Hashtable<>();
     }
 
-    public void addExam(ExamDto exam) {
+    public void add(ExamDto exam) {
 
         if (indexOfCourse.containsKey(exam.parentCourseId)) {
             int index = indexOfCourse.get(exam.parentCourseId);
@@ -57,7 +51,17 @@ public class DtoBank {
         }
     }
 
-    public void addAssignment(AssignmentDto assignment) {
+
+    public void remove(ExamDto objectDto) {
+
+    }
+
+
+    public void update(ExamDto objectDto) {
+
+    }
+
+    public void add(AssignmentDto assignment) {
 
         if (indexOfCourse.containsKey(assignment.parentCourseId)) {
             int index = indexOfCourse.get(assignment.parentCourseId);
@@ -71,7 +75,7 @@ public class DtoBank {
         }
     }
 
-    public void addBook(BookDto book) {
+    public void add(BookDto book) {
         int index = indexOfCourse.get(book.parentCourseId);
 
         if (index != -1) {
@@ -84,7 +88,7 @@ public class DtoBank {
         }
     }
 
-    public void addCourse(CourseDto course) {
+    public void add(CourseDto course) {
 
         if (!indexOfCourse.containsKey(course.id)) {
             CourseViewModel courseViewModel = new CourseViewModel(course);

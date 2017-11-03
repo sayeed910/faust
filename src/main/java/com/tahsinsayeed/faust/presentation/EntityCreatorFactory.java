@@ -7,6 +7,7 @@ import com.tahsinsayeed.faust.presentation.entitycreator.classcreator.ClassCreat
 import com.tahsinsayeed.faust.presentation.entitycreator.coursecreator.CourseCreator;
 import com.tahsinsayeed.faust.presentation.entitycreator.examcreator.ExamCreator;
 import com.tahsinsayeed.faust.presentation.entitycreator.holidaycreator.HolidayCreator;
+import com.tahsinsayeed.faust.presentation.entitycreator.notecreator.NoteCreator;
 import com.tahsinsayeed.faust.presentation.view.EntityCreationDialog;
 
 /**
@@ -23,7 +24,10 @@ public class EntityCreatorFactory {
     Provider<BookCreator> bookCreationViewProvider;
     @Inject
     Provider<ClassCreator> classCreationViewProvider;
+
     @Inject Provider<HolidayCreator> holidayCreationViewProvider;
+
+    @Inject Provider<NoteCreator> noteCreationViewProvider;
 
     public EntityCreationDialog create(String entityName){
         if (entityName.equalsIgnoreCase("course")) return courseCreationViewProvider.get();
@@ -32,6 +36,7 @@ public class EntityCreatorFactory {
         else if (entityName.equalsIgnoreCase("book")) return bookCreationViewProvider.get();
         else if (entityName.equalsIgnoreCase("holiday")) return holidayCreationViewProvider.get();
         else if (entityName.equalsIgnoreCase("class")) return classCreationViewProvider.get();
+        else if (entityName.equalsIgnoreCase("note")) return noteCreationViewProvider.get();
         else throw new IllegalArgumentException();
 
     }

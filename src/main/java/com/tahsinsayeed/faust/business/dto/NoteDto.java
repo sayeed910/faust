@@ -2,6 +2,9 @@ package com.tahsinsayeed.faust.business.dto;
 
 import com.tahsinsayeed.faust.business.entity.Note;
 
+import java.io.*;
+import java.nio.file.Files;
+
 /**
  * Created by sayeed on 10/25/17.
  */
@@ -9,7 +12,7 @@ public class NoteDto {
     public final String id;
     public final String title;
     public final String parentCourseId;
-    public final String filePath;
+    public final String content;
 
 
 
@@ -17,7 +20,17 @@ public class NoteDto {
         this.title = note.getTitle();
         this.parentCourseId = note.getParentCourseId();
         this.id = note.getId();
-        this.filePath = note.getFile().getAbsolutePath();
+        File file = note.getFile();
+        this.content = readContents(file);
+    }
+
+    private String readContents(File file) {
+        try {
+            Files.readAllLines(file.toPath()).get(0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
     public static NoteDto from(Note note) {

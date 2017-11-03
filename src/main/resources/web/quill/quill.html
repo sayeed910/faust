@@ -77,6 +77,8 @@
                     <button onclick="insertImage()" value="image">+</button>
                     <button class="ql-video"></button>
                     <button class="ql-formula"></button>
+                    <button onclick="save()">Save</button>
+
                 </span>
                 <span class="ql-formats">
                     <button class="ql-clean"></button>
@@ -100,12 +102,13 @@
                     syntax: true,
                     toolbar: '#toolbar-container'
                 },
-                placeholder: 'Compose an epic...',
-                theme: 'snow',
+                placeholder: 'Write your text here...',
+                theme: 'snow'
 
             });
 
             function insertImage(uri){
+                out(uri);
                 quill.insertEmbed(quill.getLength(), 'image', uri);
 
             }
@@ -114,6 +117,19 @@
     function chooseImage() {
         handler.chooseImage();
     }
+
+    function out(data){
+        handler.display(data);
+    }
+
+    function save(){
+        handler.save(JSON.stringify(quill.getContents()));
+    }
+
+    function load(data){
+        quill.setContents(JSON.parse(data));
+    }
+
 
 </script>
 </body>
