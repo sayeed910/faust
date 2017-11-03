@@ -14,17 +14,9 @@ import java.util.List;
 public class ChangeCourseRequest extends Request {
     public String id;
     public String name;
-    public List<Book> books;
-    public List<Note> notes;
-    public List<Exam> exams;
-    public List<Assignment> assignments;
 
-    public ChangeCourseRequest(String id, String name, List<Book> books, List<Note> notes, List<Exam> exams, List<Assignment> assignments) {
+    public ChangeCourseRequest(String id, String name) {
         this.id = id;
         this.name = name;
-        this.books = books;
-        this.notes = notes;
-        this.exams = exams;
-        this.assignments = assignments;
     }
 }

@@ -1,6 +1,9 @@
 package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.entity.Note;
+import com.tahsinsayeed.faust.business.entity.Note;
+import com.tahsinsayeed.faust.business.request.RemoveNoteRequest;
+import com.tahsinsayeed.faust.business.request.RemoveNoteRequest;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
 
 /**
@@ -15,6 +18,10 @@ public class RemoveNoteInteractor implements Interactor {
 
     @Override
     public void execute(Request request) {
+        RemoveNoteRequest noteRequest = (RemoveNoteRequest) request;
+
+        Note note = noteRepository.get(noteRequest.id);
+        noteRepository.delete(note);
 
     }
 }

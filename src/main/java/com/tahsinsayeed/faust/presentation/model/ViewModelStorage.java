@@ -124,4 +124,7 @@ public class ViewModelStorage {
     }
 
 
+    public void add(HolidayDto holidayDto) {
+
+    }
 }

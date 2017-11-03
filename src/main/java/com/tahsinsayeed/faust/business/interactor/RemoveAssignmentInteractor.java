@@ -1,6 +1,7 @@
 package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.entity.Assignment;
+import com.tahsinsayeed.faust.business.request.RemoveAssignmentRequest;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
 
 /**
@@ -15,6 +16,10 @@ public class RemoveAssignmentInteractor implements Interactor {
 
     @Override
     public void execute(Request request) {
+        RemoveAssignmentRequest assignmentRequest = (RemoveAssignmentRequest) request;
+
+        Assignment assignment = assignmentRepository.get(assignmentRequest.id);
+        assignmentRepository.delete(assignment);
 
     }
 }

@@ -1,6 +1,7 @@
 package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.entity.Exam;
+import com.tahsinsayeed.faust.business.request.ChangeExamRequest;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
 
 /**
@@ -15,6 +16,12 @@ public class ChangeExamInteractor implements Interactor {
 
     @Override
     public void execute(Request request) {
+        ChangeExamRequest examRequest = (ChangeExamRequest) request;
+        Exam exam = examRepository.get(examRequest.examId);
+
+        exam.setReceivedMark(examRequest.receivedMark);
+        exam.setTotalMark(examRequest.totalMark);
+        examRepository.update(exam);
 
     }
 }

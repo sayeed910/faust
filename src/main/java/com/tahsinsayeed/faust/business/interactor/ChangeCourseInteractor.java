@@ -1,6 +1,7 @@
 package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.entity.Course;
+import com.tahsinsayeed.faust.business.request.ChangeCourseRequest;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
 
 /**
@@ -15,6 +16,12 @@ public class ChangeCourseInteractor implements Interactor {
 
     @Override
     public void execute(Request request) {
+        ChangeCourseRequest courseRequest = (ChangeCourseRequest) request;
+        Course course = courseRepository.get(courseRequest.id);
+
+        course.setName(courseRequest.name);
+
+        courseRepository.update(course);
 
     }
 }

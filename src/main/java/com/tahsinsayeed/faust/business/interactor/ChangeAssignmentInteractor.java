@@ -1,6 +1,8 @@
 package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.entity.Assignment;
+import com.tahsinsayeed.faust.business.request.ChangeAssignmentRequest;
+import com.tahsinsayeed.faust.business.request.RemoveAssignmentRequest;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
 
 /**
@@ -15,6 +17,16 @@ public class ChangeAssignmentInteractor implements Interactor {
 
     @Override
     public void execute(Request request) {
+        ChangeAssignmentRequest assignmentRequest = (ChangeAssignmentRequest) request;
+
+        Assignment assignment = assignmentRepository.get(assignmentRequest.id);
+
+        assignment.setDescription(assignmentRequest.description);
+        assignment.setTitle(assignmentRequest.title);
+        assignment.setFinished(assignmentRequest.finished);
+        assignment.setDueDate(assignmentRequest.dueDate);
+
+        assignmentRepository.update(assignment);
 
     }
 }

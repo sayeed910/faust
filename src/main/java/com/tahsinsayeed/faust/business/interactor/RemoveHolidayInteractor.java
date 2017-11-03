@@ -1,6 +1,8 @@
 package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.entity.Holiday;
+import com.tahsinsayeed.faust.business.entity.Holiday;
+import com.tahsinsayeed.faust.business.request.RemoveHolidayRequest;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
 
 /**
@@ -15,6 +17,10 @@ public class RemoveHolidayInteractor implements Interactor {
 
     @Override
     public void execute(Request request) {
+        RemoveHolidayRequest holidayRequest = (RemoveHolidayRequest) request;
+
+        Holiday holiday = holidayRepository.get(holidayRequest.id);
+        holidayRepository.delete(holiday);
 
     }
 }

@@ -1,6 +1,8 @@
 package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.entity.Book;
+import com.tahsinsayeed.faust.business.entity.Book;
+import com.tahsinsayeed.faust.business.request.RemoveBookRequest;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
 
 /**
@@ -15,6 +17,10 @@ public class RemoveBookInteractor implements Interactor {
 
     @Override
     public void execute(Request request) {
+        RemoveBookRequest bookRequest = (RemoveBookRequest) request;
+
+        Book book = bookRepository.get(bookRequest.name);
+        bookRepository.delete(book);
 
     }
 }

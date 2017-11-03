@@ -1,6 +1,8 @@
 package com.tahsinsayeed.faust.business.interactor;
 
 import com.tahsinsayeed.faust.business.entity.Exam;
+import com.tahsinsayeed.faust.business.entity.Exam;
+import com.tahsinsayeed.faust.business.request.RemoveExamRequest;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
 
 /**
@@ -15,6 +17,10 @@ public class RemoveExamInteractor implements Interactor {
 
     @Override
     public void execute(Request request) {
+        RemoveExamRequest examRequest = (RemoveExamRequest) request;
+
+        Exam exam = examRepository.get(examRequest.examId);
+        examRepository.delete(exam);
 
     }
 }
