@@ -1,6 +1,8 @@
 package com.tahsinsayeed.faust.presentation.model.sidebar;
 
 import com.google.common.eventbus.EventBus;
+import com.tahsinsayeed.faust.presentation.event.Bus;
+import com.tahsinsayeed.faust.presentation.event.CourseItemSelected;
 import com.tahsinsayeed.faust.presentation.model.CourseViewModel;
 import com.tahsinsayeed.faust.presentation.view.CourseView;
 import javafx.collections.*;
@@ -27,7 +29,7 @@ public class CourseChildItem implements SideBarItem {
     }
     @Override
     public void onSelected() {
-        EventBus.get().post(new CourseItemSelected(viewModel));
+        Bus.get().post(new CourseItemSelected(viewModel));
     }
 
     @Override
