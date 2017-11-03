@@ -5,7 +5,7 @@ import com.tahsinsayeed.faust.business.dto.AssignmentDto;
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.request.NewAssignmentRequest;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
-import com.tahsinsayeed.faust.presentation.model.DtoBank;
+import com.tahsinsayeed.faust.presentation.model.ViewModelStorage;
 
 import java.time.LocalDate;
 
@@ -32,7 +32,7 @@ public class AddAssignmentInteractor implements Interactor {
 
         assignmentRepository.save(assignment);
         AssignmentDto assignmentDto = AssignmentDto.from(assignment);
-        DtoBank.getInstance().addAssignment(assignmentDto);
+        ViewModelStorage.getInstance().add(assignmentDto);
 
         UpcomingTaskRetriever.create(LocalDate.now()).execute(null);
 

@@ -3,12 +3,17 @@ package com.tahsinsayeed.faust.presentation.controller;
 import com.google.common.eventbus.*;
 import com.google.inject.Inject;
 import com.jfoenix.controls.*;
+import com.tahsinsayeed.faust.NoteEditorFactory;
 import com.tahsinsayeed.faust.presentation.*;
-import com.tahsinsayeed.faust.presentation.event.NewItemEvent;
+import com.tahsinsayeed.faust.presentation.event.*;
+import com.tahsinsayeed.faust.presentation.model.NoteViewModel;
 import com.tahsinsayeed.faust.presentation.view.*;
+import com.tahsinsayeed.faust.ui.NoteEditor;
 import javafx.animation.Transition;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
+
+import java.util.UUID;
 
 public class MainWindowController {
     @FXML
@@ -81,6 +86,20 @@ public class MainWindowController {
         System.out.println("called " + event.itemName);
         EntityCreationDialog view = entityCreatorFactory.create(event.itemName);
         view.showDialog(root);
+    }
+
+    @Subscribe
+    public void handleNewNoteCalss(NewNoteEvent event){
+        NoteViewModel noteViewModel = new NoteViewModel();
+        noteViewModel.setId(UUID.randomUUID().toString());
+        noteViewModel.setParentCourseId(event.parentCourseId);
+        noteViewModel.setTitle(event.title);
+        noteViewModel.setContent("");
+
+        NoteEditor editor = NoteEditorFactory.get(mainEventBus, noteViewModel);
+        content.getChildren().clear();
+        content.getChildren().add(editor);
+        editor.loadContent();
     }
 
 }

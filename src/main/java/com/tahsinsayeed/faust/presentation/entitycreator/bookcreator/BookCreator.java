@@ -52,7 +52,7 @@ public class BookCreator extends EntityCreationDialog{
         filePath = new JFXTextField();
         filePath.setPromptText("Choose File");
         filePath.setEditable(false);
-        filePath.setOnAction(e -> filePath.setText(fileChooser.showOpenDialog(null).getAbsolutePath()) );
+        filePath.setOnMouseClicked(e -> filePath.setText(fileChooser.showOpenDialog(null).getAbsolutePath()) );
 
         txtParentCourseId = new JFXComboBox<>(FXCollections.observableArrayList(existingCourseIds));
         txtParentCourseId.setLabelFloat(true);

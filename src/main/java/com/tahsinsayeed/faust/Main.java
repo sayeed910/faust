@@ -24,6 +24,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 //        PdfViewerFactory.init();
+        NoteEditorFactory.init();
 
 
         StackPane root = loader.load();
@@ -53,7 +54,6 @@ public class Main extends Application {
 
     @Override
     public void init(){
-
         File config_dir = new File(Config.get("config_dir"));
         if (!(config_dir.exists() && config_dir.isDirectory())){
             new FirstRunInteractor().execute(null);

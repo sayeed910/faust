@@ -5,7 +5,7 @@ import com.tahsinsayeed.faust.business.dto.BookDto;
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.request.NewBookRequest;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
-import com.tahsinsayeed.faust.presentation.model.DtoBank;
+import com.tahsinsayeed.faust.presentation.model.ViewModelStorage;
 
 import java.io.File;
 
@@ -29,7 +29,7 @@ public class AddBookInteractor implements Interactor {
         bookRepository.save(book);
 
         BookDto bookDto = BookDto.from(book);
-        DtoBank.getInstance().addBook(bookDto);
+        ViewModelStorage.getInstance().add(bookDto);
 
     }
 

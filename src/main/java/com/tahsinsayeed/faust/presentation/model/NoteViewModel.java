@@ -1,7 +1,6 @@
 package com.tahsinsayeed.faust.presentation.model;
 
 import com.tahsinsayeed.faust.business.dto.NoteDto;
-import com.tahsinsayeed.faust.business.entity.Note;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -12,16 +11,20 @@ public class NoteViewModel {
     private SimpleStringProperty id;
     private StringProperty title;
     private StringProperty parentCourseId;
-    private StringProperty filePath;
+    private StringProperty content;
 
     public NoteViewModel() {
+        id = new SimpleStringProperty();
+        title = new SimpleStringProperty();
+        parentCourseId = new SimpleStringProperty();
+        content = new SimpleStringProperty();
     }
 
     public NoteViewModel(NoteDto note){
         this.title = new SimpleStringProperty(note.title);
         this.parentCourseId = new SimpleStringProperty(note.parentCourseId);
         this.id = new SimpleStringProperty(note.id);
-        this.filePath = new SimpleStringProperty(note.filePath);
+        this.content = new SimpleStringProperty(note.content);
     }
 
     public SimpleStringProperty getId() {
@@ -48,11 +51,11 @@ public class NoteViewModel {
         this.parentCourseId.set(parentCourseId);
     }
 
-    public StringProperty getFilePath() {
-        return filePath;
+    public StringProperty getContent() {
+        return content;
     }
 
-    public void setFilePath(String filePath) {
-        this.filePath.set(filePath);
+    public void setContent(String content) {
+        this.content.set(content);
     }
 }

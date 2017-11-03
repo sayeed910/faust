@@ -6,7 +6,7 @@ import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.entity.Class;
 import com.tahsinsayeed.faust.persistence.repository.RepositoryFactoryImpl;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
-import com.tahsinsayeed.faust.presentation.model.DtoBank;
+import com.tahsinsayeed.faust.presentation.model.ViewModelStorage;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -16,7 +16,7 @@ public class UpcomingTaskRetriever implements Interactor {
     private final LocalDate date;
     private final RepositoryFactory repositoryFactory;
     private final Repository<Course> courseRepository;
-    private final DtoBank dtoBank = DtoBank.getInstance();
+    private final ViewModelStorage dtoBank = ViewModelStorage.getInstance();
 
     private UpcomingTaskRetriever(LocalDate date, RepositoryFactory factory) {
         this.repositoryFactory = factory;

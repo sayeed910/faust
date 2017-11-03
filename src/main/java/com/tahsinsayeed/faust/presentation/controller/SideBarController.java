@@ -22,7 +22,7 @@ public class SideBarController {
 
     public SideBarController() {
         System.out.println("initiated sidebar controller");
-        courses = DtoBank.getInstance().getCourses();
+        courses = ViewModelStorage.getInstance().getCourses();
         rootTreeItem = new CourseItem(courses);
 
         courses.addListener(this::updateTree);

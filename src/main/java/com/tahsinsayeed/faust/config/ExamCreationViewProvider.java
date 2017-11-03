@@ -2,7 +2,7 @@ package com.tahsinsayeed.faust.config;
 
 import com.google.inject.*;
 import com.tahsinsayeed.faust.presentation.entitycreator.examcreator.*;
-import com.tahsinsayeed.faust.presentation.model.DtoBank;
+import com.tahsinsayeed.faust.presentation.model.ViewModelStorage;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,7 +19,7 @@ public class ExamCreationViewProvider implements Provider<ExamCreator> {
     }
 
     private List<String> getExistingCourseIds(){
-        return DtoBank.getInstance().getCourses().stream()
+        return ViewModelStorage.getInstance().getCourses().stream()
                 .map(courseViewModel -> courseViewModel.getId().get()).collect(Collectors.toList());
     }
 }
