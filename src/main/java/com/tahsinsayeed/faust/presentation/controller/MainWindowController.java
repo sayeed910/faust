@@ -9,13 +9,12 @@ import com.tahsinsayeed.faust.presentation.component.reader.*;
 import com.tahsinsayeed.faust.presentation.entitycreator.EntityCreatorFactory;
 import com.tahsinsayeed.faust.presentation.event.*;
 import com.tahsinsayeed.faust.presentation.model.*;
-import com.tahsinsayeed.faust.presentation.model.sidebar.DashboardItem;
 import com.tahsinsayeed.faust.presentation.view.*;
-import com.tahsinsayeed.faust.presentation.view.ExamView;
 import com.tahsinsayeed.faust.util.ContentValues;
 import javafx.animation.Transition;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.layout.StackPane;
 
 import java.util.*;
@@ -40,6 +39,7 @@ public class MainWindowController {
     private StackPane content;
 
     @FXML StackPane fab;
+//    StackPane fab = new StackPane();
 
     @Inject
     private EventBus mainEventBus;
@@ -84,7 +84,6 @@ public class MainWindowController {
         fab.getChildren().add(newItem);
 
 
-
         mainEventBus.register(this);
 
     }
@@ -124,6 +123,7 @@ public class MainWindowController {
 
     @Subscribe
     public void onCalendarSelect(CalendarItemSelected event){
+
         ViewModelStorage viewModelStorage = ViewModelStorage.getInstance();
         ObservableList<CourseViewModel> courses = viewModelStorage.getCourses();
         List<ExamViewModel> exams = new ArrayList<>();
@@ -140,6 +140,7 @@ public class MainWindowController {
 
     @Subscribe
     public void onBookSelect(BookItemSelected event){
+
         BookViewModel book = event.bookViewModel;
 
         PdfViewer reader = PdfViewerFactory.get();
@@ -152,6 +153,7 @@ public class MainWindowController {
 
     @Subscribe
     public void onNoteSelect(NoteItemSelected event){
+
         NoteViewModel note = event.noteViewModel;
 
         NoteEditor editor = NoteEditorFactory.get(mainEventBus, note);
@@ -165,33 +167,44 @@ public class MainWindowController {
 
     @Subscribe
     public void onCourseSelect(CourseItemSelected event){
+        System.out.println("Course selected");
         CourseViewModel course = event.courseViewModel;
         content.getChildren().clear();
-        content.getChildren().add(new CourseView(course, mainEventBus));
+        CourseView courseView = new CourseView(course, mainEventBus);
+        content.getChildren().add(courseView);
+        content.setMargin(courseView, new Insets(60, 20, 20, 20));
     }
 
     @Subscribe
     public void onAssignmentSelect(AssignmentItemSelected event){
+        System.out.println("Assignment selected");
         AssignmentViewModel assigment = event.assignmentViewModel;
         content.getChildren().clear();
-        content.getChildren().add(new AssignmentView(assigment,mainEventBus));
+        AssignmentView assignmentView = new AssignmentView(assigment, mainEventBus);
+        content.getChildren().add(assignmentView);
+        content.setMargin(assignmentView, new Insets(60, 20, 20, 20));
     }
 
     @Subscribe
     public void onRoutineSelect(RoutineItemSelected event){
+
         content.getChildren().clear();
        // content.getChildren().add(new RoutineView());
     }
 
     @Subscribe
     public void onExamSelect(ExamItemSelected event){
+        System.out.println("Exam selected");
         ExamViewModel exam = event.examViewModel;
         content.getChildren().clear();
-        content.getChildren().add(new ExamView(exam,mainEventBus));
+        ExamView examView = new ExamView(exam, mainEventBus);
+        content.getChildren().add(examView);
+        content.setMargin(examView, new Insets(60, 20, 20, 20));
     }
 
     @Subscribe
     public void onDashboardSelect(DashboardItemSelected event){
+
        // DashboardViewModel dashboard = event.dashboardViewModel;
         content.getChildren().clear();
         //content.getChildren().add(new DashboardView(dashboard,mainEventBus));
