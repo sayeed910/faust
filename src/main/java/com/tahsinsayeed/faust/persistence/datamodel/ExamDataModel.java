@@ -3,7 +3,6 @@ package com.tahsinsayeed.faust.persistence.datamodel;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.tahsinsayeed.faust.business.entity.Exam;
-import com.tahsinsayeed.faust.persistence.repository.CourseRepository;
 
 import java.time.format.DateTimeFormatter;
 
@@ -32,7 +31,7 @@ public class ExamDataModel {
     @DatabaseField
     private String parentCourseId;
 
-    @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName="course_id")
+    @DatabaseField(foreign = true, foreignAutoRefresh = false, columnName="course_id")
     private CourseDataModel courseDataModel;
 
     public ExamDataModel() {
@@ -46,7 +45,8 @@ public class ExamDataModel {
         this.name = exam.getName();
         this.totalMark = exam.getTotalMark();
         this.receivedMark = exam.getReceivedMark();
-        this.courseDataModel = new CourseDataModel(new CourseRepository().get(parentCourseId));
+        this.courseDataModel = new CourseDataModel();
+        this.courseDataModel.setId(parentCourseId);
     }
 
     public double getReceivedMark() {

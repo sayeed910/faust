@@ -22,6 +22,7 @@ public class ExamCreationController implements EntityCreationController {
     JFXComboBox<String> txtParentCourseId;
     public JFXTextField fullMarksInput;
     public JFXTextField receivedMarksInput;
+    JFXDialog dialog;
 
     @Inject
     public ExamCreationController(RequestBuilder requestBuilder, InteractorFactory factory){
@@ -36,6 +37,7 @@ public class ExamCreationController implements EntityCreationController {
         Request newExamRequest = requestBuilder.make(RequestBuilder.RequestType.NEW_EXAM, values);
 
         examCreator.execute(newExamRequest);
+        dialog.close();
 
     }
 

@@ -26,8 +26,8 @@ public class AddExamInteractor implements Interactor {
 
         NewExamRequest examRequest = (NewExamRequest) request;
 
-        Course parentCourse = courseRepository.get(examRequest.parentCourseId);
-        if (parentCourse == null) throw new CourseNotFound();
+        System.out.println(examRequest.parentCourseId);
+        if (!courseRepository.idExists(examRequest.parentCourseId)) throw new CourseNotFound();
 
 
         Exam exam = Exam.create(examRequest.title, examRequest.parentCourseId,

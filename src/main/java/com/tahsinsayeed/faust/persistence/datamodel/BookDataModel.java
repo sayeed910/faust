@@ -3,7 +3,6 @@ package com.tahsinsayeed.faust.persistence.datamodel;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.tahsinsayeed.faust.business.entity.Book;
-import com.tahsinsayeed.faust.persistence.repository.CourseRepository;
 
 @DatabaseTable(tableName = "BookDataModel")
 public class BookDataModel {
@@ -17,7 +16,7 @@ public class BookDataModel {
     @DatabaseField
     private String filePath;
 
-    @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName="course_id")
+    @DatabaseField(foreign = true, foreignAutoRefresh = false, columnName="course_id")
     private CourseDataModel courseDataModel;
 
     public BookDataModel() {
@@ -28,7 +27,8 @@ public class BookDataModel {
         this.name = book.getName();
         this.parentCourseId = book.getParentCourseId();
         this.filePath = book.getFile().getAbsolutePath();
-        this.courseDataModel = new CourseDataModel(new CourseRepository().get(parentCourseId));
+        this.courseDataModel = new CourseDataModel();
+        this.courseDataModel.setId(parentCourseId);
     }
 
     public String getName() {
@@ -53,5 +53,13 @@ public class BookDataModel {
 
     public void setFilePath(String filePath) {
         this.filePath = filePath;
+    }
+
+    public CourseDataModel getCourseDataModel() {
+        return courseDataModel;
+    }
+
+    public void setCourseDataModel(CourseDataModel courseDataModel) {
+        this.courseDataModel = courseDataModel;
     }
 }

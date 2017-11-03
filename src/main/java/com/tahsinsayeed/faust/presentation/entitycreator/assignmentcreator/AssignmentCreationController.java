@@ -45,6 +45,7 @@ public class AssignmentCreationController implements EntityCreationController {
 
        try{
            assignmentCreator.execute(newAssignmentRequest);
+           dialog.close();
        } catch(AssignmentConflict ex){
            error.setText("Assignment with same title already belongs in this course");
        }

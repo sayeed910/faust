@@ -19,7 +19,8 @@ public class AssignmentRepository implements Repository<Assignment> {
 
     private Dao<AssignmentDataModel, String> assignmentDao;
     private DataModelToEntityMapper<AssignmentDataModel, Assignment> mapper;
-     AssignmentRepository(DBConnection connection, DataModelToEntityMapper<AssignmentDataModel, Assignment> mapper){
+
+    public AssignmentRepository(DBConnection connection, DataModelToEntityMapper<AssignmentDataModel, Assignment> mapper){
          this.mapper = mapper;
          ConnectionSource connectionSource = connection.getConnectionSource();
         try {
@@ -31,7 +32,7 @@ public class AssignmentRepository implements Repository<Assignment> {
         }
     }
 
-     AssignmentRepository() {
+    public AssignmentRepository() {
         this(DBConnection.getInstance(), new AssignmentMapper());
     }
 
@@ -82,6 +83,15 @@ public class AssignmentRepository implements Repository<Assignment> {
             assignmentDao.delete(new AssignmentDataModel(objectToDelete));
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public boolean idExists(String id) {
+        try {
+            return assignmentDao.idExists(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }
