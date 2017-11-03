@@ -20,6 +20,12 @@ public class ExamItem implements SideBarItem {
     public ObservableList<SideBarItem> getChildren() {
         return children;
     }
+
+    @Override
+    public void onSelected() {
+
+    }
+
     @Override
     public String toString() {
         return "Exams";

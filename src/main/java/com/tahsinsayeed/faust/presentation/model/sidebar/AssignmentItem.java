@@ -22,6 +22,11 @@ public class AssignmentItem implements SideBarItem {
     }
 
     @Override
+    public void onSelected() {
+
+    }
+
+    @Override
     public String toString() {
         return "Assignments";
     }

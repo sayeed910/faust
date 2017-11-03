@@ -12,7 +12,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
 import java.time.format.DateTimeFormatter;
-
+/**
+ * Created by sayeed on 10/26/17.
+ */
 public class ClassCreationController implements EntityCreationController {
     private final RequestBuilder requestBuilder;
     private InteractorFactory interactorFactory;

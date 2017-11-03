@@ -11,6 +11,9 @@ import javafx.scene.text.Font;
 
 import java.util.List;
 
+/**
+ * Created by Shamim
+ */
 public class AssignmentCreator extends EntityCreationDialog {
     VBox container = new VBox();
     BorderPane pane = new BorderPane();
