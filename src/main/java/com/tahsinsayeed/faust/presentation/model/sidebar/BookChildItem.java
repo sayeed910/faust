@@ -1,6 +1,8 @@
 package com.tahsinsayeed.faust.presentation.model.sidebar;
 
 import com.google.common.eventbus.EventBus;
+import com.tahsinsayeed.faust.presentation.event.BookItemSelected;
+import com.tahsinsayeed.faust.presentation.event.Bus;
 import com.tahsinsayeed.faust.presentation.model.BookViewModel;
 import javafx.collections.*;
 

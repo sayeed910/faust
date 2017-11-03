@@ -1,6 +1,8 @@
 package com.tahsinsayeed.faust.presentation.model.sidebar;
 
 import com.google.common.eventbus.EventBus;
+import com.tahsinsayeed.faust.presentation.event.Bus;
+import com.tahsinsayeed.faust.presentation.event.NoteItemSelected;
 import com.tahsinsayeed.faust.presentation.model.NoteViewModel;
 import javafx.collections.*;
 
