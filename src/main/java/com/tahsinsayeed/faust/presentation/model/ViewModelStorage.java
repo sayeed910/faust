@@ -127,4 +127,8 @@ public class ViewModelStorage {
         int index = indexOfCourse.get(noteDto.parentCourseId);
 //        courses.get(index).getNotes().indexOf()
     }
+
+    public void add(HolidayDto holidayDto) {
+
+    }
 }

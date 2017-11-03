@@ -85,4 +85,8 @@ public class Course {
     public List<Assignment> getAssignments() {
         return assignments;
     }
+
+    public void setName(String name)    {
+        this.name = name;
+    }
 }
