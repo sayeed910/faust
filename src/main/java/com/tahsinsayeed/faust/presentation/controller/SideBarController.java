@@ -4,7 +4,7 @@ import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;
 import com.tahsinsayeed.faust.presentation.model.*;
 import com.tahsinsayeed.faust.presentation.model.sidebar.*;
-import com.tahsinsayeed.faust.ui.RecursiveTreeItem;
+import com.tahsinsayeed.faust.presentation.component.RecursiveTreeItem;
 import javafx.collections.*;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.StackPane;

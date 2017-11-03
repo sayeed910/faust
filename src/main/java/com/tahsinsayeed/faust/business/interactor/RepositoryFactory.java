@@ -17,4 +17,5 @@ public interface RepositoryFactory {
     Repository<Exam> getExamRepository();
 
     Repository<Book> getBookRepository();
+    Repository<Note> getNoteRepository();
 }

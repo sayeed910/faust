@@ -1,4 +1,4 @@
-package com.tahsinsayeed.faust;
+package com.tahsinsayeed.faust.business.interactor;
 
 import com.google.inject.Inject;
 import com.tahsinsayeed.faust.business.entity.Course;
@@ -34,6 +34,10 @@ public class InteractorFactoryImpl implements InteractorFactory {
                 return new AddCourseInteractor(courseRepository);
             case ADD_EXAM:
                 return new AddExamInteractor(courseRepository, repositoryFactory.getExamRepository());
+            case ADD_NOTE:
+                return new AddNoteInteractor(repositoryFactory.getNoteRepository(), courseRepository);
+            case EDIT_NOTE:
+                return new ChangeNoteInteractor(repositoryFactory.getNoteRepository());
             default:
                 throw new IllegalArgumentException("Invalid type of interactor");
         }

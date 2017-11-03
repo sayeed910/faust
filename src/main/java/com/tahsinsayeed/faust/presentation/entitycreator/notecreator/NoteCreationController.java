@@ -3,9 +3,13 @@ package com.tahsinsayeed.faust.presentation.entitycreator.notecreator;
 import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;
 import com.jfoenix.controls.*;
+import com.tahsinsayeed.faust.business.interactor.Request;
 import com.tahsinsayeed.faust.presentation.controller.*;
-import com.tahsinsayeed.faust.presentation.event.NewNoteEvent;
+import com.tahsinsayeed.faust.presentation.event.EditNoteEvent;
+import com.tahsinsayeed.faust.util.ContentValues;
 import javafx.scene.control.Label;
+
+import java.util.UUID;
 
 /**
  * Created by Shamim on 10/28/17.
@@ -27,17 +31,37 @@ public class NoteCreationController implements EntityCreationController {
 
     @Override
     public void add() {
-        mainEventBus.post(getNoteEvent());
+
+        ContentValues values = getRequestArgs();
+        Interactor noteCreator = interactorFactory.make(InteractorFactory.InteractorType.ADD_NOTE);
+        Request newExamRequest = requestBuilder.make(RequestBuilder.RequestType.NEW_NOTE, values);
+
+        noteCreator.execute(newExamRequest);
+
+
+        mainEventBus.post(getNoteEvent(values));
+    }
+
+    private ContentValues getRequestArgs() {
+        String parentCourseId = txtParentCourseId.getSelectionModel().getSelectedItem();
+        String title = nameInput.getText().trim();
+        String content =  "";
+        String id = UUID.randomUUID().toString();
+
+
+        return new ContentValues(
+                "courseId", parentCourseId,
+                "title", title,
+                "content", content,
+                "id", id
+        );
+
     }
 
 
 
-    private NewNoteEvent getNoteEvent() {
-        String parentCourseId = txtParentCourseId.getSelectionModel().getSelectedItem();
-        String noteName = nameInput.getText().trim();
-
-
-        return new NewNoteEvent(parentCourseId, noteName);
+    private EditNoteEvent getNoteEvent(ContentValues values) {
+         return new EditNoteEvent(values.get("courseId"), values.get("title"), "", values.get("id"));
 
     }
 

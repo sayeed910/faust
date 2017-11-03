@@ -2,16 +2,11 @@ package com.tahsinsayeed.faust.presentation.entitycreator.bookcreator;
 
 import com.google.inject.Inject;
 import com.jfoenix.controls.*;
-import com.tahsinsayeed.faust.business.entity.Book;
 import com.tahsinsayeed.faust.business.interactor.Request;
 import com.tahsinsayeed.faust.presentation.controller.*;
 import com.tahsinsayeed.faust.util.ContentValues;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
-
-import java.time.format.DateTimeFormatter;
 
 /**
  * Created by Shamim on 10/28/17.
@@ -47,13 +42,13 @@ public class BookCreationController implements EntityCreationController {
     private ContentValues getRequestArgs() {
         String parentCourseId = txtParentCourseId.getSelectionModel().getSelectedItem();
         String bookName = nameInput.getText().trim();
-        String fileName =  filePath.getText().trim();
+        String filePath =  this.filePath.getText().trim();
 
 
         return new ContentValues(
                 "courseId", parentCourseId,
                 "bookName", bookName,
-                "content", fileName
+                "filePath", filePath
         );
 
     }

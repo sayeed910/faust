@@ -1,4 +1,4 @@
-package com.tahsinsayeed.faust.presentation;
+package com.tahsinsayeed.faust.presentation.entitycreator;
 
 import com.google.inject.*;
 import com.tahsinsayeed.faust.presentation.entitycreator.assignmentcreator.AssignmentCreator;

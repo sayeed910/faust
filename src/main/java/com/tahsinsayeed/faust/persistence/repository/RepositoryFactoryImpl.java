@@ -40,4 +40,9 @@ public class RepositoryFactoryImpl implements RepositoryFactory {
     public Repository<Book> getBookRepository() {
         return new BookRepository();
     }
+
+    @Override
+    public Repository<Note> getNoteRepository() {
+        return new NoteRepository();
+    }
 }

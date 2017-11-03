@@ -9,5 +9,6 @@ import com.tahsinsayeed.faust.util.ContentValues;
 public interface RequestBuilder {
     Request make(RequestType type, ContentValues args);
 
-    enum RequestType{NEW_COURSE, NEW_ASSIGNMENT, NEW_EXAM, NEW_HOLIDAY, NEW_BOOK, NEW_CLASS, NEW_NOTE }
+    enum RequestType{NEW_COURSE, NEW_ASSIGNMENT, NEW_EXAM, NEW_HOLIDAY, NEW_BOOK, NEW_CLASS, NEW_NOTE,
+    EDIT_NOTE}
 }

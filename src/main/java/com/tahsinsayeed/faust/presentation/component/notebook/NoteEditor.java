@@ -1,4 +1,4 @@
-package com.tahsinsayeed.faust.ui;
+package com.tahsinsayeed.faust.presentation.component.notebook;
 
 import com.google.common.eventbus.EventBus;
 import com.google.common.io.Files;
@@ -22,7 +22,7 @@ public class NoteEditor extends VBox {
     private WebEngine engine ;
     private TextField titleInput;
 
-    public NoteEditor(EventBus eventBus, NoteViewModel noteDataModel) {
+    NoteEditor(EventBus eventBus, NoteViewModel noteDataModel) {
         this.mainEventBus = eventBus;
         this.noteDataModel = noteDataModel;
         this.viewer = new WebView();
@@ -35,7 +35,7 @@ public class NoteEditor extends VBox {
         init();
     }
 
-    public NoteEditor(){
+    NoteEditor(){
         this.viewer = new WebView();
         this.engine = viewer.getEngine();
 
@@ -93,6 +93,7 @@ public class NoteEditor extends VBox {
     }
 
     public void save(String content){
+        System.out.println("js called");
         content = content.replaceAll("\\\\","\\\\\\\\");
         mainEventBus.post(new SaveNoteEvent(
                 noteDataModel.getId().get(),

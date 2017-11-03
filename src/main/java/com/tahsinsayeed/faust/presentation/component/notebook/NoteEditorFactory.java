@@ -1,8 +1,7 @@
-package com.tahsinsayeed.faust;
+package com.tahsinsayeed.faust.presentation.component.notebook;
 
 import com.google.common.eventbus.EventBus;
 import com.tahsinsayeed.faust.presentation.model.NoteViewModel;
-import com.tahsinsayeed.faust.ui.NoteEditor;
 
 import java.util.*;
 

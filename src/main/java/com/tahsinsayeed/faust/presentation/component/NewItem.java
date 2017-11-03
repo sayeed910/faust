@@ -1,4 +1,4 @@
-package com.tahsinsayeed.faust.presentation;
+package com.tahsinsayeed.faust.presentation.component;
 
 import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;

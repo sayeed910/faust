@@ -1,4 +1,4 @@
-package com.tahsinsayeed.faust.ui.component;
+package com.tahsinsayeed.faust.presentation.component;
 
 import com.jfoenix.controls.JFXTextField;
 

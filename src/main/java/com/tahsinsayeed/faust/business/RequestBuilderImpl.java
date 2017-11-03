@@ -42,6 +42,20 @@ public class RequestBuilderImpl implements RequestBuilder {
                         DayOfWeek.valueOf(args.get("nameOfDay")),
                         LocalTime.parse(args.get("startTime"))
                 );
+            case NEW_NOTE:
+                return new NewNoteRequest(
+                        args.get("id"),
+                        args.get("title"),
+                        args.get("content"),
+                        args.get("courseId")
+                );
+            case EDIT_NOTE:
+                return new ChangeNoteRequest(
+                        args.get("id"),
+                        args.get("title"),
+                        args.get("content")
+                );
+
             default: throw new UnsupportedOperationException();
         }
     }

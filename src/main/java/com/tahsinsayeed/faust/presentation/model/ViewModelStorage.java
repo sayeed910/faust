@@ -102,6 +102,19 @@ public class ViewModelStorage {
         }
     }
 
+    public void add(NoteDto note){
+        int index = indexOfCourse.get(note.parentCourseId);
+
+        if (index != -1) {
+            CourseViewModel courseViewModel = courses.get(index);
+            courseViewModel.getNotes().add(new NoteViewModel(note));
+            courses.remove(index);
+            courses.add(index, courseViewModel);
+        } else {
+            Logger.getGlobal().warning("Course to add exams does not exist");
+        }
+    }
+
     public ObservableList<CourseViewModel> getCourses() {
         return courses;
     }

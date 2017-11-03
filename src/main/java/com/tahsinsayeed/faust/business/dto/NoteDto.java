@@ -2,8 +2,9 @@ package com.tahsinsayeed.faust.business.dto;
 
 import com.tahsinsayeed.faust.business.entity.Note;
 
-import java.io.*;
+import java.io.File;
 import java.nio.file.Files;
+import java.util.List;
 
 /**
  * Created by sayeed on 10/25/17.
@@ -26,8 +27,9 @@ public class NoteDto {
 
     private String readContents(File file) {
         try {
-            Files.readAllLines(file.toPath()).get(0);
-        } catch (IOException e) {
+           List<String> lines = Files.readAllLines(file.toPath());
+            if (lines.size() > 0) return lines.get(0);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return "";

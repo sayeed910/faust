@@ -3,17 +3,17 @@ package com.tahsinsayeed.faust.presentation.controller;
 import com.google.common.eventbus.*;
 import com.google.inject.Inject;
 import com.jfoenix.controls.*;
-import com.tahsinsayeed.faust.NoteEditorFactory;
-import com.tahsinsayeed.faust.presentation.*;
+import com.tahsinsayeed.faust.business.interactor.Request;
+import com.tahsinsayeed.faust.presentation.component.notebook.*;
+import com.tahsinsayeed.faust.presentation.component.*;
+import com.tahsinsayeed.faust.presentation.entitycreator.EntityCreatorFactory;
 import com.tahsinsayeed.faust.presentation.event.*;
 import com.tahsinsayeed.faust.presentation.model.NoteViewModel;
 import com.tahsinsayeed.faust.presentation.view.*;
-import com.tahsinsayeed.faust.ui.NoteEditor;
+import com.tahsinsayeed.faust.util.ContentValues;
 import javafx.animation.Transition;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
-
-import java.util.UUID;
 
 public class MainWindowController {
     @FXML
@@ -47,6 +47,10 @@ public class MainWindowController {
 
     @Inject
     NewItem newItem;
+
+    @Inject
+    InteractorFactory interactorFactory;
+    @Inject RequestBuilder requestBuilder;
 
     public void initialize() throws Exception {
 
@@ -89,9 +93,9 @@ public class MainWindowController {
     }
 
     @Subscribe
-    public void handleNewNoteCalss(NewNoteEvent event){
+    public void handleNewNoteCall(EditNoteEvent event){
         NoteViewModel noteViewModel = new NoteViewModel();
-        noteViewModel.setId(UUID.randomUUID().toString());
+        noteViewModel.setId(event.id);
         noteViewModel.setParentCourseId(event.parentCourseId);
         noteViewModel.setTitle(event.title);
         noteViewModel.setContent("");
@@ -100,6 +104,17 @@ public class MainWindowController {
         content.getChildren().clear();
         content.getChildren().add(editor);
         editor.loadContent();
+    }
+
+    @Subscribe
+    public void handleSaveNoteEvent(SaveNoteEvent event){
+        System.out.println("called");
+        Interactor editNoteInteractor = interactorFactory.make(InteractorFactory.InteractorType.EDIT_NOTE);
+        ContentValues values = new ContentValues("id", event.id, "title", event.title, "content", event.content);
+        Request editNoteRequest = requestBuilder.make(RequestBuilder.RequestType.EDIT_NOTE, values);
+        editNoteInteractor.execute(editNoteRequest);
+
+        System.out.println("saved" + event.content);
     }
 
 }

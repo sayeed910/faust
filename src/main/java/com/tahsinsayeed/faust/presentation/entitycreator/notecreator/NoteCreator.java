@@ -3,7 +3,7 @@ package com.tahsinsayeed.faust.presentation.entitycreator.notecreator;
         import com.jfoenix.controls.*;
         import com.jfoenix.validation.*;
         import com.tahsinsayeed.faust.presentation.view.EntityCreationDialog;
-        import com.tahsinsayeed.faust.ui.component.FloatingTextField;
+        import com.tahsinsayeed.faust.presentation.component.*;
         import javafx.collections.FXCollections;
         import javafx.geometry.*;
         import javafx.scene.control.*;

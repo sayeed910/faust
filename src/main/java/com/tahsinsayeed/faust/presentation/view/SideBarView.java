@@ -4,7 +4,7 @@ import com.google.inject.Inject;
 import com.jfoenix.controls.*;
 import com.tahsinsayeed.faust.presentation.controller.SideBarController;
 import com.tahsinsayeed.faust.presentation.model.sidebar.SideBarItem;
-import com.tahsinsayeed.faust.ui.RecursiveTreeItem;
+import com.tahsinsayeed.faust.presentation.component.RecursiveTreeItem;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;

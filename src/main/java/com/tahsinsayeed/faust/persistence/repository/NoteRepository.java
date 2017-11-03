@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 /**
  * Created by sayeed on 11/2/17.
  */
-public class NoteRepository<T> implements Repository<Note> {
+public class NoteRepository implements Repository<Note> {
 
     private Dao<NoteDataModel, String> noteDao;
     private DataModelToEntityMapper<NoteDataModel, Note> mapper;

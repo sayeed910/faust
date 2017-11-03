@@ -4,7 +4,9 @@ import com.google.inject.*;
 import com.jfoenix.controls.JFXDecorator;
 import com.sun.javafx.application.LauncherImpl;
 import com.tahsinsayeed.faust.business.interactor.*;
-import com.tahsinsayeed.faust.config.Config;
+import com.tahsinsayeed.faust.config.*;
+import com.tahsinsayeed.faust.presentation.component.notebook.NoteEditorFactory;
+import com.tahsinsayeed.faust.presentation.component.reader.PdfViewerFactory;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +25,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-//        PdfViewerFactory.init();
+        PdfViewerFactory.init();
         NoteEditorFactory.init();
 
 

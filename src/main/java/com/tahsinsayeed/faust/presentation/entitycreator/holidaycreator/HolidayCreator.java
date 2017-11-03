@@ -4,7 +4,7 @@ import com.google.inject.Inject;
 import com.jfoenix.controls.*;
 import com.jfoenix.validation.RequiredFieldValidator;
 import com.tahsinsayeed.faust.presentation.view.EntityCreationDialog;
-import com.tahsinsayeed.faust.ui.component.FloatingTextField;
+import com.tahsinsayeed.faust.presentation.component.*;
 import javafx.geometry.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
