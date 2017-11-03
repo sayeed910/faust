@@ -25,6 +25,11 @@ public class NoteItem implements SideBarItem {
     }
 
     @Override
+    public void onSelected() {
+
+    }
+
+    @Override
     public String toString() {
         return "Notes";
     }

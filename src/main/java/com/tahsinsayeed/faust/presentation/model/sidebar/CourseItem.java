@@ -15,13 +15,15 @@ public class CourseItem implements SideBarItem {
         children = FXCollections.observableArrayList(courses.stream().map(CourseChildItem::new).collect(Collectors.toList()));
     }
 
-    public CourseItem(){
-        children = FXCollections.observableArrayList(new CourseChildItem(), new CourseChildItem());
-    }
 
     @Override
     public ObservableList<SideBarItem> getChildren() {
         return children;
+    }
+
+    @Override
+    public void onSelected() {
+
     }
 
     @Override

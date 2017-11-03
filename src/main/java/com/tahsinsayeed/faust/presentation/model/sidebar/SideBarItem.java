@@ -4,4 +4,5 @@ import javafx.collections.ObservableList;
 
 public interface SideBarItem {
     ObservableList<SideBarItem> getChildren();
+    void onSelected();
 }
