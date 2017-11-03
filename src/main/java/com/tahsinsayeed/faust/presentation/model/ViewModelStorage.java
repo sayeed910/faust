@@ -7,7 +7,7 @@ import javafx.collections.*;
 import java.util.*;
 import java.util.logging.Logger;
 
-public class ViewModelStorage {
+        public class ViewModelStorage {
     private static ViewModelStorage ourInstance;
 
     private ObservableList<CourseViewModel> courses;
@@ -125,7 +125,17 @@ public class ViewModelStorage {
 
     public void update(NoteDto noteDto) {
         int index = indexOfCourse.get(noteDto.parentCourseId);
-//        courses.get(index).getNotes().indexOf()
+        CourseViewModel course = courses.get(index);
+        List<NoteViewModel> notes = course.getNotes();
+
+        for (int i = 0; i < notes.size(); i++) {
+            if (notes.get(i).getId().get().equals(noteDto.id)){
+                course.getNotes().remove(i);
+                course.getNotes().add(new NoteViewModel(noteDto));
+                break;
+            }
+        }
+
     }
 
     public void add(HolidayDto holidayDto) {

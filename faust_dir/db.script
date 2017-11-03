@@ -57,4 +57,4 @@ INSERT INTO "BOOKDATAMODEL" VALUES('vectyor','1233','/home/sayeed/Documents/MCS/
 INSERT INTO "NOTEDATAMODEL" VALUES('07b9d67c-13b2-4ce9-9794-024a3985058f',NULL,'1234','/home/sayeed/programs/faust/faust_dir/07b9d67c-13b2-4ce9-9794-024a3985058f','1234')
 INSERT INTO "NOTEDATAMODEL" VALUES('1d885752-2485-4605-8253-b037cd6e823f',NULL,'1234','/home/sayeed/programs/faust/faust_dir/1d885752-2485-4605-8253-b037cd6e823f','1234')
 INSERT INTO "NOTEDATAMODEL" VALUES('9e6629cf-e47f-48be-9376-678b36581487',NULL,'1234','/home/sayeed/programs/faust/faust_dir/9e6629cf-e47f-48be-9376-678b36581487','1234')
-INSERT INTO "NOTEDATAMODEL" VALUES('d7d47bf3-5e8a-46b4-b62d-5197d8e3d874','new nt','1234','/home/sayeed/programs/faust/faust_dir/d7d47bf3-5e8a-46b4-b62d-5197d8e3d874','1234')
+INSERT INTO "NOTEDATAMODEL" VALUES('d7d47bf3-5e8a-46b4-b62d-5197d8e3d874','new note','1234','/home/sayeed/programs/faust/faust_dir/d7d47bf3-5e8a-46b4-b62d-5197d8e3d874','1234')
