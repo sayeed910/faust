@@ -10,7 +10,9 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 
 import java.util.List;
-
+/**
+ * Created by sayeed on 10/26/17.
+ */
 public class ClassCreator extends EntityCreationDialog {
     VBox container = new VBox();
     BorderPane pane = new BorderPane();

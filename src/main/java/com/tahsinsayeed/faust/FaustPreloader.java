@@ -10,6 +10,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.*;
 
+/**
+ * Created by Shamim
+ */
 public class FaustPreloader extends Preloader {
 
     ProgressBar bar;
