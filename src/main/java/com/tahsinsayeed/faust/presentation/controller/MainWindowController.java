@@ -9,7 +9,9 @@ import com.tahsinsayeed.faust.presentation.component.reader.*;
 import com.tahsinsayeed.faust.presentation.entitycreator.EntityCreatorFactory;
 import com.tahsinsayeed.faust.presentation.event.*;
 import com.tahsinsayeed.faust.presentation.model.*;
+import com.tahsinsayeed.faust.presentation.model.sidebar.DashboardItem;
 import com.tahsinsayeed.faust.presentation.view.*;
+import com.tahsinsayeed.faust.presentation.view.ExamView;
 import com.tahsinsayeed.faust.util.ContentValues;
 import javafx.animation.Transition;
 import javafx.collections.ObservableList;
@@ -160,6 +162,41 @@ public class MainWindowController {
         editor.load(content);
 
     }
+
+    @Subscribe
+    public void onCourseSelect(CourseItemSelected event){
+        CourseViewModel course = event.courseViewModel;
+        content.getChildren().clear();
+        content.getChildren().add(new CourseView(course, mainEventBus));
+    }
+
+    @Subscribe
+    public void onAssignmentSelect(AssignmentItemSelected event){
+        AssignmentViewModel assigment = event.assignmentViewModel;
+        content.getChildren().clear();
+        content.getChildren().add(new AssignmentView(assigment,mainEventBus));
+    }
+
+    @Subscribe
+    public void onRoutineSelect(RoutineItemSelected event){
+        content.getChildren().clear();
+       // content.getChildren().add(new RoutineView());
+    }
+
+    @Subscribe
+    public void onExamSelect(ExamItemSelected event){
+        ExamViewModel exam = event.examViewModel;
+        content.getChildren().clear();
+        content.getChildren().add(new ExamView(exam,mainEventBus));
+    }
+
+    @Subscribe
+    public void onDashboardSelect(DashboardItemSelected event){
+       // DashboardViewModel dashboard = event.dashboardViewModel;
+        content.getChildren().clear();
+        //content.getChildren().add(new DashboardView(dashboard,mainEventBus));
+    }
+
 
 
 
