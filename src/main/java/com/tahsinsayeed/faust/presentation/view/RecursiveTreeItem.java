@@ -1,4 +1,4 @@
-package com.tahsinsayeed.faust.presentation.component;
+package com.tahsinsayeed.faust.presentation.view;
 
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;

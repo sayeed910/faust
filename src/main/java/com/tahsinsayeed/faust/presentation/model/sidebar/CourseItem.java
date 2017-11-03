@@ -12,7 +12,9 @@ public class CourseItem implements SideBarItem {
 
     public CourseItem(List<CourseViewModel> courses) {
        if (courses.size() == 0) System.out.println("Empty");
-        children = FXCollections.observableArrayList(courses.stream().map(CourseChildItem::new).collect(Collectors.toList()));
+        children = FXCollections.observableArrayList(new DashboardItem());
+        children.addAll(courses.stream().map(CourseChildItem::new).collect(Collectors.toList()));
+        children.addAll(new RoutineItem(), new CalendarItem());
     }
 
 
