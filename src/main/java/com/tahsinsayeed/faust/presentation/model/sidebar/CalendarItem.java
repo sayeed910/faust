@@ -1,6 +1,6 @@
 package com.tahsinsayeed.faust.presentation.model.sidebar;
 
-import com.tahsinsayeed.faust.presentation.event.Bus;
+import com.tahsinsayeed.faust.presentation.event.*;
 import javafx.collections.*;
 
 /**
@@ -14,6 +14,7 @@ public class CalendarItem implements SideBarItem {
 
     @Override
     public void onSelected() {
+        System.out.println("calendar selected");
         Bus.get().post(new CalendarItemSelected());
     }
 

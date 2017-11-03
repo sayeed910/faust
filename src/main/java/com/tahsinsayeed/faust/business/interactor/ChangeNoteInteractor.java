@@ -35,7 +35,7 @@ public class ChangeNoteInteractor implements Interactor {
         noteRepository.update(note);
 
         NoteDto noteDto = NoteDto.from(note);
-        ViewModelStorage.getInstance().add(noteDto);
+        ViewModelStorage.getInstance().update(noteDto);
 
     }
 

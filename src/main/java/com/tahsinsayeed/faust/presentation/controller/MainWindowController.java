@@ -5,15 +5,18 @@ import com.google.inject.Inject;
 import com.jfoenix.controls.*;
 import com.tahsinsayeed.faust.business.interactor.Request;
 import com.tahsinsayeed.faust.presentation.component.notebook.*;
-import com.tahsinsayeed.faust.presentation.component.*;
+import com.tahsinsayeed.faust.presentation.component.reader.*;
 import com.tahsinsayeed.faust.presentation.entitycreator.EntityCreatorFactory;
 import com.tahsinsayeed.faust.presentation.event.*;
-import com.tahsinsayeed.faust.presentation.model.NoteViewModel;
+import com.tahsinsayeed.faust.presentation.model.*;
 import com.tahsinsayeed.faust.presentation.view.*;
 import com.tahsinsayeed.faust.util.ContentValues;
 import javafx.animation.Transition;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
+
+import java.util.*;
 
 public class MainWindowController {
     @FXML
@@ -46,7 +49,7 @@ public class MainWindowController {
     EntityCreatorFactory entityCreatorFactory;
 
     @Inject
-    NewItem newItem;
+    com.tahsinsayeed.faust.presentation.component.NewItem newItem;
 
     @Inject
     InteractorFactory interactorFactory;
@@ -116,6 +119,49 @@ public class MainWindowController {
 
         System.out.println("saved" + event.content);
     }
+
+    @Subscribe
+    public void onCalendarSelect(CalendarItemSelected event){
+        ViewModelStorage viewModelStorage = ViewModelStorage.getInstance();
+        ObservableList<CourseViewModel> courses = viewModelStorage.getCourses();
+        List<ExamViewModel> exams = new ArrayList<>();
+        List<AssignmentViewModel> assignments = new ArrayList<>();
+
+        for (CourseViewModel model: courses){
+            exams.addAll(model.getExams());
+            assignments.addAll(model.getAssignments());
+        }
+
+        content.getChildren().clear();
+        content.getChildren().add(new CalendarView(assignments, exams));
+    }
+
+    @Subscribe
+    public void onBookSelect(BookItemSelected event){
+        BookViewModel book = event.bookViewModel;
+
+        PdfViewer reader = PdfViewerFactory.get();
+        content.getChildren().clear();
+        content.getChildren().add(reader);
+        reader.loadPdf(book.getFilePath().get());
+
+
+    }
+
+    @Subscribe
+    public void onNoteSelect(NoteItemSelected event){
+        NoteViewModel note = event.noteViewModel;
+
+        NoteEditor editor = NoteEditorFactory.get(mainEventBus, note);
+        content.getChildren().clear();
+        content.getChildren().add(editor);
+        String content = note.getContent().get();
+        System.out.println(content);
+        editor.load(content);
+
+    }
+
+
 
 }
 

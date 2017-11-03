@@ -4,10 +4,11 @@ import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;
 import com.tahsinsayeed.faust.presentation.model.*;
 import com.tahsinsayeed.faust.presentation.model.sidebar.*;
-import com.tahsinsayeed.faust.presentation.view.RecursiveTreeItem;
 import javafx.collections.*;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.StackPane;
+
+import java.util.stream.Collectors;
 
 public class SideBarController {
 
@@ -29,17 +30,10 @@ public class SideBarController {
     }
 
     private void updateTree(ListChangeListener.Change<? extends CourseViewModel> change) {
-        change.next();
-
-        if (change.wasAdded()) {
-            SideBarItem newItem = new CourseChildItem(change.getAddedSubList().get(0));
-            nav.getRoot().getChildren().add(new RecursiveTreeItem<>(newItem, SideBarItem::getChildren));
-        } else if (change.wasUpdated()){
-            for (int i = change.getFrom(); i < change.getTo(); i++) {
-                nav.getRoot().getChildren().remove(i);
-            }
-        }
-
+        rootTreeItem.getChildren().clear();
+        rootTreeItem.getChildren().add(new DashboardItem());
+        rootTreeItem.getChildren().addAll(courses.stream().map(CourseChildItem::new).collect(Collectors.toList()));
+        rootTreeItem.getChildren().addAll(new RoutineItem(), new CalendarItem());
     }
 
     public SideBarItem getRootTreeItem() {

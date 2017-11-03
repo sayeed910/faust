@@ -123,5 +123,8 @@ public class ViewModelStorage {
         return upcomingTask;
     }
 
-
+    public void update(NoteDto noteDto) {
+        int index = indexOfCourse.get(noteDto.parentCourseId);
+//        courses.get(index).getNotes().indexOf()
+    }
 }

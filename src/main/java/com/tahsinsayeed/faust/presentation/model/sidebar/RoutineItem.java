@@ -1,6 +1,6 @@
 package com.tahsinsayeed.faust.presentation.model.sidebar;
 
-import com.tahsinsayeed.faust.presentation.event.Bus;
+import com.tahsinsayeed.faust.presentation.event.*;
 import javafx.collections.*;
 
 /**

@@ -27,6 +27,10 @@ public class SideBarView extends VBox {
         nav.setBorder(Border.EMPTY);
         nav.setStyle("-fx-background-color: transparent");
 
+        nav.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->{
+            if (newValue != null)
+                newValue.getValue().onSelected();
+        } );
 
 
         this.getChildren().addAll(nav);
