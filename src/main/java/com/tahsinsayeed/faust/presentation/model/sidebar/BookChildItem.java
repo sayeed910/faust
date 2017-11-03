@@ -20,7 +20,7 @@ public class BookChildItem implements SideBarItem {
     }
     @Override
     public void onSelected() {
-        Bus.getInstance().post(new BookItemSelected(viewModel));
+        Bus.get().post(new BookItemSelected(viewModel));
     }
     @Override
     public String toString() {

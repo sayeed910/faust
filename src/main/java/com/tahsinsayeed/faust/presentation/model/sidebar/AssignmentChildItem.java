@@ -1,6 +1,6 @@
 package com.tahsinsayeed.faust.presentation.model.sidebar;
 
-import com.google.common.eventbus.EventBus;
+import com.tahsinsayeed.faust.presentation.event.Bus;
 import com.tahsinsayeed.faust.presentation.model.AssignmentViewModel;
 import javafx.collections.*;
 
@@ -21,7 +21,7 @@ public class AssignmentChildItem implements SideBarItem {
 
     @Override
     public void onSelected() {
-        Bus.getInstance().post(new AssignmentItemSelected(viewModel));
+        Bus.get().post(new AssignmentItemSelected(viewModel));
     }
 
     @Override

@@ -23,7 +23,7 @@ public class NoteChildItem implements SideBarItem {
     }
     @Override
     public void onSelected() {
-        Bus.getInstance().post(new NoteItemSelected(viewModel));
+        Bus.get().post(new NoteItemSelected(viewModel));
     }
     @Override
     public String toString() {

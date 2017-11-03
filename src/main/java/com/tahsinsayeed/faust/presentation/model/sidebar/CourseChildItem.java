@@ -27,7 +27,7 @@ public class CourseChildItem implements SideBarItem {
     }
     @Override
     public void onSelected() {
-        EventBus.getInstance().post(new CourseItemSelected(viewModel));
+        EventBus.get().post(new CourseItemSelected(viewModel));
     }
 
     @Override

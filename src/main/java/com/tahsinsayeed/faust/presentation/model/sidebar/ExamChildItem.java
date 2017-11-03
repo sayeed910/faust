@@ -1,7 +1,6 @@
 package com.tahsinsayeed.faust.presentation.model.sidebar;
 
-import com.google.common.eventbus.EventBus;
-import com.tahsinsayeed.faust.business.entity.Exam;
+import com.tahsinsayeed.faust.presentation.event.Bus;
 import com.tahsinsayeed.faust.presentation.model.ExamViewModel;
 import javafx.collections.*;
 
@@ -21,7 +20,7 @@ public class ExamChildItem implements SideBarItem {
     }
     @Override
     public void onSelected() {
-        Bus.getInstance().post(new ExamItemSelected(viewModel));
+        Bus.get().post(new ExamItemSelected(viewModel));
     }
     @Override
     public String toString() {
