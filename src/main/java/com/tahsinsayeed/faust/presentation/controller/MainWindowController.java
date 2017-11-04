@@ -7,6 +7,7 @@ import com.tahsinsayeed.faust.business.interactor.Request;
 import com.tahsinsayeed.faust.presentation.component.notebook.*;
 import com.tahsinsayeed.faust.presentation.component.reader.*;
 import com.tahsinsayeed.faust.presentation.entitycreator.EntityCreatorFactory;
+import com.tahsinsayeed.faust.presentation.entityeditor.assignmenteditor.*;
 import com.tahsinsayeed.faust.presentation.event.*;
 import com.tahsinsayeed.faust.presentation.model.*;
 import com.tahsinsayeed.faust.presentation.view.*;
@@ -211,6 +212,26 @@ public class MainWindowController {
         content.getChildren().add(upcomingTaskView);
 
         content.setMargin(upcomingTaskView, new Insets(60, 20, 20, 20));
+    }
+
+
+    @Subscribe
+    public void onAssignmentEdit(ChangeAssignmentEvent event){
+        if (event.showDialog){
+            new AssignmentEditor(event.viewModel, new AssignmentEditorController(requestBuilder, interactorFactory)).showDialog(root);
+        } else{
+
+            ContentValues values = new ContentValues(
+                    "assignmentTitle", event.viewModel.getTitle().get(),
+                    "dueDate", event.viewModel.getDueDate(),
+                    "description", event.viewModel.getDescription().get(),
+                    "id", event.viewModel.getId().get(),
+                    "finished", Boolean.toString(event.viewModel.isFinished()));
+
+            Request request = requestBuilder.make(RequestBuilder.RequestType.EDIT_ASSIGNMENT, values);
+            Interactor interactor = interactorFactory.make(InteractorFactory.InteractorType.EDIT_ASSIGNMENT);
+            interactor.execute(request);
+        }
     }
 
 

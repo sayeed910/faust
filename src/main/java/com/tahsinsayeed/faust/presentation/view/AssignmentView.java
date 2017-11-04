@@ -1,8 +1,8 @@
 package com.tahsinsayeed.faust.presentation.view;
 
 import com.google.common.eventbus.EventBus;
-import com.jfoenix.controls.JFXToggleButton;
-import com.tahsinsayeed.faust.presentation.event.AssignmentFinishedPropertyChangedEvent;
+import com.jfoenix.controls.*;
+import com.tahsinsayeed.faust.presentation.event.*;
 import com.tahsinsayeed.faust.presentation.model.AssignmentViewModel;
 import javafx.geometry.Insets;
 import javafx.scene.layout.*;
@@ -31,9 +31,11 @@ public class AssignmentView extends VBox {
         this.setPadding(topInsets);
         titleBar.setLeft(title);
         finished = new JFXToggleButton();
-        finished.setSelected(true);
+        finished.setSelected(assignmentViewModel.isFinished());
+        JFXButton edit = new JFXButton("Edit");
+        JFXButton delete = new JFXButton("delete");
 
-        titleBar.setRight(finished);
+//        titleBar.setRight(new HBox(finished, edit, delete));
 
 
         setBackground(new Background(new BackgroundFill(Paint.valueOf("white"), null, null)));
@@ -52,15 +54,18 @@ public class AssignmentView extends VBox {
         getChildren().add(Description);
         setMaxSize(500, 300);
 
-//        finished.setOnAction(e -> toggleFinished());
+        finished.setOnAction(e -> toggleFinished());
+        edit.setOnAction(e-> mainEventBus.post(new ChangeAssignmentEvent(assignmentViewModel, true)));
+        delete.setOnAction(event -> mainEventBus.post(new RemoveAssignmentEvent(assignmentViewModel)));
 
 
     }
 
     private void toggleFinished() {
         System.out.println("toggled");
-        mainEventBus.post(new AssignmentFinishedPropertyChangedEvent(
-                assignmentViewModel.getId().get(), finished.isSelected()));
+        System.out.println(finished.isSelected());
+        assignmentViewModel.setFinished(finished.isSelected());
+        mainEventBus.post(new ChangeAssignmentEvent(assignmentViewModel, false));
 
     }
 }
