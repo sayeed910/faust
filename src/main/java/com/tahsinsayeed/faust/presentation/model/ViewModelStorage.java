@@ -1,18 +1,21 @@
-        package com.tahsinsayeed.faust.presentation.model;
+package com.tahsinsayeed.faust.presentation.model;
 
-        import com.tahsinsayeed.faust.business.dto.*;
+import com.tahsinsayeed.faust.business.dto.*;
+import com.tahsinsayeed.faust.presentation.event.*;
 import javafx.beans.Observable;
 import javafx.collections.*;
 
 import java.util.*;
 import java.util.logging.Logger;
 
-        public class ViewModelStorage {
+public class ViewModelStorage {
     private static ViewModelStorage ourInstance;
 
     private ObservableList<CourseViewModel> courses;
-    private UpcomingTasks upcomingTask;
+    private UpcomingTask upcomingTask;
     private Map<String, Integer> indexOfCourse;
+    private ObservableList<HolidayViewModel> holidays;
+    private ObservableList<ClassViewModel> classes;
 
     public static ViewModelStorage getInstance() {
 
@@ -34,8 +37,10 @@ import java.util.logging.Logger;
                 courseDto.getBooks(),
                 courseDto.getNotes()
         });
-        upcomingTask = UpcomingTasks.empty();
+        upcomingTask = new UpcomingTask();
         indexOfCourse = new Hashtable<>();
+        holidays = FXCollections.observableArrayList();
+        classes = FXCollections.observableArrayList();
     }
 
     public void add(ExamDto exam) {
@@ -46,16 +51,16 @@ import java.util.logging.Logger;
             courseViewModel.getExams().add(new ExamViewModel(exam));
             courses.remove(index);
             courses.add(index, courseViewModel);
+            Bus.get().post(new TaskAddedEvent());
+
         } else {
             Logger.getGlobal().warning("Course to add exams does not exist");
         }
     }
 
-
     public void remove(ExamDto objectDto) {
 
     }
-
 
     public void update(ExamDto objectDto) {
 
@@ -69,6 +74,8 @@ import java.util.logging.Logger;
             courseViewModel.getAssignments().add(new AssignmentViewModel(assignment));
             courses.remove(index);
             courses.add(index, courseViewModel);
+            Bus.get().post(new TaskAddedEvent());
+
         } else {
 
             Logger.getGlobal().warning("Course to add exams does not exist" + assignment.parentCourseId);
@@ -102,7 +109,7 @@ import java.util.logging.Logger;
         }
     }
 
-    public void add(NoteDto note){
+    public void add(NoteDto note) {
         int index = indexOfCourse.get(note.parentCourseId);
 
         if (index != -1) {
@@ -119,8 +126,17 @@ import java.util.logging.Logger;
         return courses;
     }
 
-    public UpcomingTasks getUpcomingTask() {
-        return upcomingTask;
+    public UpcomingTask getUpcomingTask() {
+        List<ExamViewModel> exams = new ArrayList<>();
+        List<AssignmentViewModel> assignments = new ArrayList<>();
+        System.out.println(exams.size() + " " + assignments.size());
+
+        for (CourseViewModel course : courses) {
+            exams.addAll(course.getExams());
+            assignments.addAll(course.getAssignments());
+        }
+
+        return new UpcomingTask(classes,assignments, exams );
     }
 
     public void update(NoteDto noteDto) {
@@ -129,16 +145,29 @@ import java.util.logging.Logger;
         List<NoteViewModel> notes = course.getNotes();
 
         for (int i = 0; i < notes.size(); i++) {
-            if (notes.get(i).getId().get().equals(noteDto.id)){
+            if (notes.get(i).getId().get().equals(noteDto.id)) {
                 course.getNotes().remove(i);
                 course.getNotes().add(new NoteViewModel(noteDto));
                 break;
             }
         }
-
     }
 
     public void add(HolidayDto holidayDto) {
+        System.out.println(holidayDto.name);
+        holidays.add(new HolidayViewModel(holidayDto));
+    }
 
+    public ObservableList<HolidayViewModel> getHolidays() {
+        return holidays;
+    }
+
+    public void add(ClassDto classDto) {
+        classes.add(new ClassViewModel(classDto));
+        Bus.get().post(new TaskAddedEvent());
+    }
+
+    public ObservableList<ClassViewModel> getClasses() {
+        return classes;
     }
 }

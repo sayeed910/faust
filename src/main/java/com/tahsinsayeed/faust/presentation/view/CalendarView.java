@@ -17,12 +17,13 @@ public class CalendarView extends VBox {
     List<ExamViewModel> exams;
     Agenda agenda;
 
-    public CalendarView(List<AssignmentViewModel> assignments, List<ExamViewModel> exams) {
+    public CalendarView(List<AssignmentViewModel> assignments, List<ExamViewModel> exams, List<HolidayViewModel> holidays) {
         this.assignments = assignments;
         this.exams = exams;
         agenda = new Agenda();
         agenda.appointments().addAll(assignments.stream().map(AssignmentViewModel::getAppointment).collect(Collectors.toList()));
         agenda.appointments().addAll(exams.stream().map(ExamViewModel::getAppointment).collect(Collectors.toList()));
+        agenda.appointments().addAll(holidays.stream().map(HolidayViewModel::getAppointment).collect(Collectors.toList()));
         JFXButton nextWeek = new JFXButton("Next Week>");
         JFXButton lastWeek = new JFXButton("<Last Week");
         nextWeek.setButtonType(JFXButton.ButtonType.RAISED);

@@ -1,26 +1,31 @@
-        package com.tahsinsayeed.faust.presentation.model;
+package com.tahsinsayeed.faust.presentation.model;
 
 import com.tahsinsayeed.faust.business.dto.HolidayDto;
-import com.tahsinsayeed.faust.business.entity.Holiday;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
+import jfxtras.scene.control.agenda.Agenda;
 
-import java.time.LocalDate;
+import java.time.*;
 
 /**
  * Created by sayeed on 10/25/17.
  */
 public class HolidayViewModel {
+    private Agenda.AppointmentImplLocal appointment;
     private StringProperty name;
     private LocalDate date;
 
-    public HolidayViewModel(){
+    public HolidayViewModel() {
 
     }
 
-    public HolidayViewModel(HolidayDto holiday){
+    public HolidayViewModel(HolidayDto holiday) {
         this.name = new SimpleStringProperty(holiday.name);
         this.date = holiday.date;
+
+        appointment = new Agenda.AppointmentImplLocal();
+        appointment.setStartLocalDateTime(LocalDateTime.of(holiday.date, LocalTime.of(8, 30)));
+        appointment.setWholeDay(true);
+        appointment.setSummary(holiday.name);
     }
 
     public StringProperty getName() {
@@ -30,11 +35,16 @@ public class HolidayViewModel {
     public void setName(String name) {
         this.name.set(name);
     }
+
     public LocalDate getDate() {
         return date;
     }
 
     public void setDate(LocalDate date) {
-        this.date =date;
+        this.date = date;
+    }
+
+    public Agenda.AppointmentImplLocal getAppointment() {
+        return appointment;
     }
 }

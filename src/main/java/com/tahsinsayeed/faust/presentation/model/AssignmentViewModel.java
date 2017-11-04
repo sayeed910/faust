@@ -29,7 +29,6 @@ public class AssignmentViewModel{
         appointment.setStartLocalDateTime(LocalDateTime.of(assignment.dueDate, LocalTime.of(8, 30)));
         appointment.setWholeDay(true);
         appointment.setSummary(assignment.parentCourseId + " " + assignment.title);
-
     }
 
     public StringProperty getId() {
@@ -112,4 +111,7 @@ public class AssignmentViewModel{
     public Agenda.AppointmentImplLocal getAppointment(){
         return appointment;
     }
+
+
+
 }

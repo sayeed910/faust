@@ -16,7 +16,7 @@ public class RequestBuilderImpl implements RequestBuilder {
                 return new NewCourseRequest(
                         args.get("courseId"),
                         args.get("courseName"),
-                        "");
+                        args.get("teachersName"));
             case NEW_ASSIGNMENT:
                 return new NewAssignmentRequest(
                         args.get("assignmentTitle"),
@@ -38,12 +38,13 @@ public class RequestBuilderImpl implements RequestBuilder {
                 );
             case NEW_CLASS:
                 return new NewClassRequest(
+                        args.get("id"),
                         args.get("courseId"),
                         DayOfWeek.valueOf(args.get("nameOfDay")),
                         LocalTime.parse(args.get("startTime"))
                 );
             case NEW_HOLIDAY:
-                return new ChangeHolidayRequest(
+                return new NewHolidayRequest(
                         LocalDate.parse(args.get("dueDate")),
                         args.get("holidayName"),
                         args.get("id")

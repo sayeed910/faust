@@ -82,7 +82,7 @@ public class MainWindowController {
         drawer.setSidePane(sideBar);
 
         fab.getChildren().add(newItem);
-
+        onDashboardSelect(null);
 
         mainEventBus.register(this);
 
@@ -135,7 +135,7 @@ public class MainWindowController {
         }
 
         content.getChildren().clear();
-        content.getChildren().add(new CalendarView(assignments, exams));
+        content.getChildren().add(new CalendarView(assignments, exams, viewModelStorage.getHolidays()));
     }
 
     @Subscribe
@@ -189,7 +189,9 @@ public class MainWindowController {
     public void onRoutineSelect(RoutineItemSelected event){
 
         content.getChildren().clear();
-       // content.getChildren().add(new RoutineView());
+        RoutineView routineView = new RoutineView(ViewModelStorage.getInstance().getClasses());
+        content.getChildren().add(routineView);
+        content.setMargin(routineView, new Insets(60, 20, 20, 20));
     }
 
     @Subscribe
@@ -204,10 +206,11 @@ public class MainWindowController {
 
     @Subscribe
     public void onDashboardSelect(DashboardItemSelected event){
-
-       // DashboardViewModel dashboard = event.dashboardViewModel;
         content.getChildren().clear();
-        //content.getChildren().add(new DashboardView(dashboard,mainEventBus));
+        UpcomingTaskView upcomingTaskView = new UpcomingTaskView(ViewModelStorage.getInstance().getUpcomingTask());
+        content.getChildren().add(upcomingTaskView);
+
+        content.setMargin(upcomingTaskView, new Insets(60, 20, 20, 20));
     }
 
 

@@ -43,8 +43,8 @@ public class HolidayCreationController implements EntityCreationController {
 
 
         return new ContentValues(
-                "HolidayName", HolidayName,
-                "HolidayDate", dateOfHoliday
+                "holidayName", HolidayName,
+                "dueDate", dateOfHoliday
         );
 
     }

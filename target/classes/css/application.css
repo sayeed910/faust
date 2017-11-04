@@ -11,3 +11,13 @@
     -fx-background-radius: 30px;
     -fx-text-fill: WHITE;
 }
+
+
+.tab *.tab-label{
+    -fx-rotate: 90;
+}
+
+.tab{
+    -fx-padding: 3em 0.5em 3em 0.5em;
+    -fx-outline: none;
+}

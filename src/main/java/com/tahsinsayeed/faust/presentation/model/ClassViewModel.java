@@ -1,15 +1,12 @@
 package com.tahsinsayeed.faust.presentation.model;
 
 import com.tahsinsayeed.faust.business.dto.ClassDto;
-import com.tahsinsayeed.faust.business.entity.Class;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 import java.time.*;
-import java.util.UUID;
 
 public class ClassViewModel {
-
+    private StringProperty parentCourseId;
     private StringProperty id;
     private DayOfWeek classDay;
     private LocalTime classTime;
@@ -18,9 +15,11 @@ public class ClassViewModel {
     }
 
     public ClassViewModel(ClassDto clazz){
+
         this.classDay = clazz.classDay;
         this.classTime = clazz.classTime;
         this.id = new SimpleStringProperty(clazz.id);
+        this.parentCourseId = new SimpleStringProperty(clazz.parentCourseId);
     }
 
     public StringProperty  getId() {
@@ -47,4 +46,15 @@ public class ClassViewModel {
         this.classTime = classTime;
     }
 
+    public String getParentCourseId() {
+        return parentCourseId.get();
+    }
+
+    public StringProperty parentCourseIdProperty() {
+        return parentCourseId;
+    }
+
+    public void setParentCourseId(String parentCourseId) {
+        this.parentCourseId.set(parentCourseId);
+    }
 }

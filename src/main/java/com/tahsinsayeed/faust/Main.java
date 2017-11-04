@@ -15,6 +15,9 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.time.DayOfWeek;
+import java.time.format.TextStyle;
+import java.util.Locale;
 import java.util.logging.Logger;
 
 public class Main extends Application {
@@ -50,6 +53,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+
 
         LauncherImpl.launchApplication(Main.class, FaustPreloader.class, args);
     }

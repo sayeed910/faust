@@ -1,6 +1,7 @@
 package com.tahsinsayeed.faust.business.entity;
 
 import java.time.*;
+import java.util.UUID;
 
 public class Class {
     private final String courseId;
@@ -8,7 +9,8 @@ public class Class {
     private LocalTime startTime;
     private String id;
 
-    public Class(String courseId, DayOfWeek day, LocalTime startTime) {
+    public Class(String id, String courseId, DayOfWeek day, LocalTime startTime) {
+        this.id = id;
         this.courseId = courseId;
 
         this.day = day;
@@ -16,7 +18,11 @@ public class Class {
     }
 
     public static Class create(String courseId, DayOfWeek day, LocalTime startTime) {
-        return new Class(courseId, day, startTime);
+        return new Class(UUID.randomUUID().toString(), courseId, day, startTime);
+    }
+
+    public static Class withId(String id, String courseId, DayOfWeek day, LocalTime startTime){
+        return new Class(id, courseId, day, startTime);
     }
 
     public DayOfWeek getDay() {

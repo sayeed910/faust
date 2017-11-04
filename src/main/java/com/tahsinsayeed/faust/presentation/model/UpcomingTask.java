@@ -2,6 +2,7 @@
 
 import javafx.collections.*;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -10,11 +11,20 @@ public class UpcomingTask {
     private ObservableList<AssignmentViewModel> upcomingAssignments;
     private ObservableList<ExamViewModel> upcomingExams;
 
-    public UpcomingTask(List<ClassViewModel> upcomingClasses,
-                        List<AssignmentViewModel> upcomingAssignments, List<ExamViewModel> upcomingExams) {
-        this.upcomingClasses = FXCollections.observableArrayList(upcomingClasses);
-        this.upcomingAssignments = FXCollections.observableArrayList(upcomingAssignments);
-        this.upcomingExams = FXCollections.observableArrayList(upcomingExams);
+    public UpcomingTask(List<ClassViewModel> classes,
+                        List<AssignmentViewModel> assignments, List<ExamViewModel> exams) {
+        this.upcomingClasses = FXCollections.observableArrayList(classes.stream().
+                filter(classViewModel -> classViewModel.getClassDay() == LocalDate.now().getDayOfWeek())
+        .collect(Collectors.toList()));
+        this.upcomingAssignments = FXCollections.observableArrayList(assignments.stream().
+                filter(assignmentViewModel ->
+                        LocalDate.parse(assignmentViewModel.getDueDate()).equals(LocalDate.now()))
+                .collect(Collectors.toList()));
+
+        this.upcomingExams = FXCollections.observableArrayList(exams.stream().
+                filter(examViewModel ->
+                        examViewModel.getExamDate().equals(LocalDate.now()))
+                .collect(Collectors.toList()));
     }
 
     public UpcomingTask() {

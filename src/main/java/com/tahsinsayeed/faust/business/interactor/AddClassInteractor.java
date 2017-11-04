@@ -1,12 +1,12 @@
 package com.tahsinsayeed.faust.business.interactor;
 
 import com.google.inject.Inject;
+import com.tahsinsayeed.faust.business.dto.ClassDto;
 import com.tahsinsayeed.faust.business.entity.Class;
 import com.tahsinsayeed.faust.business.entity.*;
 import com.tahsinsayeed.faust.business.request.NewClassRequest;
 import com.tahsinsayeed.faust.presentation.controller.Interactor;
-
-import java.time.LocalDate;
+import com.tahsinsayeed.faust.presentation.model.ViewModelStorage;
 
 public class AddClassInteractor implements Interactor {
 
@@ -24,14 +24,15 @@ public class AddClassInteractor implements Interactor {
     public void execute(Request request) {
         NewClassRequest classRequest = (NewClassRequest) request;
 
-        Course parentCourse = courseRepository.get(classRequest.parentCourseId);
-        if (parentCourse == null) throw new CourseNotFound();
+        if (!courseRepository.idExists(classRequest.parentCourseId)) throw new CourseNotFound();
 
         Class clazz = Class.create(classRequest.parentCourseId, classRequest.classDay, classRequest.classTime);
         classRepository.save(clazz);
 
+        ViewModelStorage.getInstance().add(ClassDto.from(clazz));
 
-        UpcomingTaskRetriever.create(LocalDate.now()).execute(null);
+
+//        UpcomingTaskRetriever.create(LocalDate.now()).execute(null);
 
     }
 

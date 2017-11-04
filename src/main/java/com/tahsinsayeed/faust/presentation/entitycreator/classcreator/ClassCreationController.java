@@ -12,6 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
+
 /**
  * Created by sayeed on 10/26/17.
  */
@@ -50,6 +52,7 @@ public class ClassCreationController implements EntityCreationController {
 
 
         return new ContentValues(
+                "id", UUID.randomUUID().toString(),
                 "courseId", parentCourseId,
                 "nameOfDay", dayOfWeek,
                 "startTime", classTime
